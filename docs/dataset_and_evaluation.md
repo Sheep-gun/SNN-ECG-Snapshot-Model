@@ -1,47 +1,43 @@
-# Dataset and Evaluation
+# Dataset ? ?? ??
 
-## Split Principle
+## Split ??
 
-The final dataset uses strict record-wise split. A record can appear in only one split:
+?? ????? strict record-wise split? ?????. ??? record? train, validation, test ? ???? ????.
 
-- train
-- validation
-- test
+? ?? ??/record?? ?? segment? ?? ?? split? ??? ???? ????. ? ??? record leakage? ?????.
 
-Segments from the same patient/record are not allowed to appear in multiple splits. This prevents record leakage.
+## Segment ??
 
-## Segment Format
-
-Each ECG segment is converted to:
+? ECG segment? ?? ???? ?????.
 
 ```text
 1 kSPS signed 12-bit .mem
 ```
 
-The RTL testbench reads the `.mem` stream as `adc_data`.
+RTL testbench? ? `.mem` stream? `adc_data`? ????.
 
-## Segment Lengths
+## Segment ??
 
-The strict dataset includes variable-length segments:
+Strict dataset?? variable-length segment? ?????.
 
-- 60 s
-- 90 s
-- 120 s
-- 130 s
-- 150 s
-- 180 s
+- 60?
+- 90?
+- 120?
+- 130?
+- 150?
+- 180?
 
-Model S uses 60-second local windows and segment-level accumulation to reduce length bias.
+Model S? 60? local window? segment-level ?? ??? ??? segment ?? ??? ????.
 
-## Evaluation Policy
+## ?? ??
 
-- Train: threshold/weight candidate exploration
-- Validation: final parameter selection
-- Test: fixed final Model S evaluation only
+- train: ?? ??
+- validation: ?? parameter ??
+- test: ??? ?? Model S 1? ??
 
-The test split must not be used to tune thresholds, class weights, feature rules, or readout gates.
+Test split? threshold, class weight, feature rule, readout gate ??? ???? ????.
 
-## Final Metrics
+## ?? ??
 
 | split | segment accuracy | record accuracy |
 |---|---:|---:|
@@ -49,8 +45,8 @@ The test split must not be used to tune thresholds, class weights, feature rules
 | validation | 136/160 = 85.00% | 18/20 = 90.00% |
 | test | 131/160 = 81.88% | 18/19 = 94.74% |
 
-## Included Data Files
+## ??? ??? ??
 
-This repository includes manifests and result CSVs, but not the full strict `.mem` dataset. The full dataset can be regenerated from the source ECG records and manifest policy or copied from the local restore workspace.
+? ????? manifest? result CSV? ????, full strict `.mem` dataset ??? ???? ?????. Full dataset? source ECG record? manifest policy? ?????? ?? restore workspace?? ???? ???.
 
-Compact 4-class demo `.mem` files are included for AFE/demo reference.
+?? 4-class demo `.mem` ??? AFE/demo reference ??? ???? ????.

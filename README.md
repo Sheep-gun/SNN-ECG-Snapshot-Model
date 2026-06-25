@@ -1,34 +1,34 @@
 # SNN ECG Model S RTL Classifier
 
-SNN-inspired ECG 4-class RTL classifier for **NSR / CHF / ARR / AFF** classification.
+SNN-inspired ECG 4-class RTL classifier ???????. ?? ECG? 1 kSPS, signed 12-bit stream?? ?? **NSR / CHF / ARR / AFF** ? ?? class? ?????.
 
-This repository is a GitHub-ready project package distilled from the final Model S RTL restore, strict record-wise verification, Nexys A7 FPGA demo, and analog/mixed-signal integration reports.
+? ???? ?? ??? Model S RTL, strict record-wise ?? ??, Nexys A7 FPGA ?? ??, ???? AFE/mixed-signal ???? ??? GitHub ??? ???? ??? ??????.
 
-## Final Model
+## ?? ??
 
 **Model S = Model A+ + EERG**
 
-Model A+ is Model A with the RBBB QRS Delay Bank enabled. EERG is an Episodic Ectopic Rescue Gate implemented in RTL readout logic.
+Model A+? Model A? RBBB QRS Delay Bank? ??? ????, EERG? Episodic Ectopic Rescue Gate???. EERG? RTL readout ??? ???? ??? Python ???? ????.
 
-Active feature path:
+?? active feature path? ??? ????.
 
 ```text
 1 kSPS signed 12-bit ECG adc_data
 -> event encoder
 -> QRS LIF detector
 -> pNN125 / RDM / DSCR / RAM / ECP / QRS MAF / RBBB evidence
--> 60 s local class neuron membranes
--> segment-level class membrane accumulation
--> RBBB/EERG readout adjustment
+-> 60? local class neuron membrane
+-> segment-level class membrane ??
+-> RBBB/EERG readout ??
 -> 4-class WTA
 -> pred_class
 ```
 
-The classifier uses fixed signed synaptic weights and comparator/counter/shift logic. It does not use DSP multipliers, floating point, STDP, or backpropagation.
+? classifier? fixed signed synaptic weight, counter, comparator, shift/add ???? ?????. DSP multiplier, floating point, STDP, backpropagation? ???? ????.
 
-## Key Results
+## ?? ??
 
-### Strict record-wise RTL verification
+### Strict record-wise RTL ??
 
 | split | segment accuracy | record accuracy | macro-F1 | balanced accuracy |
 |---|---:|---:|---:|---:|
@@ -36,7 +36,7 @@ The classifier uses fixed signed synaptic weights and comparator/counter/shift l
 | validation | 136/160 = 85.00% | 18/20 = 90.00% | 84.91% | 85.00% |
 | test | 131/160 = 81.88% | 18/19 = 94.74% | 81.93% | 81.88% |
 
-Test class correct:
+Test class? correct? ??? ????.
 
 | class | correct / total |
 |---|---:|
@@ -45,9 +45,9 @@ Test class correct:
 | ARR | 28/40 |
 | AFF | 35/40 |
 
-### Core synthesis, wrapper excluded
+### Core ?? ??, wrapper ??
 
-Vivado 2020.2, part `xc7a100tcsg324-1`, top `snn_ecg_model_a_plus_core`.
+Vivado 2020.2, part `xc7a100tcsg324-1`, top `snn_ecg_model_a_plus_core` ?????.
 
 | resource | used | available | utilization |
 |---|---:|---:|---:|
@@ -56,93 +56,95 @@ Vivado 2020.2, part `xc7a100tcsg324-1`, top `snn_ecg_model_a_plus_core`.
 | BRAM Tile | 0 | 135 | 0.00% |
 | DSP | 0 | 240 | 0.00% |
 
+? classifier core ???? DSP 0%, BRAM 0%???.
+
 ### Nexys A7 interactive demo
 
-The board demo uses four stored 60-second ECG examples and buttons to select the class example.
+?? ??? FPGA ?? ROM? ??? 4? 60? ECG ??? ???? ??? Model S core? stream?? ?????.
 
-- `BTNU`: NSR
-- `BTNL`: ARR
-- `BTND`: CHF
-- `BTNR`: AFF
-- `BTNC`: pseudo-random class example
+- `BTNU`: NSR ??
+- `BTNL`: ARR ??
+- `BTND`: CHF ??
+- `BTNR`: AFF ??
+- `BTNC`: NSR / CHF / ARR / AFF ? pseudo-random ??
 
-The 7-segment display shows predicted class on the left and `CORR`/`ERR` on the right.
+7-segment display ???? ?? class? ????, ????? `CORR` ?? `ERR`? ?????.
 
-Board wrapper resource includes ECG ROMs, so BRAM usage is not the classifier core cost.
+Board wrapper?? ECG ROM, button controller, 7-segment controller? ????? BRAM ???? classifier core ??? ????.
 
-| wrapper resource | utilization |
+| board wrapper resource | utilization |
 |---|---:|
 | Slice LUTs | 8.52% |
 | Slice Registers | 1.09% |
 | BRAM | 62.22% |
 | DSP | 0.00% |
 
-Timing was met with WNS 4.242 ns.
+Timing? WNS 4.242 ns? ??????.
 
-## Repository Layout
+## ?? ??
 
 ```text
-SNN_ECG.srcs/             Vivado xpr가 직접 참조하는 원래 소스 트리
-rtl/core/                 Model S synthesizable RTL core
-rtl/board/                Nexys A7 board demo wrapper and demo mem files
-sim/                      strict train/validation/test XSim testbenches
-constraints/              Nexys A7 constraints
-scripts/                  Vivado/XSim/report generation scripts
-reports/                  final Model S metrics and synthesis reports
-datasets/                 split manifests and compact demo samples
-analog/                   AFE XModel, mixed-signal testbenches, and analysis scripts
-docs/                     report-style documentation
-bitstreams/               generated Nexys A7 demo bitstream
-vivado_project/           portable unified Vivado xpr using relative source paths
+SNN_ECG.srcs/             Vivado xpr? ?? ???? ?? ?? ??
+rtl/core/                 Model S synthesizable RTL core ?? ??
+rtl/board/                Nexys A7 board demo wrapper ? demo mem
+sim/                      strict train/validation/test XSim testbench
+constraints/              Nexys A7 constraint
+scripts/                  Vivado/XSim/report ?? script
+reports/                  ?? Model S metric ? ?? report
+datasets/                 split manifest ? ?? demo sample
+analog/                   AFE XModel, mixed-signal testbench, ?? script
+docs/                     ???? ??
+bitstreams/               ??? Nexys A7 demo bitstream
+vivado_project/           relative source path ?? unified Vivado project
 ```
 
-`SNN_ECG.srcs/`는 Vivado 프로젝트를 바로 열기 위한 원본 레이아웃이고, `rtl/`과 `sim/`은 GitHub에서 소스만 빠르게 읽기 위한 정리 사본입니다. 두 경로의 RTL 내용은 같은 Model S 기준입니다.
+`SNN_ECG.srcs/`? Vivado ????? ?? ?? ?? ?? ??????, `rtl/`? `sim/`? GitHub?? ??? ??? ?? ?? ?? ?????. ? ??? RTL ??? ?? Model S ?????.
 
-## Open in Vivado
+## Vivado?? ??
 
-Open:
+?? ????? ?? ???.
 
 ```text
 vivado_project/SNN_ECG_ModelS_Unified/SNN_ECG_ModelS_Unified.xpr
 ```
 
-Preferred top for board demo:
+?? ?? top module:
 
 ```text
 nexys_a7_model_s_smoke_top
 ```
 
-Core-only synthesis top:
+Core-only ?? top module:
 
 ```text
 snn_ecg_model_a_plus_core
 ```
 
-## Important Data Note
+## ??? ?? ??
 
-The full strict `.mem` dataset is not duplicated in this GitHub package to avoid storing large generated ECG segment files. The split manifests and final result CSVs are included under `datasets/record_wise_strict/`. The compact 4-class AFE/demo `.mem` examples are included under `datasets/afe_demo_samples/` and `rtl/board/`.
+Full strict `.mem` dataset ??? ? GitHub ???? ?? ?????. ??? ?? ????? ??? split manifest? ?? result CSV? `datasets/record_wise_strict/`? ??????. ?? 4-class AFE/demo `.mem` ??? `datasets/afe_demo_samples/`? `rtl/board/`? ??????.
 
-## Analog/Mixed-Signal Status
+## Analog / Mixed-Signal ??
 
-The analog teammate's AFE XModel and mixed-signal reports are included under `analog/` and `docs/analog_mixed_signal/`.
+???? ???? ??? AFE XModel? mixed-signal ?? ??? `analog/`? `docs/analog_mixed_signal/`? ??????.
 
-The AFE path is functionally compatible with the digital core, but the ADC output format must be converted:
+AFE path? digital core? ????? ?? ?????, ADC ?? ?? ??? ?????.
 
 ```verilog
 adc_signed = {~adc_unsigned[11], adc_unsigned[10:0]};
 ```
 
-This is equivalent to offset-binary unsigned to signed two's-complement conversion centered at zero.
+?? offset-binary unsigned ADC ??? zero-centered signed two's-complement? ??? ?????.
 
-Mixed-signal verification found that standard AFE bandpass filtering can shift some ARR evidence toward AFF. This is a classifier robustness issue, not an AFE circuit failure. Final tapeout/SoC evaluation should include AFE-filtered ECG data in the train/validation process.
+Mixed-signal ????? ?? AFE bandpass filtering? ?? ARR evidence? AFF ??? ???? ? ??? ??????. ?? AFE ?? ??? ??? classifier robustness ?????. ?? SoC ????? AFE-filtered ECG ?? ???/???? ?????.
 
-## Main Documentation
+## ?? ??
 
-- [Model S Report](docs/model_s_report.md)
-- [Architecture](docs/architecture.md)
-- [Feature Neurons](docs/feature_neurons.md)
-- [Dataset and Evaluation](docs/dataset_and_evaluation.md)
-- [FPGA Verification](docs/fpga_verification.md)
-- [Analog/Mixed-Signal Integration](docs/analog_mixed_signal.md)
-- [Reproduction Notes](docs/reproduction.md)
-- [Final Decisions](docs/final_decisions.md)
+- [Model S ?? ???](docs/model_s_report.md)
+- [?? ??](docs/architecture.md)
+- [Feature neuron ??](docs/feature_neurons.md)
+- [Dataset ? ?? ??](docs/dataset_and_evaluation.md)
+- [FPGA ??](docs/fpga_verification.md)
+- [Analog/Mixed-Signal ????](docs/analog_mixed_signal.md)
+- [?? ??](docs/reproduction.md)
+- [?? ?? ??](docs/final_decisions.md)

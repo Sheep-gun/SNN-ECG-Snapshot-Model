@@ -1,8 +1,8 @@
-# Architecture
+# ?? ??
 
-## Input Interface
+## ?? ?????
 
-The digital core expects:
+Digital core? ?? ??? ????.
 
 - `clk`
 - `rst`
@@ -12,24 +12,24 @@ The digital core expects:
 - `segment_done`
 - `signed [11:0] adc_data`
 
-The ECG stream is 1 kSPS, signed 12-bit, centered at zero.
+ECG stream? 1 kSPS, signed 12-bit, zero-centered ?????.
 
 ## Event Encoder
 
-The event encoder computes sample-to-sample delta and emits slope events:
+Event encoder? ?? sample? ?? sample? delta? ???? slope event? ?????.
 
-- `strong_event`: large delta event used by QRS LIF
-- `up_event`: positive slope event
-- `down_event`: negative slope event
-- `slope_valid`: slope event passed the threshold
+- `strong_event`: QRS LIF detector? ???? ? ?? event
+- `up_event`: ?? slope event
+- `down_event`: ?? slope event
+- `slope_valid`: slope threshold? ??? ?? slope event
 
 ## QRS LIF Detector
 
-Strong events charge a QRS membrane. The membrane leaks each sample. When the membrane reaches the QRS threshold, a one-clock `beat_spike` is emitted. A refractory period prevents repeated firing inside one QRS complex.
+Strong event? ???? QRS membrane? ????, ? sample?? leak???. Membrane? threshold? ???? `beat_spike`? 1 clock ?????. ?? refractory counter? ??? ??? QRS complex ??? ?? ???? ??? ????.
 
 ## Feature Spike Layer
 
-The final active feature set is:
+?? active feature set? ?????.
 
 - pNN125
 - RDM
@@ -40,28 +40,28 @@ The final active feature set is:
 - RBBB QRS Delay Bank
 - EERG readout gate
 
-The feature values are not passed as floating-point scalar features. They are represented as spike events and fixed-weight membrane updates.
+Feature ?? floating-point scalar? ???? ????. ? feature? spike event? fixed-weight membrane update? ?????.
 
-## Local and Segment Membranes
+## Local / Segment Membrane
 
-Model S uses two membrane layers:
+Model S? ? ?? membrane ??? ?????.
 
 ```text
 feature spikes
--> 60 s local class membrane
+-> 60? local class membrane
 -> segment-level accumulated class membrane
 -> readout correction
 -> WTA
 ```
 
-The 60-second local window reduces segment-length bias. If the final window is partial, its score is scaled before being committed to the segment membrane.
+60? local window? segment ??? ?? raw count bias? ????. ??? window? 60??? ??? partial scale? ??? segment membrane? ?????.
 
 ## WTA Readout
 
-At `segment_done`, the final class scores are compared:
+`segment_done` ???? ?? class score? ?????.
 
 ```text
 pred_class = argmax(NSR_mem, CHF_mem, ARR_mem, AFF_mem)
 ```
 
-This readout is hardware WTA using signed comparators, not softmax.
+? readout? signed comparator ?? hardware WTA?? softmax? ????.

@@ -1,13 +1,13 @@
 # Scripts
 
-This folder contains selected scripts from the final restore project.
+? ???? ?? restore project?? ??? script? ?? ????.
 
-Some scripts contain local Windows or Vivado installation assumptions. Check paths before running on a different machine.
+?? script?? local Windows ?? ?? Vivado ?? ?? ??? ?? ?? ? ????, ?? PC?? ???? ? ??? ???? ???.
 
-Most useful scripts:
+?? script:
 
-- `create_unified_models_project.tcl`: recreate/open the unified Vivado project
-- `run_record_split_strict_varlen_tb_xsim.ps1`: run strict train/validation/test XSim testbenches
-- `build_program_nexys_a7_smoke.tcl`: build/program Nexys A7 board demo
-- `program_existing_nexys_a7_smoke_bit.tcl`: program the included bitstream
-- `generate_model_s_rtl_reports.py`: regenerate metrics from XSim CSV outputs
+- `create_unified_models_project.tcl`: unified Vivado project ??/??
+- `run_record_split_strict_varlen_tb_xsim.ps1`: strict train/validation/test XSim testbench ??
+- `build_program_nexys_a7_smoke.tcl`: Nexys A7 board demo build/program
+- `program_existing_nexys_a7_smoke_bit.tcl`: ??? bitstream program
+- `generate_model_s_rtl_reports.py`: XSim CSV output?? metric report ???

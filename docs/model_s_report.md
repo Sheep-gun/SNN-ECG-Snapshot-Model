@@ -1,26 +1,17 @@
-# Model S Final Report
+# Model S ?? ???
 
-## Purpose
+## ??
 
-Model S is the final SNN-inspired RTL classifier selected for the 4-class ECG task. The target classes are:
+Model S? NSR / CHF / ARR / AFF ? ?? ECG class? ???? ?? ??? ?? SNN-inspired RTL classifier???. ??? software classifier? ???, 1 kSPS signed 12-bit ECG stream? ?? ???? low-resource FPGA/SoC-friendly RTL classifier???.
 
-- NSR: normal sinus rhythm
-- CHF: congestive heart failure
-- ARR: arrhythmia class containing ectopic and conduction-delay cases
-- AFF: atrial fibrillation/flutter-like irregular rhythm
-
-The project objective is not a software classifier, but a low-resource FPGA/SoC-friendly RTL classifier that processes a 1 kSPS signed 12-bit ECG stream.
-
-## Final Definition
-
-Model S is defined as:
+## ?? ??
 
 ```text
 Model S = Model A+ + EERG
 Model A+ = Model A + RBBB QRS Delay Bank(repeat_th=5)
 ```
 
-Model A contains:
+Model A?? ?? feature? ?????.
 
 - QRS LIF detector
 - pNN125 rhythm predictor
@@ -29,11 +20,11 @@ Model A contains:
 - RAM R-peak amplitude feature
 - ECP ectopic compensatory pair feature
 - QRS MAF morphology abnormal feature
-- direct spike-to-class local membrane WTA structure
+- direct spike-to-class local membrane WTA ??
 
-Model A+ adds RBBB QRS Delay Bank. Model S adds EERG readout logic.
+Model A+? RBBB QRS Delay Bank? ????, Model S? EERG readout logic? ??? ?? ?????.
 
-## Classifier Structure
+## Classifier ??
 
 ```text
 adc_data
@@ -41,16 +32,16 @@ adc_data
 -> qrs_lif_detector
 -> beat_spike
 -> feature spike generation
--> 60 s local class membrane
+-> 60? local class membrane
 -> segment membrane accumulation
 -> RBBB/EERG readout correction
 -> WTA comparator
 -> pred_class
 ```
 
-The class decision is made by four signed class membranes: `NSR`, `CHF`, `ARR`, and `AFF`. Feature events directly add or subtract fixed signed weights. At `segment_done`, the largest membrane is selected by WTA.
+Class decision? NSR, CHF, ARR, AFF ? ? signed class membrane?? ??????. Feature event? ??? ??? fixed signed weight? ????? ???, `segment_done`?? ?? ? membrane? WTA? ?????.
 
-## Verification Result
+## ?? ??
 
 | split | segment accuracy | record accuracy | macro-F1 | balanced accuracy |
 |---|---:|---:|---:|---:|
@@ -58,7 +49,7 @@ The class decision is made by four signed class membranes: `NSR`, `CHF`, `ARR`, 
 | validation | 136/160 = 85.00% | 18/20 = 90.00% | 84.91% | 85.00% |
 | test | 131/160 = 81.88% | 18/19 = 94.74% | 81.93% | 81.88% |
 
-Test confusion matrix:
+Test segment confusion matrix:
 
 | actual | pred NSR | pred CHF | pred ARR | pred AFF |
 |---|---:|---:|---:|---:|
@@ -67,7 +58,7 @@ Test confusion matrix:
 | ARR | 6 | 0 | 28 | 6 |
 | AFF | 0 | 3 | 2 | 35 |
 
-Record-level test confusion:
+Test record confusion matrix:
 
 | actual | pred NSR | pred CHF | pred ARR | pred AFF |
 |---|---:|---:|---:|---:|
@@ -76,17 +67,17 @@ Record-level test confusion:
 | ARR | 0 | 0 | 8 | 1 |
 | AFF | 0 | 0 | 0 | 4 |
 
-## Interpretation
+## ??
 
-The segment-level result is the per-window classifier result. The record-level result is the patient/record-level decision formed by accumulating multiple segment scores from the same record. Model S should be described as a multi-window record-level ECG classifier rather than a single-short-window clinical diagnosis engine.
+Segment-level ??? ?? ECG window ?? ?????. Record-level ??? ?? record?? ?? ?? segment score? ??? ??/record ?? ?????. ??? Model S? single short segment diagnosis??? multi-window record-level ECG classifier? ???? ?? ????.
 
-## Resource Result
+## ?? ???
 
-Core-only synthesis remains low-resource:
+Core-only ?? ??? ??? ????.
 
 - LUT: 5309 / 63400 = 8.37%
 - FF: 1250 / 126800 = 0.99%
-- BRAM: 0
-- DSP: 0
+- BRAM: 0%
+- DSP: 0%
 
-This supports the claim that Model S is multiplier-free and BRAM-free at classifier-core level.
+? ??? Model S? multiplier-free, BRAM-free classifier core?? ??? ??????.

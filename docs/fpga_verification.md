@@ -1,17 +1,17 @@
-# FPGA Verification
+# FPGA ??
 
-## Verification Scope
+## ?? ??
 
-Two hardware views are separated:
+FPGA ??? ? ???? ??? ?????.
 
-1. Model S classifier core resource usage
-2. Nexys A7 board smoke wrapper resource usage
+1. Model S classifier core ?? ???
+2. Nexys A7 board smoke wrapper ?? ???
 
-The core resource is the correct number for estimating the classifier IP size. The board wrapper resource includes buttons, 7-segment control, and four 60-second ECG ROMs.
+Classifier IP ??? ??? ?? core resource? ???? ?? ?? ????. Board wrapper?? button, 7-segment controller, 4? 60? ECG ROM? ?????.
 
-## Core Synthesis
+## Core ??
 
-Vivado 2020.2, `xc7a100tcsg324-1`, top `snn_ecg_model_a_plus_core`.
+Vivado 2020.2, `xc7a100tcsg324-1`, top `snn_ecg_model_a_plus_core` ?????.
 
 | resource | used | available | utilization |
 |---|---:|---:|---:|
@@ -28,15 +28,15 @@ Top module:
 nexys_a7_model_s_smoke_top
 ```
 
-Interactive controls:
+?? ??:
 
-- `BTNU`: NSR example
-- `BTNL`: ARR example
-- `BTND`: CHF example
-- `BTNR`: AFF example
-- `BTNC`: pseudo-random example
+- `BTNU`: NSR ??
+- `BTNL`: ARR ??
+- `BTND`: CHF ??
+- `BTNR`: AFF ??
+- `BTNC`: pseudo-random ??
 
-The left 7-segment field displays the predicted class. The right field displays `CORR` or `ERR`.
+?? 7-segment field? predicted class? ????, ??? field? `CORR` ?? `ERR`? ?????.
 
 ## Board Implementation
 
@@ -46,9 +46,9 @@ The left 7-segment field displays the predicted class. The right field displays 
 - TNS: 0 ns
 - Estimated on-chip power: 0.104 W
 - Junction temperature estimate: 25.5 C
-- Power confidence: Low, so it should be treated as an estimate only
+- Power confidence: Low, ?????? ??
 
-## Wrapper Resource
+## Wrapper ??
 
 | resource | utilization |
 |---|---:|
@@ -57,4 +57,4 @@ The left 7-segment field displays the predicted class. The right field displays 
 | BRAM | 62.22% |
 | DSP | 0.00% |
 
-The BRAM is dominated by demo ECG ROM storage. It is not the core classifier BRAM cost.
+BRAM ???? demo ECG ROM ??? ????. Classifier core? ?? BRAM ??? 0???.
