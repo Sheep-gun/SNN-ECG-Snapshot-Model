@@ -1,0 +1,29 @@
+# Vivado generated files
+*.jou
+*.log
+*.str
+*.wdb
+*.wcfg
+*.dcp
+.cache/
+.hw/
+.ip_user_files/
+.runs/
+.sim/
+.gen/
+.Xil/
+xsim.dir/
+webtalk/
+
+# Large/generated ECG datasets
+person_data_record_split_strict_varlen/**/mem/
+*.pwl
+
+# Python
+__pycache__/
+*.pyc
+
+# OS/editor
+.DS_Store
+Thumbs.db
+~$*.docx

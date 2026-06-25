@@ -1,0 +1,7 @@
+resource,used,fixed,available,util_percent
+Slice LUTs*,5309,0,63400,8.37
+Slice Registers,1250,0,126800,0.99
+Block RAM Tile,0,0,135,0.00
+DSPs,0,0,240,0.00
+Bonded IOB,21,0,210,10.00
+BUFGCTRL,1,0,32,3.13

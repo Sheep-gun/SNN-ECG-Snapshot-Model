@@ -1,0 +1,4 @@
+split,segment_actual,segment_target,segment_match,record_actual,record_target,record_match,macro_f1_actual,macro_f1_target_approx,balanced_actual,balanced_target_approx,class_correct_actual,class_correct_target
+train,313/400,313/400,True,41/50,41/50,True,0.7822217100795485,0.7819,0.7825,0.7825,84/76/71/82,85/76/70/82
+val,136/160,136/160,True,18/20,18/20,True,0.8491121961701501,0.8491,0.85,0.85,36/31/38/31,36/31/38/31
+test,131/160,131/160,True,18/19,18/19,True,0.8193297913318238,0.8193,0.81875,0.8188,31/37/28/35,31/37/28/35

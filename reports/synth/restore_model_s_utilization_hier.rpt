@@ -1,0 +1,40 @@
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
+| Date         : Tue Jun  2 05:20:04 2026
+| Host         : DESKTOP-F81OJT8 running 64-bit major release  (build 9200)
+| Command      : report_utilization -hierarchical -file C:/Users/YangGeon/SNN_ECG_RESTORE_MODEL_S/reports/synth/restore_model_s_utilization_hier.rpt
+| Design       : snn_ecg_model_a_plus_core
+| Device       : 7a100tcsg324-1
+| Design State : Synthesized
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++-------------------------------+------------------------+------------+------------+---------+------+------+--------+--------+------------+
+|            Instance           |         Module         | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs | RAMB36 | RAMB18 | DSP Blocks |
++-------------------------------+------------------------+------------+------------+---------+------+------+--------+--------+------------+
+| snn_ecg_model_a_plus_core     |                  (top) |       5309 |       5273 |       0 |   36 | 1250 |      0 |      0 |          0 |
+|   (snn_ecg_model_a_plus_core) |                  (top) |        650 |        650 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   u_model_a_plus              |      snn_ecg_3feat_top |       4691 |       4655 |       0 |   36 | 1250 |      0 |      0 |          0 |
+|     (u_model_a_plus)          |      snn_ecg_3feat_top |         10 |         10 |       0 |    0 |    2 |      0 |      0 |          0 |
+|     u_class                   |    class_score_neurons |       2350 |       2350 |       0 |    0 |  516 |      0 |      0 |          0 |
+|     u_dscr                    |     dscr_spike_counter |        256 |        256 |       0 |    0 |   77 |      0 |      0 |          0 |
+|     u_ectopic                 |    ectopic_pair_neuron |         75 |         75 |       0 |    0 |   17 |      0 |      0 |          0 |
+|     u_event_encoder           |      ecg_event_encoder |         57 |         57 |       0 |    0 |   25 |      0 |      0 |          0 |
+|     u_pnn                     |   pnn_rhythm_predictor |        232 |        232 |       0 |    0 |   66 |      0 |      0 |          0 |
+|     u_qrs_detector            |       qrs_lif_detector |         30 |         30 |       0 |    0 |   21 |      0 |      0 |          0 |
+|     u_qrs_maf                 |         qrs_maf_neuron |        648 |        612 |       0 |   36 |  385 |      0 |      0 |          0 |
+|     u_ram                     |   ram_peak_accumulator |        105 |        105 |       0 |    0 |   24 |      0 |      0 |          0 |
+|     u_rbbb_qrs_delay          |    rbbb_qrs_delay_bank |        145 |        145 |       0 |    0 |   80 |      0 |      0 |          0 |
+|     u_rdm                     | rdm_variability_neuron |        817 |        817 |       0 |    0 |   37 |      0 |      0 |          0 |
++-------------------------------+------------------------+------------+------------+---------+------+------+--------+--------+------------+
+
+
