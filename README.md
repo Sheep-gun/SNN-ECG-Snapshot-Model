@@ -1,118 +1,118 @@
-# SNN ECG Model S RTL Classifier
+# SNN ECG Model Snapshot RTL Classifier
 
-SNN-inspired ECG 4-class RTL classifier 프로젝트입니다. ECG 원파형을 1 kSPS, signed 12-bit stream으로 입력받아 NSR / CHF / ARR / AFF 네 클래스를 분류합니다.
+이 저장소는 ECG 신호를 1 kSPS, signed 12-bit `adc_data` stream으로 입력받아 60초 snapshot 단위로 NSR / CHF / ARR / AFF를 분류하는 SNN-inspired RTL classifier를 정리한 프로젝트이다.
 
-이 저장소는 최종 채택된 Model S RTL, strict record-wise 검증 자료, Nexys A7 FPGA smoke test 자료, AFE/mixed-signal 연동 문서를 한 곳에 정리한 GitHub 배포용 패키지입니다.
+최종 모델명은 **Model Snapshot**이다. 이 GitHub 문서는 최종 C24 선택 결과와 Model Snapshot 구조만 설명한다.
 
-## 최종 모델
+## Model Snapshot 정의
 
-**Model S = Model A+ + EERG**
+Model Snapshot은 전체 환자 record를 한 번에 진단하는 clinical patient-level classifier가 아니다. 입력 ECG stream을 60초 snapshot으로 고정해 해당 snapshot이 어느 class evidence를 가장 강하게 보이는지 판정하는 RTL 모델이다.
 
-Model A+는 Model A에 RBBB QRS Delay Bank를 추가한 구조이고, EERG는 Episodic Ectopic Rescue Gate입니다. EERG는 PAC 전용 검출기가 아니라, 경계성 또는 간헐성 ectopic ARR segment를 보조적으로 구제하는 readout gate로 해석합니다.
+- 입력: AFE+ADC 이후 1 kSPS signed 12-bit `adc_data`
+- 입력 길이: 60초 snapshot
+- 출력 class: `NSR`, `CHF`, `ARR`, `AFF`
+- 최종 출력: `pred_class`, class membrane, feature evidence/debug signal
+- 구현 방식: spike event, counter, threshold, comparator, signed membrane accumulation
+- 사용하지 않는 방식: floating point, DSP multiplier, STDP, backpropagation
 
-활성 feature 경로는 다음과 같습니다.
+## RTL 구조
 
-~~~text
-1 kSPS signed 12-bit ECG adc_data
--> event encoder
--> QRS LIF detector
--> pNN125 / RDM / DSCR / RAM / ECP / QRS MAF / RBBB evidence
--> 60초 local class neuron membrane
--> segment-level class membrane 누적
--> RBBB/EERG readout 보강
+```text
+ECG adc_data stream
+-> adaptive QRS LIF event detector
+-> beat_spike
+-> pNN125 / RDM / RAM / ECP / QRS MAF / RBBB / EERG feature spike generation
+
+simultaneously:
+ECG adc_data stream
+-> DSCR slope/sign feature generation
+
+then:
+feature evidence spike
+-> local class neuron membrane
+-> 60s snapshot-level class membrane
 -> 4-class WTA
 -> pred_class
-~~~
+```
 
-분류기는 fixed signed synaptic weight, counter, comparator, shift/add 기반으로 구현됩니다. DSP multiplier, floating point, STDP, backpropagation은 사용하지 않습니다.
+각 feature는 scalar 값을 직접 class score에 넣지 않는다. feature별 조건이 만족되면 spike 또는 gate evidence가 발생하고, 이 evidence가 NSR / CHF / ARR / AFF class neuron membrane에 fixed signed synaptic weight로 누적된다. 60초 snapshot 끝에서 4개 class membrane을 비교해 가장 큰 membrane을 가진 class가 WTA winner가 된다.
 
-## Strict Record-Wise RTL 검증 결과
+## 최종 Feature Block
+
+Model Snapshot의 최종 feature block은 다음과 같다.
+
+| feature | 역할 |
+|---|---|
+| Adaptive QRS LIF | AFE+ADC stream에 맞춘 beat_spike 검출 |
+| pNN125 | RR interval regularity 기반 rhythm evidence |
+| RDM | 연속 RR interval 차이 기반 rhythm variability evidence |
+| DSCR | slope sign-change 기반 morphology complexity evidence |
+| RAM | R-peak amplitude response evidence |
+| ECP | ectopic compensatory pair timing evidence |
+| QRS MAF | QRS morphology abnormal evidence |
+| RBBB QRS Delay Bank | RBBB-like conduction delay proxy evidence |
+| EERG | episodic ectopic rescue gate |
+| 4-class WTA | class membrane 경쟁 readout |
+
+## C24 최종 선택
+
+C01~C32 후보는 전체 Model Snapshot feature set을 유지한 상태에서 feature threshold, window, bank, gate, boost, readout parameter를 바꾼 후보군이다. 후보 선택은 record-wise train/validation split만 사용했으며, test set은 C24 확정 후 최종 1회 평가에만 사용했다.
+
+최종 선택 후보는 **C24**이다.
+
+| item | value |
+|---|---|
+| QRS tag | `e5w8t16l0r280a1b1c2000tc100_c24` |
+| profile | `compact` |
+| count scale | `10.0` |
+| base scale | `25000.0` |
+| L2 | `1000.0` |
+| class boost | NSR `1.1`, CHF `1.8`, ARR `1.8`, AFF `1.0` |
+| RBBB low slope threshold | `5` |
+| RBBB wide threshold | `120` |
+| RBBB terminal threshold | `4` |
+| RBBB repeat threshold | `5` |
+| RBBB NSR inhibition | `100000` |
+| RBBB ARR boost | `100000` |
+
+## 최종 검증 결과
 
 | split | segment accuracy | record accuracy | macro-F1 | balanced accuracy |
 |---|---:|---:|---:|---:|
-| train | 313/400 = 78.25% | 41/50 = 82.00% | 78.19% | 78.25% |
-| validation | 136/160 = 85.00% | 18/20 = 90.00% | 84.91% | 85.00% |
-| test | 131/160 = 81.88% | 18/19 = 94.74% | 81.93% | 81.88% |
+| train | 434/480 = 90.42% | 41/43 = 95.35% | 90.28% | 90.22% |
+| validation | 219/240 = 91.25% | 21/21 = 100.00% | 91.18% | 91.34% |
+| test | 193/240 = 80.42% | 16/21 = 76.19% | 80.28% | 79.99% |
 
-### Test Class별 결과
+Test set class별 recall은 다음과 같다.
 
 | class | correct / total | recall |
 |---|---:|---:|
-| NSR | 31/40 | 77.50% |
-| CHF | 37/40 | 92.50% |
-| ARR | 28/40 | 70.00% |
-| AFF | 35/40 | 87.50% |
+| NSR | 50/64 | 78.13% |
+| CHF | 56/64 | 87.50% |
+| ARR | 34/54 | 62.96% |
+| AFF | 53/58 | 91.38% |
 
-### Test Segment Confusion Matrix
+## 문서
 
-| Actual \ Pred | NSR | CHF | ARR | AFF |
-|---|---:|---:|---:|---:|
-| NSR | 31 | 0 | 9 | 0 |
-| CHF | 0 | 37 | 3 | 0 |
-| ARR | 6 | 0 | 28 | 6 |
-| AFF | 0 | 3 | 2 | 35 |
+- [Model Snapshot 구조](docs/model_snapshot_architecture.md)
+- [Feature neuron 설명](docs/model_snapshot_features.md)
+- [C24 튜닝 및 선택 과정](docs/model_snapshot_tuning.md)
+- [검증 데이터셋 및 최종 성능](docs/model_snapshot_validation.md)
 
-### Test Record Confusion Matrix
+## 저장소 구성
 
-| Actual \ Pred | NSR | CHF | ARR | AFF |
-|---|---:|---:|---:|---:|
-| NSR | 3 | 0 | 0 | 0 |
-| CHF | 0 | 3 | 0 | 0 |
-| ARR | 0 | 0 | 8 | 1 |
-| AFF | 0 | 0 | 0 | 4 |
-
-## FPGA 검증
-
-Nexys A7-100T 보드에서 board smoke top을 통해 버튼 기반 예시 segment 입력 및 7-segment 결과 표시를 검증했습니다.
-
-- Top module: `nexys_a7_model_s_smoke_top`
-- Device: `xc7a100tcsg324-1`
-- Timing: WNS 4.242 ns, failing endpoints 0
-- Power estimate: 0.104 W
-- DRC violation: 0
-
-Board smoke design은 데모용 wrapper와 예시 segment ROM을 포함하므로 BRAM/IO 사용량은 실제 classifier core resource와 다릅니다. 최종 자원 평가는 core 기준 보고서를 우선합니다.
-
-## 폴더 구성
-
-| 경로 | 내용 |
+| path | 내용 |
 |---|---|
-| `SNN_ECG.srcs/` | Vivado source tree 형식 RTL, testbench, constraints |
-| `rtl/` | 주요 RTL 파일 모음 |
-| `sim/` | strict record-wise testbench 및 board smoke testbench |
-| `constraints/` | Nexys A7 XDC |
-| `scripts/` | XSim, synthesis, Vivado 재생성 스크립트 |
-| `reports/` | 최종 Model S metric, synthesis, FPGA 검증 보고서 |
-| `datasets/` | strict split 증빙 및 데모용 segment 자료 |
-| `docs/` | 구조, feature, 데이터셋, FPGA, AFE 문서 |
-| `analog/` | AFE/mixed-signal 연동 자료 |
-| `bitstreams/` | Nexys A7 board smoke bitstream |
-| `vivado_project/` | 재생성된 통합 Vivado 프로젝트 |
+| `rtl/` | 주요 RTL source |
+| `SNN_ECG.srcs/` | Vivado source tree 형식 RTL/testbench |
+| `sim/` | XSim testbench |
+| `constraints/` | Nexys A7 constraint |
+| `scripts/` | Vivado/XSim 실행 script |
+| `datasets/` | strict split 증빙 및 demo data |
+| `reports/` | 합성, FPGA smoke, Model Snapshot 관련 결과 |
+| `docs/` | 최종 Model Snapshot 문서 |
+| `bitstreams/` | FPGA demo bitstream |
 
-## Vivado 사용
+## 해석 범위
 
-Vivado 2020.2 기준으로 다음 프로젝트를 열 수 있습니다.
-
-~~~text
-vivado_project/SNN_ECG_ModelS_Unified/SNN_ECG_ModelS_Unified.xpr
-~~~
-
-보드 데모 bitstream은 다음 위치에 있습니다.
-
-~~~text
-bitstreams/nexys_a7_model_s_smoke_top.bit
-~~~
-
-## 핵심 문서
-
-- [전체 구조](docs/architecture.md)
-- [Feature neuron 설명](docs/feature_neurons.md)
-- [데이터셋 및 평가 방식](docs/dataset_and_evaluation.md)
-- [FPGA 검증 보고](docs/fpga_verification.md)
-- [AFE 및 mixed-signal 연동](docs/analog_mixed_signal.md)
-- [재현 절차](docs/reproduction.md)
-- [최종 의사결정](docs/final_decisions.md)
-
-## 라이선스 및 데이터 주의
-
-이 저장소는 대회 제출 및 팀 협업용 기술 정리 저장소입니다. 외부 공개 시 ECG 원본 데이터의 출처, 라이선스, 재배포 가능 여부를 별도로 확인해야 합니다.
+Model Snapshot의 핵심 검증 단위는 60초 ECG snapshot이다. Record-level accuracy는 snapshot 결과를 record 단위로 묶어 확인한 보조 지표이며, 전체 장시간 ECG를 clinical diagnosis처럼 직접 판정한 결과로 해석하지 않는다.
