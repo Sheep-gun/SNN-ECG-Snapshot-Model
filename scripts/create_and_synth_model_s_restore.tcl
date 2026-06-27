@@ -10,6 +10,7 @@ set sim_dir "$root/SNN_ECG.srcs/sim_1/new"
 
 set rtl_files [list \
     "$src_dir/ecg_event_encoder.v" \
+    "$src_dir/snn_ecg_input_normalizer.v" \
     "$src_dir/qrs_lif_detector.v" \
     "$src_dir/pnn_rhythm_predictor.v" \
     "$src_dir/dscr_spike_counter.v" \

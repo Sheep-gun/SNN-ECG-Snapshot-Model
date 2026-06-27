@@ -14,6 +14,20 @@ module snn_ecg_3feat_top #(
 
     parameter AMP_EVENT_TH = 4,
 
+    parameter ENABLE_INPUT_NORMALIZER = 0,
+
+    parameter NORM_BASE_SHIFT = 8,
+
+    parameter NORM_ENV_DECAY_SHIFT = 6,
+
+    parameter NORM_GAIN_LOW_TH = 96,
+
+    parameter NORM_GAIN_MID_TH = 192,
+
+    parameter NORM_GAIN_HIGH_TH = 768,
+
+    parameter NORM_ENABLE_ADAPTIVE_GAIN = 0,
+
     parameter QRS_MEM_W   = 12,
 
     parameter QRS_REF_W   = 10,
@@ -711,6 +725,14 @@ module snn_ecg_3feat_top #(
 
     wire [AGE_WIDTH-1:0] ram_predictor_error;
 
+    wire signed [ADC_WIDTH-1:0] adc_norm_data;
+
+    wire signed [ADC_WIDTH-1:0] adc_frontend;
+
+    wire signed [ADC_WIDTH+3:0] norm_baseline_mem;
+
+    wire [ADC_WIDTH+3:0] norm_envelope_mem;
+
     wire prev_slope_valid;
 
     wire prev_slope_sign;
@@ -879,6 +901,26 @@ module snn_ecg_3feat_top #(
     assign ram_predictor_center = hyp_center(predictor_id);
     assign ram_predictor_error = abs_age_diff(token_age, ram_predictor_center);
     assign ram_window_open = token_active && predictor_valid && (ram_predictor_error <= WINDOW_HALF);
+    assign adc_frontend = (ENABLE_INPUT_NORMALIZER != 0) ? adc_norm_data : adc_data;
+
+    snn_ecg_input_normalizer #(
+        .ADC_WIDTH(ADC_WIDTH),
+        .BASE_SHIFT(NORM_BASE_SHIFT),
+        .ENV_DECAY_SHIFT(NORM_ENV_DECAY_SHIFT),
+        .GAIN_LOW_TH(NORM_GAIN_LOW_TH),
+        .GAIN_MID_TH(NORM_GAIN_MID_TH),
+        .GAIN_HIGH_TH(NORM_GAIN_HIGH_TH),
+        .ENABLE_ADAPTIVE_GAIN(NORM_ENABLE_ADAPTIVE_GAIN)
+    ) u_input_normalizer (
+        .clk(clk),
+        .rst(rst),
+        .clear(segment_start),
+        .sample_valid(sample_valid),
+        .adc_in(adc_data),
+        .adc_out(adc_norm_data),
+        .baseline_mem(norm_baseline_mem),
+        .envelope_mem(norm_envelope_mem)
+    );
 
     always @(posedge clk) begin
         if (rst)
@@ -906,7 +948,7 @@ module snn_ecg_3feat_top #(
         .clk(clk),
         .rst(rst),
         .sample_valid(sample_valid),
-        .adc_data(adc_data),
+        .adc_data(adc_frontend),
         .prev_sample(prev_sample),
         .delta(delta),
         .abs_delta(abs_delta),
@@ -976,7 +1018,7 @@ module snn_ecg_3feat_top #(
         .rst(rst),
         .clear(segment_start),
         .sample_valid(qrs_sample_valid),
-        .adc_data(adc_data),
+        .adc_data(adc_frontend),
         .prev_slope_valid(prev_slope_valid),
         .prev_slope_sign(prev_slope_sign),
         .valid_slope_spike(dscr_valid_slope_spike),
@@ -999,7 +1041,7 @@ module snn_ecg_3feat_top #(
         .sample_valid(sample_valid),
         .ram_window_open(ram_window_open),
         .beat_spike(beat_spike),
-        .adc_data(adc_data),
+        .adc_data(adc_frontend),
         .baseline(baseline),
         .amp_window_active(amp_window_active),
         .amp_window_cnt(amp_window_cnt),
@@ -1071,7 +1113,7 @@ module snn_ecg_3feat_top #(
         .rst(rst),
         .clear(segment_start),
         .sample_valid(sample_valid),
-        .adc_data(adc_data),
+        .adc_data(adc_frontend),
         .baseline(baseline),
         .strong_event(strong_event),
         .dscr_sign_flip_spike(dscr_sign_flip_spike),

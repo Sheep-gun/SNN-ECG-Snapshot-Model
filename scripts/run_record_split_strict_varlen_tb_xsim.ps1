@@ -21,6 +21,7 @@ $RunTcl = Join-Path $WorkDir "run_all.tcl"
 
 $Files = @(
     "$SrcDir\ecg_event_encoder.v",
+    "$SrcDir\snn_ecg_input_normalizer.v",
     "$SrcDir\qrs_lif_detector.v",
     "$SrcDir\pnn_rhythm_predictor.v",
     "$SrcDir\dscr_spike_counter.v",

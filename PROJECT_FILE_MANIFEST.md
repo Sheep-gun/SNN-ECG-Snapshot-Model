@@ -86,6 +86,7 @@
 - `rtl/core/ram_peak_accumulator.v`
 - `rtl/core/rbbb_qrs_delay_bank.v`
 - `rtl/core/rdm_variability_neuron.v`
+- `rtl/core/snn_ecg_input_normalizer.v`
 - `rtl/core/snn_ecg_3feat_top.v`
 - `rtl/core/snn_ecg_model_a_plus_core.v`
 - `scripts/build_program_nexys_a7_smoke.tcl`
@@ -125,6 +126,7 @@
 - `SNN_ECG.srcs/sources_1/new/ram_peak_accumulator.v`
 - `SNN_ECG.srcs/sources_1/new/rbbb_qrs_delay_bank.v`
 - `SNN_ECG.srcs/sources_1/new/rdm_variability_neuron.v`
+- `SNN_ECG.srcs/sources_1/new/snn_ecg_input_normalizer.v`
 - `SNN_ECG.srcs/sources_1/new/snn_ecg_3feat_top.v`
 - `SNN_ECG.srcs/sources_1/new/snn_ecg_model_a_plus_core.v`
 - `vivado_project/README.md`

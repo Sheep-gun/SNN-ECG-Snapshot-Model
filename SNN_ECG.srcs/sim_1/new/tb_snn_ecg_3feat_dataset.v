@@ -8,6 +8,13 @@ module tb_snn_ecg_3feat_dataset;
     parameter WRITE_SUBWINDOW_CSV = 0;
     parameter SUBWINDOW_CSV = "C:/Users/YangGeon/SNN_ECG_RESTORE_MODEL_S/results/generic/rtl_dataset_subwindow_features.csv";
     parameter MANIFEST_HAS_SAMPLE_COUNT = 0;
+    parameter ENABLE_INPUT_NORMALIZER = 0;
+    parameter NORM_BASE_SHIFT = 8;
+    parameter NORM_ENV_DECAY_SHIFT = 6;
+    parameter NORM_GAIN_LOW_TH = 96;
+    parameter NORM_GAIN_MID_TH = 192;
+    parameter NORM_GAIN_HIGH_TH = 768;
+    parameter NORM_ENABLE_ADAPTIVE_GAIN = 0;
 
     reg clk;
     reg rst;
@@ -184,6 +191,13 @@ module tb_snn_ecg_3feat_dataset;
         .SLOPE_TH(4),
         .ENABLE_AMP_EVENT(0),
         .AMP_EVENT_TH(4),
+        .ENABLE_INPUT_NORMALIZER(ENABLE_INPUT_NORMALIZER),
+        .NORM_BASE_SHIFT(NORM_BASE_SHIFT),
+        .NORM_ENV_DECAY_SHIFT(NORM_ENV_DECAY_SHIFT),
+        .NORM_GAIN_LOW_TH(NORM_GAIN_LOW_TH),
+        .NORM_GAIN_MID_TH(NORM_GAIN_MID_TH),
+        .NORM_GAIN_HIGH_TH(NORM_GAIN_HIGH_TH),
+        .NORM_ENABLE_ADAPTIVE_GAIN(NORM_ENABLE_ADAPTIVE_GAIN),
         .QRS_MEM_W(12),
         .QRS_REF_W(10),
         .QRS_W_EVENT(8),
