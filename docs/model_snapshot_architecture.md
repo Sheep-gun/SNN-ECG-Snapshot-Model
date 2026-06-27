@@ -6,11 +6,11 @@ Model Snapshot은 AFE+ADC 이후의 ECG stream을 60초 단위로 입력받아 N
 
 ## 왜 60초 Snapshot 구조인가
 
-기존 60~180초 variable-length 판단 모델은 segment 길이가 바뀔 때 feature evidence 누적량과 abnormal event 희석 정도가 함께 바뀌었다. Rate 기반 feature를 도입하더라도, class membrane readout 단계에서 긴 segment의 정상 구간이 abnormal evidence를 희석하거나 특정 class evidence를 과도하게 누적하는 문제가 남았다.
+기존 60-180초 variable-length 판단 모델은 segment 길이가 바뀔 때 feature evidence 누적량과 abnormal event 희석 정도가 함께 바뀌었다. Rate 기반 feature를 도입하더라도, class membrane readout 단계에서 긴 segment의 정상 구간이 abnormal evidence를 희석하거나 특정 class evidence를 과도하게 누적하는 문제가 남았다.
 
 또한 record label이 모든 임의 segment label과 항상 같은 것은 아니다. ARR record 안에도 정상처럼 보이는 60초 구간이 있을 수 있고, AFF/ARR처럼 rhythm abnormality가 시간에 따라 달라지는 class는 짧은 구간 하나만으로 전체 환자 상태를 단정하기 어렵다. 따라서 최종 구조는 임의 길이 segment 하나를 최종 진단 단위로 보지 않고, 고정 길이 60초 snapshot을 반복 평가하는 방향으로 정리했다.
 
-이 방향은 Holter-style ECG monitoring과 맞닿아 있다. Holter monitor는 보통 24~48시간 동안 ECG를 연속 기록해 짧은 ECG에서 포착되지 않는 rhythm abnormality를 확인하는 검사 흐름이다. Model Snapshot은 이 긴 ECG stream을 60초 단위로 읽어 class evidence를 만드는 저전력 digital front-end classifier 역할을 맡는다.
+이 방향은 Holter-style ECG monitoring과 맞닿아 있다. Holter monitor는 보통 24-48시간 동안 ECG를 연속 기록해 짧은 ECG에서 포착되지 않는 rhythm abnormality를 확인하는 검사 흐름이다. Model Snapshot은 이 긴 ECG stream을 60초 단위로 읽어 class evidence를 만드는 저전력 digital front-end classifier 역할을 맡는다.
 
 ## Top-Level Signal Flow
 
@@ -85,10 +85,10 @@ pred_class = argmax(
 
 ## 장시간 Record 처리 방향
 
-최종 patient-level 시스템은 24~48시간 ECG record를 한 번에 하나의 거대한 segment로 넣지 않는다. 대신 60초 snapshot을 순차적으로 입력하고, 각 snapshot의 `pred_class`, class membrane, abnormal feature evidence를 장시간 aggregation layer에 전달한다.
+최종 patient-level 시스템은 24-48시간 ECG record를 한 번에 하나의 거대한 segment로 넣지 않는다. 대신 60초 snapshot을 순차적으로 입력하고, 각 snapshot의 `pred_class`, class membrane, abnormal feature evidence를 장시간 aggregation layer에 전달한다.
 
 ```text
-24~48h ECG stream
+24-48h ECG stream
 -> repeated 60s Model Snapshot inference
 -> snapshot-level class membrane pattern
 -> long-term aggregation layer
