@@ -242,6 +242,14 @@ module class_score_neurons #(
 
     output reg [19:0] eerg_rdm_code_sum,
 
+    output reg signed [63:0] c24_mem_nsr,
+
+    output reg signed [63:0] c24_mem_chf,
+
+    output reg signed [63:0] c24_mem_arr,
+
+    output reg signed [63:0] c24_mem_aff,
+
     output reg [1:0] pred_class,
 
     output reg pred_valid
@@ -1036,14 +1044,6 @@ module class_score_neurons #(
     reg signed [SCORE_WIDTH-1:0] best_score;
 
     reg [1:0] best_class;
-
-    reg signed [63:0] c24_mem_nsr;
-
-    reg signed [63:0] c24_mem_chf;
-
-    reg signed [63:0] c24_mem_arr;
-
-    reg signed [63:0] c24_mem_aff;
 
     reg signed [63:0] c24_mem_nsr_next;
 

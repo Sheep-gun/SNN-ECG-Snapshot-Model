@@ -1,0 +1,2951 @@
+{
+  "classes": [
+    "NSR",
+    "CHF",
+    "ARR",
+    "AFF"
+  ],
+  "selection_rule": "validation accuracy, macro-F1, balanced accuracy, min recall, recall range, then nnz",
+  "candidate_id": 15666,
+  "params": {
+    "kind": "perceptron",
+    "epochs": 6,
+    "lr": 4,
+    "seed": 0,
+    "pred_init": 0,
+    "top_init": 0,
+    "mem_init": 1,
+    "cap": 0,
+    "leak": 0,
+    "tie_break": "lowest_class_index"
+  },
+  "feature_specs": [
+    {
+      "name": "bias",
+      "kind": "always"
+    },
+    {
+      "name": "pred_eq_NSR",
+      "kind": "pred_eq",
+      "class": 0
+    },
+    {
+      "name": "top_eq_NSR",
+      "kind": "top_eq",
+      "class": 0
+    },
+    {
+      "name": "top_NSR_margin_ge_0",
+      "kind": "top_margin_ge",
+      "class": 0,
+      "threshold": 0
+    },
+    {
+      "name": "top_NSR_margin_ge_1000000",
+      "kind": "top_margin_ge",
+      "class": 0,
+      "threshold": 1000000
+    },
+    {
+      "name": "top_NSR_margin_ge_2500000",
+      "kind": "top_margin_ge",
+      "class": 0,
+      "threshold": 2500000
+    },
+    {
+      "name": "top_NSR_margin_ge_5000000",
+      "kind": "top_margin_ge",
+      "class": 0,
+      "threshold": 5000000
+    },
+    {
+      "name": "top_NSR_margin_ge_10000000",
+      "kind": "top_margin_ge",
+      "class": 0,
+      "threshold": 10000000
+    },
+    {
+      "name": "top_NSR_margin_ge_20000000",
+      "kind": "top_margin_ge",
+      "class": 0,
+      "threshold": 20000000
+    },
+    {
+      "name": "top_NSR_margin_ge_40000000",
+      "kind": "top_margin_ge",
+      "class": 0,
+      "threshold": 40000000
+    },
+    {
+      "name": "top_NSR_margin_ge_80000000",
+      "kind": "top_margin_ge",
+      "class": 0,
+      "threshold": 80000000
+    },
+    {
+      "name": "mem_NSR_ge_-80000000",
+      "kind": "mem_ge",
+      "class": 0,
+      "threshold": -80000000
+    },
+    {
+      "name": "mem_NSR_ge_-40000000",
+      "kind": "mem_ge",
+      "class": 0,
+      "threshold": -40000000
+    },
+    {
+      "name": "mem_NSR_ge_-20000000",
+      "kind": "mem_ge",
+      "class": 0,
+      "threshold": -20000000
+    },
+    {
+      "name": "mem_NSR_ge_0",
+      "kind": "mem_ge",
+      "class": 0,
+      "threshold": 0
+    },
+    {
+      "name": "mem_NSR_ge_20000000",
+      "kind": "mem_ge",
+      "class": 0,
+      "threshold": 20000000
+    },
+    {
+      "name": "mem_NSR_ge_40000000",
+      "kind": "mem_ge",
+      "class": 0,
+      "threshold": 40000000
+    },
+    {
+      "name": "mem_NSR_ge_80000000",
+      "kind": "mem_ge",
+      "class": 0,
+      "threshold": 80000000
+    },
+    {
+      "name": "pred_eq_CHF",
+      "kind": "pred_eq",
+      "class": 1
+    },
+    {
+      "name": "top_eq_CHF",
+      "kind": "top_eq",
+      "class": 1
+    },
+    {
+      "name": "top_CHF_margin_ge_0",
+      "kind": "top_margin_ge",
+      "class": 1,
+      "threshold": 0
+    },
+    {
+      "name": "top_CHF_margin_ge_1000000",
+      "kind": "top_margin_ge",
+      "class": 1,
+      "threshold": 1000000
+    },
+    {
+      "name": "top_CHF_margin_ge_2500000",
+      "kind": "top_margin_ge",
+      "class": 1,
+      "threshold": 2500000
+    },
+    {
+      "name": "top_CHF_margin_ge_5000000",
+      "kind": "top_margin_ge",
+      "class": 1,
+      "threshold": 5000000
+    },
+    {
+      "name": "top_CHF_margin_ge_10000000",
+      "kind": "top_margin_ge",
+      "class": 1,
+      "threshold": 10000000
+    },
+    {
+      "name": "top_CHF_margin_ge_20000000",
+      "kind": "top_margin_ge",
+      "class": 1,
+      "threshold": 20000000
+    },
+    {
+      "name": "top_CHF_margin_ge_40000000",
+      "kind": "top_margin_ge",
+      "class": 1,
+      "threshold": 40000000
+    },
+    {
+      "name": "top_CHF_margin_ge_80000000",
+      "kind": "top_margin_ge",
+      "class": 1,
+      "threshold": 80000000
+    },
+    {
+      "name": "mem_CHF_ge_-80000000",
+      "kind": "mem_ge",
+      "class": 1,
+      "threshold": -80000000
+    },
+    {
+      "name": "mem_CHF_ge_-40000000",
+      "kind": "mem_ge",
+      "class": 1,
+      "threshold": -40000000
+    },
+    {
+      "name": "mem_CHF_ge_-20000000",
+      "kind": "mem_ge",
+      "class": 1,
+      "threshold": -20000000
+    },
+    {
+      "name": "mem_CHF_ge_0",
+      "kind": "mem_ge",
+      "class": 1,
+      "threshold": 0
+    },
+    {
+      "name": "mem_CHF_ge_20000000",
+      "kind": "mem_ge",
+      "class": 1,
+      "threshold": 20000000
+    },
+    {
+      "name": "mem_CHF_ge_40000000",
+      "kind": "mem_ge",
+      "class": 1,
+      "threshold": 40000000
+    },
+    {
+      "name": "mem_CHF_ge_80000000",
+      "kind": "mem_ge",
+      "class": 1,
+      "threshold": 80000000
+    },
+    {
+      "name": "pred_eq_ARR",
+      "kind": "pred_eq",
+      "class": 2
+    },
+    {
+      "name": "top_eq_ARR",
+      "kind": "top_eq",
+      "class": 2
+    },
+    {
+      "name": "top_ARR_margin_ge_0",
+      "kind": "top_margin_ge",
+      "class": 2,
+      "threshold": 0
+    },
+    {
+      "name": "top_ARR_margin_ge_1000000",
+      "kind": "top_margin_ge",
+      "class": 2,
+      "threshold": 1000000
+    },
+    {
+      "name": "top_ARR_margin_ge_2500000",
+      "kind": "top_margin_ge",
+      "class": 2,
+      "threshold": 2500000
+    },
+    {
+      "name": "top_ARR_margin_ge_5000000",
+      "kind": "top_margin_ge",
+      "class": 2,
+      "threshold": 5000000
+    },
+    {
+      "name": "top_ARR_margin_ge_10000000",
+      "kind": "top_margin_ge",
+      "class": 2,
+      "threshold": 10000000
+    },
+    {
+      "name": "top_ARR_margin_ge_20000000",
+      "kind": "top_margin_ge",
+      "class": 2,
+      "threshold": 20000000
+    },
+    {
+      "name": "top_ARR_margin_ge_40000000",
+      "kind": "top_margin_ge",
+      "class": 2,
+      "threshold": 40000000
+    },
+    {
+      "name": "top_ARR_margin_ge_80000000",
+      "kind": "top_margin_ge",
+      "class": 2,
+      "threshold": 80000000
+    },
+    {
+      "name": "mem_ARR_ge_-80000000",
+      "kind": "mem_ge",
+      "class": 2,
+      "threshold": -80000000
+    },
+    {
+      "name": "mem_ARR_ge_-40000000",
+      "kind": "mem_ge",
+      "class": 2,
+      "threshold": -40000000
+    },
+    {
+      "name": "mem_ARR_ge_-20000000",
+      "kind": "mem_ge",
+      "class": 2,
+      "threshold": -20000000
+    },
+    {
+      "name": "mem_ARR_ge_0",
+      "kind": "mem_ge",
+      "class": 2,
+      "threshold": 0
+    },
+    {
+      "name": "mem_ARR_ge_20000000",
+      "kind": "mem_ge",
+      "class": 2,
+      "threshold": 20000000
+    },
+    {
+      "name": "mem_ARR_ge_40000000",
+      "kind": "mem_ge",
+      "class": 2,
+      "threshold": 40000000
+    },
+    {
+      "name": "mem_ARR_ge_80000000",
+      "kind": "mem_ge",
+      "class": 2,
+      "threshold": 80000000
+    },
+    {
+      "name": "pred_eq_AFF",
+      "kind": "pred_eq",
+      "class": 3
+    },
+    {
+      "name": "top_eq_AFF",
+      "kind": "top_eq",
+      "class": 3
+    },
+    {
+      "name": "top_AFF_margin_ge_0",
+      "kind": "top_margin_ge",
+      "class": 3,
+      "threshold": 0
+    },
+    {
+      "name": "top_AFF_margin_ge_1000000",
+      "kind": "top_margin_ge",
+      "class": 3,
+      "threshold": 1000000
+    },
+    {
+      "name": "top_AFF_margin_ge_2500000",
+      "kind": "top_margin_ge",
+      "class": 3,
+      "threshold": 2500000
+    },
+    {
+      "name": "top_AFF_margin_ge_5000000",
+      "kind": "top_margin_ge",
+      "class": 3,
+      "threshold": 5000000
+    },
+    {
+      "name": "top_AFF_margin_ge_10000000",
+      "kind": "top_margin_ge",
+      "class": 3,
+      "threshold": 10000000
+    },
+    {
+      "name": "top_AFF_margin_ge_20000000",
+      "kind": "top_margin_ge",
+      "class": 3,
+      "threshold": 20000000
+    },
+    {
+      "name": "top_AFF_margin_ge_40000000",
+      "kind": "top_margin_ge",
+      "class": 3,
+      "threshold": 40000000
+    },
+    {
+      "name": "top_AFF_margin_ge_80000000",
+      "kind": "top_margin_ge",
+      "class": 3,
+      "threshold": 80000000
+    },
+    {
+      "name": "mem_AFF_ge_-80000000",
+      "kind": "mem_ge",
+      "class": 3,
+      "threshold": -80000000
+    },
+    {
+      "name": "mem_AFF_ge_-40000000",
+      "kind": "mem_ge",
+      "class": 3,
+      "threshold": -40000000
+    },
+    {
+      "name": "mem_AFF_ge_-20000000",
+      "kind": "mem_ge",
+      "class": 3,
+      "threshold": -20000000
+    },
+    {
+      "name": "mem_AFF_ge_0",
+      "kind": "mem_ge",
+      "class": 3,
+      "threshold": 0
+    },
+    {
+      "name": "mem_AFF_ge_20000000",
+      "kind": "mem_ge",
+      "class": 3,
+      "threshold": 20000000
+    },
+    {
+      "name": "mem_AFF_ge_40000000",
+      "kind": "mem_ge",
+      "class": 3,
+      "threshold": 40000000
+    },
+    {
+      "name": "mem_AFF_ge_80000000",
+      "kind": "mem_ge",
+      "class": 3,
+      "threshold": 80000000
+    },
+    {
+      "name": "beat_count_ge_30",
+      "kind": "count_ge",
+      "field": "beat_count",
+      "threshold": 30
+    },
+    {
+      "name": "beat_count_ge_40",
+      "kind": "count_ge",
+      "field": "beat_count",
+      "threshold": 40
+    },
+    {
+      "name": "beat_count_ge_50",
+      "kind": "count_ge",
+      "field": "beat_count",
+      "threshold": 50
+    },
+    {
+      "name": "beat_count_ge_60",
+      "kind": "count_ge",
+      "field": "beat_count",
+      "threshold": 60
+    },
+    {
+      "name": "beat_count_ge_75",
+      "kind": "count_ge",
+      "field": "beat_count",
+      "threshold": 75
+    },
+    {
+      "name": "beat_count_ge_90",
+      "kind": "count_ge",
+      "field": "beat_count",
+      "threshold": 90
+    },
+    {
+      "name": "beat_count_ge_110",
+      "kind": "count_ge",
+      "field": "beat_count",
+      "threshold": 110
+    },
+    {
+      "name": "beat_count_ge_130",
+      "kind": "count_ge",
+      "field": "beat_count",
+      "threshold": 130
+    },
+    {
+      "name": "pnn_mismatch_count_ge_1",
+      "kind": "count_ge",
+      "field": "pnn_mismatch_count",
+      "threshold": 1
+    },
+    {
+      "name": "pnn_mismatch_count_ge_3",
+      "kind": "count_ge",
+      "field": "pnn_mismatch_count",
+      "threshold": 3
+    },
+    {
+      "name": "pnn_mismatch_count_ge_5",
+      "kind": "count_ge",
+      "field": "pnn_mismatch_count",
+      "threshold": 5
+    },
+    {
+      "name": "pnn_mismatch_count_ge_8",
+      "kind": "count_ge",
+      "field": "pnn_mismatch_count",
+      "threshold": 8
+    },
+    {
+      "name": "pnn_mismatch_count_ge_12",
+      "kind": "count_ge",
+      "field": "pnn_mismatch_count",
+      "threshold": 12
+    },
+    {
+      "name": "pnn_mismatch_count_ge_18",
+      "kind": "count_ge",
+      "field": "pnn_mismatch_count",
+      "threshold": 18
+    },
+    {
+      "name": "pnn_mismatch_count_ge_25",
+      "kind": "count_ge",
+      "field": "pnn_mismatch_count",
+      "threshold": 25
+    },
+    {
+      "name": "pnn_mismatch_count_ge_35",
+      "kind": "count_ge",
+      "field": "pnn_mismatch_count",
+      "threshold": 35
+    },
+    {
+      "name": "pnn_mismatch_count_ge_50",
+      "kind": "count_ge",
+      "field": "pnn_mismatch_count",
+      "threshold": 50
+    },
+    {
+      "name": "ectopic_pair_count_ge_1",
+      "kind": "count_ge",
+      "field": "ectopic_pair_count",
+      "threshold": 1
+    },
+    {
+      "name": "ectopic_pair_count_ge_3",
+      "kind": "count_ge",
+      "field": "ectopic_pair_count",
+      "threshold": 3
+    },
+    {
+      "name": "ectopic_pair_count_ge_5",
+      "kind": "count_ge",
+      "field": "ectopic_pair_count",
+      "threshold": 5
+    },
+    {
+      "name": "ectopic_pair_count_ge_8",
+      "kind": "count_ge",
+      "field": "ectopic_pair_count",
+      "threshold": 8
+    },
+    {
+      "name": "ectopic_pair_count_ge_12",
+      "kind": "count_ge",
+      "field": "ectopic_pair_count",
+      "threshold": 12
+    },
+    {
+      "name": "ectopic_pair_count_ge_18",
+      "kind": "count_ge",
+      "field": "ectopic_pair_count",
+      "threshold": 18
+    },
+    {
+      "name": "ectopic_pair_count_ge_25",
+      "kind": "count_ge",
+      "field": "ectopic_pair_count",
+      "threshold": 25
+    },
+    {
+      "name": "rdm_ge50_count_ge_1",
+      "kind": "count_ge",
+      "field": "rdm_ge50_count",
+      "threshold": 1
+    },
+    {
+      "name": "rdm_ge50_count_ge_3",
+      "kind": "count_ge",
+      "field": "rdm_ge50_count",
+      "threshold": 3
+    },
+    {
+      "name": "rdm_ge50_count_ge_5",
+      "kind": "count_ge",
+      "field": "rdm_ge50_count",
+      "threshold": 5
+    },
+    {
+      "name": "rdm_ge50_count_ge_8",
+      "kind": "count_ge",
+      "field": "rdm_ge50_count",
+      "threshold": 8
+    },
+    {
+      "name": "rdm_ge50_count_ge_12",
+      "kind": "count_ge",
+      "field": "rdm_ge50_count",
+      "threshold": 12
+    },
+    {
+      "name": "rdm_ge50_count_ge_18",
+      "kind": "count_ge",
+      "field": "rdm_ge50_count",
+      "threshold": 18
+    },
+    {
+      "name": "rdm_ge50_count_ge_25",
+      "kind": "count_ge",
+      "field": "rdm_ge50_count",
+      "threshold": 25
+    },
+    {
+      "name": "rdm_ge50_count_ge_40",
+      "kind": "count_ge",
+      "field": "rdm_ge50_count",
+      "threshold": 40
+    },
+    {
+      "name": "rdm_ge50_count_ge_60",
+      "kind": "count_ge",
+      "field": "rdm_ge50_count",
+      "threshold": 60
+    },
+    {
+      "name": "rdm_ge100_count_ge_1",
+      "kind": "count_ge",
+      "field": "rdm_ge100_count",
+      "threshold": 1
+    },
+    {
+      "name": "rdm_ge100_count_ge_3",
+      "kind": "count_ge",
+      "field": "rdm_ge100_count",
+      "threshold": 3
+    },
+    {
+      "name": "rdm_ge100_count_ge_5",
+      "kind": "count_ge",
+      "field": "rdm_ge100_count",
+      "threshold": 5
+    },
+    {
+      "name": "rdm_ge100_count_ge_8",
+      "kind": "count_ge",
+      "field": "rdm_ge100_count",
+      "threshold": 8
+    },
+    {
+      "name": "rdm_ge100_count_ge_12",
+      "kind": "count_ge",
+      "field": "rdm_ge100_count",
+      "threshold": 12
+    },
+    {
+      "name": "rdm_ge100_count_ge_18",
+      "kind": "count_ge",
+      "field": "rdm_ge100_count",
+      "threshold": 18
+    },
+    {
+      "name": "rdm_ge100_count_ge_25",
+      "kind": "count_ge",
+      "field": "rdm_ge100_count",
+      "threshold": 25
+    },
+    {
+      "name": "qrs_maf_count_ge_1",
+      "kind": "count_ge",
+      "field": "qrs_maf_count",
+      "threshold": 1
+    },
+    {
+      "name": "qrs_maf_count_ge_3",
+      "kind": "count_ge",
+      "field": "qrs_maf_count",
+      "threshold": 3
+    },
+    {
+      "name": "qrs_maf_count_ge_5",
+      "kind": "count_ge",
+      "field": "qrs_maf_count",
+      "threshold": 5
+    },
+    {
+      "name": "qrs_maf_count_ge_8",
+      "kind": "count_ge",
+      "field": "qrs_maf_count",
+      "threshold": 8
+    },
+    {
+      "name": "qrs_maf_count_ge_12",
+      "kind": "count_ge",
+      "field": "qrs_maf_count",
+      "threshold": 12
+    },
+    {
+      "name": "qrs_maf_count_ge_18",
+      "kind": "count_ge",
+      "field": "qrs_maf_count",
+      "threshold": 18
+    },
+    {
+      "name": "qrs_maf_count_ge_25",
+      "kind": "count_ge",
+      "field": "qrs_maf_count",
+      "threshold": 25
+    },
+    {
+      "name": "qrs_maf_count_ge_40",
+      "kind": "count_ge",
+      "field": "qrs_maf_count",
+      "threshold": 40
+    },
+    {
+      "name": "qrs_width_abn_count_ge_1",
+      "kind": "count_ge",
+      "field": "qrs_width_abn_count",
+      "threshold": 1
+    },
+    {
+      "name": "qrs_width_abn_count_ge_3",
+      "kind": "count_ge",
+      "field": "qrs_width_abn_count",
+      "threshold": 3
+    },
+    {
+      "name": "qrs_width_abn_count_ge_5",
+      "kind": "count_ge",
+      "field": "qrs_width_abn_count",
+      "threshold": 5
+    },
+    {
+      "name": "qrs_width_abn_count_ge_8",
+      "kind": "count_ge",
+      "field": "qrs_width_abn_count",
+      "threshold": 8
+    },
+    {
+      "name": "qrs_width_abn_count_ge_12",
+      "kind": "count_ge",
+      "field": "qrs_width_abn_count",
+      "threshold": 12
+    },
+    {
+      "name": "qrs_width_abn_count_ge_18",
+      "kind": "count_ge",
+      "field": "qrs_width_abn_count",
+      "threshold": 18
+    },
+    {
+      "name": "qrs_width_abn_count_ge_25",
+      "kind": "count_ge",
+      "field": "qrs_width_abn_count",
+      "threshold": 25
+    },
+    {
+      "name": "qrs_energy_abn_count_ge_1",
+      "kind": "count_ge",
+      "field": "qrs_energy_abn_count",
+      "threshold": 1
+    },
+    {
+      "name": "qrs_energy_abn_count_ge_3",
+      "kind": "count_ge",
+      "field": "qrs_energy_abn_count",
+      "threshold": 3
+    },
+    {
+      "name": "qrs_energy_abn_count_ge_5",
+      "kind": "count_ge",
+      "field": "qrs_energy_abn_count",
+      "threshold": 5
+    },
+    {
+      "name": "qrs_energy_abn_count_ge_8",
+      "kind": "count_ge",
+      "field": "qrs_energy_abn_count",
+      "threshold": 8
+    },
+    {
+      "name": "qrs_energy_abn_count_ge_12",
+      "kind": "count_ge",
+      "field": "qrs_energy_abn_count",
+      "threshold": 12
+    },
+    {
+      "name": "qrs_energy_abn_count_ge_18",
+      "kind": "count_ge",
+      "field": "qrs_energy_abn_count",
+      "threshold": 18
+    },
+    {
+      "name": "qrs_energy_abn_count_ge_25",
+      "kind": "count_ge",
+      "field": "qrs_energy_abn_count",
+      "threshold": 25
+    },
+    {
+      "name": "rbbb_delay_like_count_ge_1",
+      "kind": "count_ge",
+      "field": "rbbb_delay_like_count",
+      "threshold": 1
+    },
+    {
+      "name": "rbbb_delay_like_count_ge_3",
+      "kind": "count_ge",
+      "field": "rbbb_delay_like_count",
+      "threshold": 3
+    },
+    {
+      "name": "rbbb_delay_like_count_ge_5",
+      "kind": "count_ge",
+      "field": "rbbb_delay_like_count",
+      "threshold": 5
+    },
+    {
+      "name": "rbbb_delay_like_count_ge_8",
+      "kind": "count_ge",
+      "field": "rbbb_delay_like_count",
+      "threshold": 8
+    },
+    {
+      "name": "rbbb_delay_like_count_ge_12",
+      "kind": "count_ge",
+      "field": "rbbb_delay_like_count",
+      "threshold": 12
+    },
+    {
+      "name": "rbbb_delay_like_count_ge_18",
+      "kind": "count_ge",
+      "field": "rbbb_delay_like_count",
+      "threshold": 18
+    },
+    {
+      "name": "rbbb_delay_like_count_ge_25",
+      "kind": "count_ge",
+      "field": "rbbb_delay_like_count",
+      "threshold": 25
+    },
+    {
+      "name": "rbbb_delay_applied_count_ge_1",
+      "kind": "count_ge",
+      "field": "rbbb_delay_applied_count",
+      "threshold": 1
+    },
+    {
+      "name": "rbbb_delay_applied_count_ge_3",
+      "kind": "count_ge",
+      "field": "rbbb_delay_applied_count",
+      "threshold": 3
+    },
+    {
+      "name": "rbbb_delay_applied_count_ge_5",
+      "kind": "count_ge",
+      "field": "rbbb_delay_applied_count",
+      "threshold": 5
+    },
+    {
+      "name": "rbbb_delay_applied_count_ge_8",
+      "kind": "count_ge",
+      "field": "rbbb_delay_applied_count",
+      "threshold": 8
+    },
+    {
+      "name": "rbbb_delay_applied_count_ge_12",
+      "kind": "count_ge",
+      "field": "rbbb_delay_applied_count",
+      "threshold": 12
+    },
+    {
+      "name": "rbbb_delay_applied_count_ge_18",
+      "kind": "count_ge",
+      "field": "rbbb_delay_applied_count",
+      "threshold": 18
+    },
+    {
+      "name": "rbbb_delay_applied_count_ge_25",
+      "kind": "count_ge",
+      "field": "rbbb_delay_applied_count",
+      "threshold": 25
+    },
+    {
+      "name": "pre_qrs_bump_count_ge_1",
+      "kind": "count_ge",
+      "field": "pre_qrs_bump_count",
+      "threshold": 1
+    },
+    {
+      "name": "pre_qrs_bump_count_ge_5",
+      "kind": "count_ge",
+      "field": "pre_qrs_bump_count",
+      "threshold": 5
+    },
+    {
+      "name": "pre_qrs_bump_count_ge_15",
+      "kind": "count_ge",
+      "field": "pre_qrs_bump_count",
+      "threshold": 15
+    },
+    {
+      "name": "pre_qrs_bump_count_ge_30",
+      "kind": "count_ge",
+      "field": "pre_qrs_bump_count",
+      "threshold": 30
+    },
+    {
+      "name": "pre_qrs_bump_count_ge_45",
+      "kind": "count_ge",
+      "field": "pre_qrs_bump_count",
+      "threshold": 45
+    },
+    {
+      "name": "pre_qrs_bump_count_ge_60",
+      "kind": "count_ge",
+      "field": "pre_qrs_bump_count",
+      "threshold": 60
+    },
+    {
+      "name": "pre_qrs_bump_count_ge_90",
+      "kind": "count_ge",
+      "field": "pre_qrs_bump_count",
+      "threshold": 90
+    },
+    {
+      "name": "dscr_flip_count_ge_1",
+      "kind": "count_ge",
+      "field": "dscr_flip_count",
+      "threshold": 1
+    },
+    {
+      "name": "dscr_flip_count_ge_20",
+      "kind": "count_ge",
+      "field": "dscr_flip_count",
+      "threshold": 20
+    },
+    {
+      "name": "dscr_flip_count_ge_50",
+      "kind": "count_ge",
+      "field": "dscr_flip_count",
+      "threshold": 50
+    },
+    {
+      "name": "dscr_flip_count_ge_80",
+      "kind": "count_ge",
+      "field": "dscr_flip_count",
+      "threshold": 80
+    },
+    {
+      "name": "dscr_flip_count_ge_120",
+      "kind": "count_ge",
+      "field": "dscr_flip_count",
+      "threshold": 120
+    },
+    {
+      "name": "dscr_flip_count_ge_180",
+      "kind": "count_ge",
+      "field": "dscr_flip_count",
+      "threshold": 180
+    },
+    {
+      "name": "dscr_flip_count_ge_250",
+      "kind": "count_ge",
+      "field": "dscr_flip_count",
+      "threshold": 250
+    },
+    {
+      "name": "dscr_slope_count_ge_1",
+      "kind": "count_ge",
+      "field": "dscr_slope_count",
+      "threshold": 1
+    },
+    {
+      "name": "dscr_slope_count_ge_250",
+      "kind": "count_ge",
+      "field": "dscr_slope_count",
+      "threshold": 250
+    },
+    {
+      "name": "dscr_slope_count_ge_750",
+      "kind": "count_ge",
+      "field": "dscr_slope_count",
+      "threshold": 750
+    },
+    {
+      "name": "dscr_slope_count_ge_1500",
+      "kind": "count_ge",
+      "field": "dscr_slope_count",
+      "threshold": 1500
+    },
+    {
+      "name": "dscr_slope_count_ge_3000",
+      "kind": "count_ge",
+      "field": "dscr_slope_count",
+      "threshold": 3000
+    },
+    {
+      "name": "dscr_slope_count_ge_6000",
+      "kind": "count_ge",
+      "field": "dscr_slope_count",
+      "threshold": 6000
+    },
+    {
+      "name": "dscr_slope_count_ge_10000",
+      "kind": "count_ge",
+      "field": "dscr_slope_count",
+      "threshold": 10000
+    },
+    {
+      "name": "abnormal_evidence_count_ge_1",
+      "kind": "count_ge",
+      "field": "abnormal_evidence_count",
+      "threshold": 1
+    },
+    {
+      "name": "abnormal_evidence_count_ge_3",
+      "kind": "count_ge",
+      "field": "abnormal_evidence_count",
+      "threshold": 3
+    },
+    {
+      "name": "abnormal_evidence_count_ge_5",
+      "kind": "count_ge",
+      "field": "abnormal_evidence_count",
+      "threshold": 5
+    },
+    {
+      "name": "abnormal_evidence_count_ge_8",
+      "kind": "count_ge",
+      "field": "abnormal_evidence_count",
+      "threshold": 8
+    },
+    {
+      "name": "abnormal_evidence_count_ge_12",
+      "kind": "count_ge",
+      "field": "abnormal_evidence_count",
+      "threshold": 12
+    },
+    {
+      "name": "abnormal_evidence_count_ge_18",
+      "kind": "count_ge",
+      "field": "abnormal_evidence_count",
+      "threshold": 18
+    },
+    {
+      "name": "abnormal_evidence_count_ge_25",
+      "kind": "count_ge",
+      "field": "abnormal_evidence_count",
+      "threshold": 25
+    },
+    {
+      "name": "abnormal_evidence_count_ge_40",
+      "kind": "count_ge",
+      "field": "abnormal_evidence_count",
+      "threshold": 40
+    },
+    {
+      "name": "abnormal_evidence_count_ge_60",
+      "kind": "count_ge",
+      "field": "abnormal_evidence_count",
+      "threshold": 60
+    },
+    {
+      "name": "rhythm_irregular_evidence_count_ge_1",
+      "kind": "count_ge",
+      "field": "rhythm_irregular_evidence_count",
+      "threshold": 1
+    },
+    {
+      "name": "rhythm_irregular_evidence_count_ge_3",
+      "kind": "count_ge",
+      "field": "rhythm_irregular_evidence_count",
+      "threshold": 3
+    },
+    {
+      "name": "rhythm_irregular_evidence_count_ge_5",
+      "kind": "count_ge",
+      "field": "rhythm_irregular_evidence_count",
+      "threshold": 5
+    },
+    {
+      "name": "rhythm_irregular_evidence_count_ge_8",
+      "kind": "count_ge",
+      "field": "rhythm_irregular_evidence_count",
+      "threshold": 8
+    },
+    {
+      "name": "rhythm_irregular_evidence_count_ge_12",
+      "kind": "count_ge",
+      "field": "rhythm_irregular_evidence_count",
+      "threshold": 12
+    },
+    {
+      "name": "rhythm_irregular_evidence_count_ge_18",
+      "kind": "count_ge",
+      "field": "rhythm_irregular_evidence_count",
+      "threshold": 18
+    },
+    {
+      "name": "rhythm_irregular_evidence_count_ge_25",
+      "kind": "count_ge",
+      "field": "rhythm_irregular_evidence_count",
+      "threshold": 25
+    },
+    {
+      "name": "rhythm_irregular_evidence_count_ge_40",
+      "kind": "count_ge",
+      "field": "rhythm_irregular_evidence_count",
+      "threshold": 40
+    },
+    {
+      "name": "rhythm_irregular_evidence_count_ge_60",
+      "kind": "count_ge",
+      "field": "rhythm_irregular_evidence_count",
+      "threshold": 60
+    },
+    {
+      "name": "morphology_evidence_count_ge_1",
+      "kind": "count_ge",
+      "field": "morphology_evidence_count",
+      "threshold": 1
+    },
+    {
+      "name": "morphology_evidence_count_ge_3",
+      "kind": "count_ge",
+      "field": "morphology_evidence_count",
+      "threshold": 3
+    },
+    {
+      "name": "morphology_evidence_count_ge_5",
+      "kind": "count_ge",
+      "field": "morphology_evidence_count",
+      "threshold": 5
+    },
+    {
+      "name": "morphology_evidence_count_ge_8",
+      "kind": "count_ge",
+      "field": "morphology_evidence_count",
+      "threshold": 8
+    },
+    {
+      "name": "morphology_evidence_count_ge_12",
+      "kind": "count_ge",
+      "field": "morphology_evidence_count",
+      "threshold": 12
+    },
+    {
+      "name": "morphology_evidence_count_ge_18",
+      "kind": "count_ge",
+      "field": "morphology_evidence_count",
+      "threshold": 18
+    },
+    {
+      "name": "morphology_evidence_count_ge_25",
+      "kind": "count_ge",
+      "field": "morphology_evidence_count",
+      "threshold": 25
+    },
+    {
+      "name": "morphology_evidence_count_ge_40",
+      "kind": "count_ge",
+      "field": "morphology_evidence_count",
+      "threshold": 40
+    },
+    {
+      "name": "morphology_evidence_count_ge_60",
+      "kind": "count_ge",
+      "field": "morphology_evidence_count",
+      "threshold": 60
+    },
+    {
+      "name": "pnn_mismatch_count_le_0",
+      "kind": "count_le",
+      "field": "pnn_mismatch_count",
+      "threshold": 0
+    },
+    {
+      "name": "pnn_mismatch_count_le_1",
+      "kind": "count_le",
+      "field": "pnn_mismatch_count",
+      "threshold": 1
+    },
+    {
+      "name": "pnn_mismatch_count_le_3",
+      "kind": "count_le",
+      "field": "pnn_mismatch_count",
+      "threshold": 3
+    },
+    {
+      "name": "pnn_mismatch_count_le_5",
+      "kind": "count_le",
+      "field": "pnn_mismatch_count",
+      "threshold": 5
+    },
+    {
+      "name": "pnn_mismatch_count_le_8",
+      "kind": "count_le",
+      "field": "pnn_mismatch_count",
+      "threshold": 8
+    },
+    {
+      "name": "pnn_mismatch_count_le_12",
+      "kind": "count_le",
+      "field": "pnn_mismatch_count",
+      "threshold": 12
+    },
+    {
+      "name": "qrs_maf_count_le_0",
+      "kind": "count_le",
+      "field": "qrs_maf_count",
+      "threshold": 0
+    },
+    {
+      "name": "qrs_maf_count_le_1",
+      "kind": "count_le",
+      "field": "qrs_maf_count",
+      "threshold": 1
+    },
+    {
+      "name": "qrs_maf_count_le_3",
+      "kind": "count_le",
+      "field": "qrs_maf_count",
+      "threshold": 3
+    },
+    {
+      "name": "qrs_maf_count_le_5",
+      "kind": "count_le",
+      "field": "qrs_maf_count",
+      "threshold": 5
+    },
+    {
+      "name": "qrs_maf_count_le_8",
+      "kind": "count_le",
+      "field": "qrs_maf_count",
+      "threshold": 8
+    },
+    {
+      "name": "ectopic_pair_count_le_0",
+      "kind": "count_le",
+      "field": "ectopic_pair_count",
+      "threshold": 0
+    },
+    {
+      "name": "ectopic_pair_count_le_1",
+      "kind": "count_le",
+      "field": "ectopic_pair_count",
+      "threshold": 1
+    },
+    {
+      "name": "ectopic_pair_count_le_3",
+      "kind": "count_le",
+      "field": "ectopic_pair_count",
+      "threshold": 3
+    },
+    {
+      "name": "ectopic_pair_count_le_5",
+      "kind": "count_le",
+      "field": "ectopic_pair_count",
+      "threshold": 5
+    },
+    {
+      "name": "rdm_ge50_count_le_0",
+      "kind": "count_le",
+      "field": "rdm_ge50_count",
+      "threshold": 0
+    },
+    {
+      "name": "rdm_ge50_count_le_1",
+      "kind": "count_le",
+      "field": "rdm_ge50_count",
+      "threshold": 1
+    },
+    {
+      "name": "rdm_ge50_count_le_3",
+      "kind": "count_le",
+      "field": "rdm_ge50_count",
+      "threshold": 3
+    },
+    {
+      "name": "rdm_ge50_count_le_5",
+      "kind": "count_le",
+      "field": "rdm_ge50_count",
+      "threshold": 5
+    },
+    {
+      "name": "rdm_ge50_count_le_8",
+      "kind": "count_le",
+      "field": "rdm_ge50_count",
+      "threshold": 8
+    },
+    {
+      "name": "rbbb_delay_like_count_le_0",
+      "kind": "count_le",
+      "field": "rbbb_delay_like_count",
+      "threshold": 0
+    },
+    {
+      "name": "rbbb_delay_like_count_le_1",
+      "kind": "count_le",
+      "field": "rbbb_delay_like_count",
+      "threshold": 1
+    },
+    {
+      "name": "rbbb_delay_like_count_le_3",
+      "kind": "count_le",
+      "field": "rbbb_delay_like_count",
+      "threshold": 3
+    },
+    {
+      "name": "rbbb_delay_like_count_le_5",
+      "kind": "count_le",
+      "field": "rbbb_delay_like_count",
+      "threshold": 5
+    },
+    {
+      "name": "pnn_mis_rate_ge_3",
+      "kind": "ratio_ge",
+      "num": "pnn_mismatch_count",
+      "den": "pnn_decision_count",
+      "pct": 3
+    },
+    {
+      "name": "pnn_mis_rate_ge_5",
+      "kind": "ratio_ge",
+      "num": "pnn_mismatch_count",
+      "den": "pnn_decision_count",
+      "pct": 5
+    },
+    {
+      "name": "pnn_mis_rate_ge_8",
+      "kind": "ratio_ge",
+      "num": "pnn_mismatch_count",
+      "den": "pnn_decision_count",
+      "pct": 8
+    },
+    {
+      "name": "pnn_mis_rate_ge_10",
+      "kind": "ratio_ge",
+      "num": "pnn_mismatch_count",
+      "den": "pnn_decision_count",
+      "pct": 10
+    },
+    {
+      "name": "pnn_mis_rate_ge_15",
+      "kind": "ratio_ge",
+      "num": "pnn_mismatch_count",
+      "den": "pnn_decision_count",
+      "pct": 15
+    },
+    {
+      "name": "pnn_mis_rate_ge_20",
+      "kind": "ratio_ge",
+      "num": "pnn_mismatch_count",
+      "den": "pnn_decision_count",
+      "pct": 20
+    },
+    {
+      "name": "pnn_mis_rate_ge_30",
+      "kind": "ratio_ge",
+      "num": "pnn_mismatch_count",
+      "den": "pnn_decision_count",
+      "pct": 30
+    },
+    {
+      "name": "pnn_mis_rate_ge_40",
+      "kind": "ratio_ge",
+      "num": "pnn_mismatch_count",
+      "den": "pnn_decision_count",
+      "pct": 40
+    },
+    {
+      "name": "pnn_mis_rate_ge_55",
+      "kind": "ratio_ge",
+      "num": "pnn_mismatch_count",
+      "den": "pnn_decision_count",
+      "pct": 55
+    },
+    {
+      "name": "rdm_ge50_rate_ge_3",
+      "kind": "ratio_ge",
+      "num": "rdm_ge50_count",
+      "den": "rdm_valid_count",
+      "pct": 3
+    },
+    {
+      "name": "rdm_ge50_rate_ge_5",
+      "kind": "ratio_ge",
+      "num": "rdm_ge50_count",
+      "den": "rdm_valid_count",
+      "pct": 5
+    },
+    {
+      "name": "rdm_ge50_rate_ge_8",
+      "kind": "ratio_ge",
+      "num": "rdm_ge50_count",
+      "den": "rdm_valid_count",
+      "pct": 8
+    },
+    {
+      "name": "rdm_ge50_rate_ge_10",
+      "kind": "ratio_ge",
+      "num": "rdm_ge50_count",
+      "den": "rdm_valid_count",
+      "pct": 10
+    },
+    {
+      "name": "rdm_ge50_rate_ge_15",
+      "kind": "ratio_ge",
+      "num": "rdm_ge50_count",
+      "den": "rdm_valid_count",
+      "pct": 15
+    },
+    {
+      "name": "rdm_ge50_rate_ge_20",
+      "kind": "ratio_ge",
+      "num": "rdm_ge50_count",
+      "den": "rdm_valid_count",
+      "pct": 20
+    },
+    {
+      "name": "rdm_ge50_rate_ge_30",
+      "kind": "ratio_ge",
+      "num": "rdm_ge50_count",
+      "den": "rdm_valid_count",
+      "pct": 30
+    },
+    {
+      "name": "rdm_ge50_rate_ge_40",
+      "kind": "ratio_ge",
+      "num": "rdm_ge50_count",
+      "den": "rdm_valid_count",
+      "pct": 40
+    },
+    {
+      "name": "rdm_ge50_rate_ge_55",
+      "kind": "ratio_ge",
+      "num": "rdm_ge50_count",
+      "den": "rdm_valid_count",
+      "pct": 55
+    },
+    {
+      "name": "qrs_maf_rate_ge_3",
+      "kind": "ratio_ge",
+      "num": "qrs_maf_count",
+      "den": "beat_count",
+      "pct": 3
+    },
+    {
+      "name": "qrs_maf_rate_ge_5",
+      "kind": "ratio_ge",
+      "num": "qrs_maf_count",
+      "den": "beat_count",
+      "pct": 5
+    },
+    {
+      "name": "qrs_maf_rate_ge_8",
+      "kind": "ratio_ge",
+      "num": "qrs_maf_count",
+      "den": "beat_count",
+      "pct": 8
+    },
+    {
+      "name": "qrs_maf_rate_ge_10",
+      "kind": "ratio_ge",
+      "num": "qrs_maf_count",
+      "den": "beat_count",
+      "pct": 10
+    },
+    {
+      "name": "qrs_maf_rate_ge_15",
+      "kind": "ratio_ge",
+      "num": "qrs_maf_count",
+      "den": "beat_count",
+      "pct": 15
+    },
+    {
+      "name": "qrs_maf_rate_ge_20",
+      "kind": "ratio_ge",
+      "num": "qrs_maf_count",
+      "den": "beat_count",
+      "pct": 20
+    },
+    {
+      "name": "qrs_maf_rate_ge_30",
+      "kind": "ratio_ge",
+      "num": "qrs_maf_count",
+      "den": "beat_count",
+      "pct": 30
+    },
+    {
+      "name": "qrs_maf_rate_ge_40",
+      "kind": "ratio_ge",
+      "num": "qrs_maf_count",
+      "den": "beat_count",
+      "pct": 40
+    },
+    {
+      "name": "qrs_maf_rate_ge_55",
+      "kind": "ratio_ge",
+      "num": "qrs_maf_count",
+      "den": "beat_count",
+      "pct": 55
+    },
+    {
+      "name": "rdm_avg_ge_1",
+      "kind": "avg_ge",
+      "sum": "rdm_code_sum",
+      "den": "rdm_valid_count",
+      "threshold": 1
+    },
+    {
+      "name": "rdm_avg_ge_2",
+      "kind": "avg_ge",
+      "sum": "rdm_code_sum",
+      "den": "rdm_valid_count",
+      "threshold": 2
+    },
+    {
+      "name": "rdm_avg_ge_4",
+      "kind": "avg_ge",
+      "sum": "rdm_code_sum",
+      "den": "rdm_valid_count",
+      "threshold": 4
+    },
+    {
+      "name": "rdm_avg_ge_6",
+      "kind": "avg_ge",
+      "sum": "rdm_code_sum",
+      "den": "rdm_valid_count",
+      "threshold": 6
+    },
+    {
+      "name": "rdm_avg_ge_8",
+      "kind": "avg_ge",
+      "sum": "rdm_code_sum",
+      "den": "rdm_valid_count",
+      "threshold": 8
+    },
+    {
+      "name": "rdm_avg_ge_10",
+      "kind": "avg_ge",
+      "sum": "rdm_code_sum",
+      "den": "rdm_valid_count",
+      "threshold": 10
+    },
+    {
+      "name": "rdm_avg_ge_12",
+      "kind": "avg_ge",
+      "sum": "rdm_code_sum",
+      "den": "rdm_valid_count",
+      "threshold": 12
+    },
+    {
+      "name": "rdm_avg_ge_16",
+      "kind": "avg_ge",
+      "sum": "rdm_code_sum",
+      "den": "rdm_valid_count",
+      "threshold": 16
+    },
+    {
+      "name": "rdm_avg_ge_20",
+      "kind": "avg_ge",
+      "sum": "rdm_code_sum",
+      "den": "rdm_valid_count",
+      "threshold": 20
+    },
+    {
+      "name": "ram_avg_ge_2",
+      "kind": "avg_ge",
+      "sum": "ram_code_sum",
+      "den": "ram_code_count",
+      "threshold": 2
+    },
+    {
+      "name": "ram_avg_ge_4",
+      "kind": "avg_ge",
+      "sum": "ram_code_sum",
+      "den": "ram_code_count",
+      "threshold": 4
+    },
+    {
+      "name": "ram_avg_ge_6",
+      "kind": "avg_ge",
+      "sum": "ram_code_sum",
+      "den": "ram_code_count",
+      "threshold": 6
+    },
+    {
+      "name": "ram_avg_ge_8",
+      "kind": "avg_ge",
+      "sum": "ram_code_sum",
+      "den": "ram_code_count",
+      "threshold": 8
+    },
+    {
+      "name": "ram_avg_ge_10",
+      "kind": "avg_ge",
+      "sum": "ram_code_sum",
+      "den": "ram_code_count",
+      "threshold": 10
+    },
+    {
+      "name": "ram_avg_ge_14",
+      "kind": "avg_ge",
+      "sum": "ram_code_sum",
+      "den": "ram_code_count",
+      "threshold": 14
+    },
+    {
+      "name": "ram_avg_ge_18",
+      "kind": "avg_ge",
+      "sum": "ram_code_sum",
+      "den": "ram_code_count",
+      "threshold": 18
+    },
+    {
+      "name": "ram_avg_ge_24",
+      "kind": "avg_ge",
+      "sum": "ram_code_sum",
+      "den": "ram_code_count",
+      "threshold": 24
+    },
+    {
+      "name": "nsr_stability_strict",
+      "kind": "custom",
+      "custom": "nsr_stability_strict"
+    },
+    {
+      "name": "nsr_stability_soft",
+      "kind": "custom",
+      "custom": "nsr_stability_soft"
+    },
+    {
+      "name": "arr_burst_strong",
+      "kind": "custom",
+      "custom": "arr_burst_strong"
+    },
+    {
+      "name": "arr_episodic_soft",
+      "kind": "custom",
+      "custom": "arr_episodic_soft"
+    },
+    {
+      "name": "aff_irregular_persistent",
+      "kind": "custom",
+      "custom": "aff_irregular_persistent"
+    },
+    {
+      "name": "aff_irregular_soft",
+      "kind": "custom",
+      "custom": "aff_irregular_soft"
+    },
+    {
+      "name": "chf_morphology_low_irreg",
+      "kind": "custom",
+      "custom": "chf_morphology_low_irreg"
+    },
+    {
+      "name": "abnormal_priority_any",
+      "kind": "custom",
+      "custom": "abnormal_priority_any"
+    },
+    {
+      "name": "abnormal_priority_strong",
+      "kind": "custom",
+      "custom": "abnormal_priority_strong"
+    }
+  ],
+  "weights_by_class": {
+    "NSR": [
+      -4,
+      0,
+      0,
+      0,
+      -8,
+      -4,
+      24,
+      -16,
+      -20,
+      40,
+      -32,
+      24,
+      72,
+      -20,
+      -3,
+      77,
+      25,
+      1,
+      -20,
+      -20,
+      -20,
+      4,
+      8,
+      36,
+      16,
+      20,
+      4,
+      32,
+      -88,
+      -16,
+      12,
+      -48,
+      -24,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -16,
+      8,
+      20,
+      -8,
+      -40,
+      -12,
+      16,
+      -48,
+      -20,
+      -68,
+      -56,
+      64,
+      16,
+      0,
+      16,
+      16,
+      16,
+      -16,
+      -32,
+      -24,
+      -16,
+      -32,
+      -4,
+      -4,
+      -40,
+      16,
+      -8,
+      36,
+      12,
+      0,
+      0,
+      4,
+      -68,
+      -44,
+      -12,
+      0,
+      0,
+      0,
+      0,
+      4,
+      8,
+      -8,
+      -76,
+      -20,
+      -40,
+      16,
+      64,
+      40,
+      48,
+      -64,
+      -4,
+      8,
+      48,
+      40,
+      20,
+      20,
+      4,
+      -44,
+      56,
+      48,
+      -16,
+      -64,
+      40,
+      0,
+      24,
+      -44,
+      -20,
+      -8,
+      8,
+      -72,
+      16,
+      8,
+      4,
+      4,
+      0,
+      24,
+      36,
+      56,
+      20,
+      28,
+      -4,
+      4,
+      68,
+      44,
+      56,
+      36,
+      -116,
+      -64,
+      -40,
+      -32,
+      12,
+      44,
+      44,
+      -36,
+      0,
+      -8,
+      4,
+      -16,
+      -24,
+      -16,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      4,
+      12,
+      20,
+      4,
+      -44,
+      -8,
+      0,
+      12,
+      32,
+      44,
+      -124,
+      40,
+      0,
+      0,
+      32,
+      48,
+      48,
+      -48,
+      -72,
+      0,
+      0,
+      -56,
+      -52,
+      -16,
+      -40,
+      -16,
+      16,
+      -28,
+      -80,
+      -60,
+      20,
+      12,
+      52,
+      -60,
+      16,
+      24,
+      -16,
+      -64,
+      -8,
+      -24,
+      36,
+      -24,
+      -8,
+      -8,
+      0,
+      12,
+      16,
+      36,
+      -8,
+      -52,
+      -4,
+      24,
+      64,
+      20,
+      -12,
+      -44,
+      -20,
+      40,
+      -36,
+      -52,
+      44,
+      0,
+      -8,
+      -24,
+      -8,
+      0,
+      24,
+      -16,
+      32,
+      32,
+      -20,
+      -8,
+      12,
+      -12,
+      8,
+      -20,
+      20,
+      -24,
+      20,
+      -4,
+      28,
+      16,
+      8,
+      -24,
+      -24,
+      -32,
+      -32,
+      16,
+      20,
+      68,
+      40,
+      16,
+      20,
+      -12,
+      -68,
+      0,
+      0,
+      36,
+      44,
+      -4,
+      -28,
+      48,
+      60,
+      48,
+      -12,
+      36,
+      0,
+      0,
+      36,
+      92,
+      68,
+      -64,
+      0,
+      108,
+      240,
+      -20,
+      96,
+      40,
+      -8,
+      28,
+      24,
+      16,
+      -20,
+      -32,
+      -92
+    ],
+    "CHF": [
+      -16,
+      -16,
+      -16,
+      -16,
+      -16,
+      -4,
+      -8,
+      12,
+      16,
+      -24,
+      12,
+      -72,
+      -64,
+      16,
+      12,
+      -12,
+      -8,
+      0,
+      24,
+      24,
+      24,
+      20,
+      16,
+      -16,
+      0,
+      20,
+      28,
+      28,
+      116,
+      72,
+      12,
+      37,
+      129,
+      45,
+      1,
+      -20,
+      -20,
+      -20,
+      -20,
+      -4,
+      4,
+      12,
+      8,
+      4,
+      -16,
+      -24,
+      12,
+      16,
+      -24,
+      36,
+      -24,
+      -4,
+      -4,
+      -4,
+      -4,
+      8,
+      16,
+      40,
+      16,
+      -4,
+      12,
+      0,
+      -36,
+      -64,
+      20,
+      -24,
+      -4,
+      0,
+      0,
+      -8,
+      40,
+      -20,
+      16,
+      0,
+      0,
+      0,
+      0,
+      -16,
+      -12,
+      -12,
+      16,
+      28,
+      8,
+      -48,
+      8,
+      -4,
+      4,
+      0,
+      -12,
+      -12,
+      4,
+      12,
+      -4,
+      -12,
+      8,
+      16,
+      -12,
+      -52,
+      4,
+      -68,
+      -24,
+      0,
+      -16,
+      0,
+      -16,
+      -24,
+      -8,
+      16,
+      -4,
+      -16,
+      -28,
+      36,
+      4,
+      8,
+      -48,
+      -8,
+      -12,
+      -48,
+      -4,
+      0,
+      -28,
+      -24,
+      -36,
+      -24,
+      72,
+      -8,
+      44,
+      44,
+      20,
+      12,
+      0,
+      -20,
+      -40,
+      -40,
+      -32,
+      -8,
+      8,
+      8,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      52,
+      100,
+      64,
+      -4,
+      48,
+      16,
+      0,
+      56,
+      -112,
+      -48,
+      28,
+      -4,
+      0,
+      0,
+      -72,
+      -32,
+      -80,
+      112,
+      108,
+      20,
+      0,
+      24,
+      -8,
+      52,
+      80,
+      28,
+      52,
+      44,
+      24,
+      0,
+      -12,
+      0,
+      -24,
+      16,
+      -60,
+      -12,
+      -44,
+      -20,
+      -20,
+      20,
+      -8,
+      4,
+      -8,
+      -48,
+      12,
+      0,
+      -52,
+      0,
+      0,
+      12,
+      8,
+      -4,
+      -12,
+      -16,
+      0,
+      -24,
+      -28,
+      -16,
+      -48,
+      -20,
+      8,
+      -20,
+      -28,
+      -4,
+      -20,
+      -8,
+      32,
+      16,
+      4,
+      52,
+      12,
+      20,
+      -8,
+      28,
+      0,
+      -20,
+      36,
+      52,
+      20,
+      4,
+      -24,
+      4,
+      -8,
+      12,
+      12,
+      -4,
+      4,
+      -12,
+      -4,
+      -60,
+      0,
+      -4,
+      -28,
+      24,
+      16,
+      20,
+      0,
+      -40,
+      0,
+      -4,
+      -56,
+      -20,
+      -56,
+      -36,
+      -36,
+      60,
+      0,
+      0,
+      56,
+      -44,
+      28,
+      56,
+      -16,
+      -8,
+      -8,
+      64,
+      36,
+      20,
+      32,
+      4,
+      40,
+      -4,
+      -4,
+      60,
+      32
+    ],
+    "ARR": [
+      0,
+      -8,
+      -8,
+      -8,
+      0,
+      -16,
+      -20,
+      0,
+      28,
+      12,
+      36,
+      16,
+      -72,
+      -8,
+      -8,
+      -28,
+      -16,
+      0,
+      -8,
+      -8,
+      -8,
+      -28,
+      -28,
+      -24,
+      -8,
+      -64,
+      -28,
+      -36,
+      -8,
+      -132,
+      4,
+      -24,
+      -52,
+      -28,
+      0,
+      24,
+      24,
+      24,
+      36,
+      -36,
+      -20,
+      -8,
+      32,
+      48,
+      28,
+      24,
+      44,
+      20,
+      89,
+      -23,
+      53,
+      5,
+      -8,
+      -8,
+      -8,
+      4,
+      -4,
+      -16,
+      -12,
+      -4,
+      -36,
+      -4,
+      -4,
+      12,
+      44,
+      -60,
+      -16,
+      0,
+      0,
+      24,
+      -136,
+      88,
+      4,
+      -4,
+      0,
+      0,
+      0,
+      8,
+      -20,
+      16,
+      28,
+      24,
+      16,
+      36,
+      -16,
+      -20,
+      -16,
+      64,
+      28,
+      20,
+      24,
+      4,
+      -4,
+      4,
+      -20,
+      12,
+      -52,
+      -4,
+      -8,
+      -36,
+      8,
+      0,
+      -4,
+      28,
+      32,
+      -28,
+      -28,
+      8,
+      -4,
+      20,
+      32,
+      -20,
+      -36,
+      -32,
+      0,
+      -24,
+      -20,
+      20,
+      -32,
+      -16,
+      -28,
+      0,
+      -32,
+      -12,
+      76,
+      48,
+      24,
+      -12,
+      -4,
+      -28,
+      -16,
+      0,
+      -40,
+      -28,
+      36,
+      -8,
+      -12,
+      12,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      48,
+      16,
+      -24,
+      -16,
+      0,
+      -56,
+      -8,
+      -60,
+      16,
+      -4,
+      0,
+      0,
+      164,
+      12,
+      -40,
+      -8,
+      -16,
+      -8,
+      0,
+      28,
+      68,
+      -40,
+      -48,
+      52,
+      -32,
+      28,
+      44,
+      28,
+      4,
+      -8,
+      -52,
+      12,
+      72,
+      -24,
+      40,
+      24,
+      -36,
+      24,
+      4,
+      68,
+      40,
+      84,
+      -36,
+      -24,
+      -4,
+      -20,
+      -8,
+      36,
+      8,
+      4,
+      -28,
+      -8,
+      -20,
+      24,
+      44,
+      -40,
+      72,
+      16,
+      -48,
+      0,
+      -8,
+      -4,
+      0,
+      8,
+      -52,
+      -28,
+      0,
+      0,
+      52,
+      -12,
+      -16,
+      -48,
+      -48,
+      -8,
+      -88,
+      -68,
+      28,
+      0,
+      4,
+      -12,
+      -8,
+      -16,
+      -20,
+      -28,
+      -20,
+      -20,
+      -20,
+      0,
+      -4,
+      24,
+      -8,
+      -36,
+      12,
+      -16,
+      28,
+      20,
+      -16,
+      36,
+      52,
+      -80,
+      -4,
+      -24,
+      68,
+      -16,
+      0,
+      0,
+      -64,
+      4,
+      -36,
+      76,
+      76,
+      56,
+      -172,
+      -24,
+      -112,
+      -64,
+      -24,
+      -16,
+      8,
+      -8,
+      12,
+      8,
+      80
+    ],
+    "AFF": [
+      20,
+      24,
+      24,
+      24,
+      24,
+      24,
+      4,
+      4,
+      -24,
+      -28,
+      -16,
+      32,
+      64,
+      12,
+      0,
+      -36,
+      0,
+      0,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      -8,
+      24,
+      -4,
+      -24,
+      -20,
+      76,
+      -28,
+      36,
+      -52,
+      -16,
+      0,
+      -4,
+      -4,
+      -4,
+      0,
+      32,
+      -4,
+      4,
+      0,
+      -40,
+      -28,
+      48,
+      -36,
+      32,
+      -8,
+      -76,
+      -44,
+      0,
+      -4,
+      -4,
+      -4,
+      4,
+      20,
+      0,
+      12,
+      40,
+      28,
+      8,
+      80,
+      36,
+      -56,
+      49,
+      9,
+      1,
+      1,
+      -20,
+      164,
+      -24,
+      -8,
+      4,
+      0,
+      0,
+      0,
+      4,
+      24,
+      4,
+      32,
+      -32,
+      16,
+      -4,
+      -56,
+      -16,
+      -36,
+      0,
+      -12,
+      -16,
+      -76,
+      -56,
+      -12,
+      -12,
+      8,
+      16,
+      8,
+      8,
+      20,
+      168,
+      -24,
+      0,
+      -4,
+      16,
+      4,
+      60,
+      28,
+      48,
+      -8,
+      -12,
+      -8,
+      -20,
+      32,
+      0,
+      12,
+      -24,
+      12,
+      0,
+      40,
+      12,
+      -12,
+      -20,
+      12,
+      0,
+      -32,
+      24,
+      -28,
+      0,
+      -28,
+      -28,
+      -28,
+      56,
+      80,
+      76,
+      -8,
+      32,
+      28,
+      -4,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -56,
+      -112,
+      -132,
+      -16,
+      20,
+      8,
+      0,
+      -12,
+      88,
+      64,
+      80,
+      -32,
+      0,
+      0,
+      -124,
+      -28,
+      72,
+      -56,
+      -20,
+      -12,
+      0,
+      4,
+      -8,
+      4,
+      8,
+      -64,
+      -36,
+      -44,
+      12,
+      32,
+      -12,
+      -4,
+      24,
+      32,
+      -28,
+      12,
+      20,
+      60,
+      64,
+      -20,
+      -32,
+      -48,
+      -24,
+      -28,
+      24,
+      12,
+      40,
+      -16,
+      16,
+      4,
+      -12,
+      -24,
+      -24,
+      4,
+      32,
+      44,
+      4,
+      16,
+      12,
+      56,
+      -4,
+      20,
+      44,
+      32,
+      28,
+      0,
+      -4,
+      28,
+      -36,
+      -84,
+      -44,
+      0,
+      12,
+      32,
+      40,
+      48,
+      32,
+      40,
+      -68,
+      0,
+      -8,
+      -8,
+      8,
+      28,
+      32,
+      64,
+      48,
+      16,
+      4,
+      -8,
+      -36,
+      -36,
+      16,
+      24,
+      40,
+      -4,
+      -28,
+      -16,
+      -28,
+      -28,
+      32,
+      52,
+      0,
+      12,
+      -20,
+      -80,
+      0,
+      0,
+      -28,
+      -52,
+      -60,
+      -68,
+      -60,
+      -156,
+      -60,
+      -20,
+      -20,
+      4,
+      0,
+      -16,
+      -72,
+      -4,
+      12,
+      -36,
+      -20
+    ]
+  },
+  "metrics": {
+    "train": {
+      "accuracy": 0.8657407407407407,
+      "correct": 935,
+      "total": 1080,
+      "macro_precision": 0.8659115183244739,
+      "macro_recall": 0.8657407407407407,
+      "macro_f1": 0.8649620484476072,
+      "balanced_accuracy": 0.8657407407407407,
+      "min_recall": 0.774074074074074,
+      "recall_range": 0.1703703703703704,
+      "per_class": {
+        "NSR": {
+          "precision": 0.8914728682170543,
+          "recall": 0.8518518518518519,
+          "f1": 0.8712121212121213,
+          "support": 270
+        },
+        "CHF": {
+          "precision": 0.8253424657534246,
+          "recall": 0.8925925925925926,
+          "f1": 0.8576512455516014,
+          "support": 270
+        },
+        "ARR": {
+          "precision": 0.8393574297188755,
+          "recall": 0.774074074074074,
+          "f1": 0.8053949903660886,
+          "support": 270
+        },
+        "AFF": {
+          "precision": 0.9074733096085409,
+          "recall": 0.9444444444444444,
+          "f1": 0.9255898366606171,
+          "support": 270
+        }
+      },
+      "confusion_matrix": [
+        [
+          230,
+          24,
+          12,
+          4
+        ],
+        [
+          3,
+          241,
+          18,
+          8
+        ],
+        [
+          24,
+          23,
+          209,
+          14
+        ],
+        [
+          1,
+          4,
+          10,
+          255
+        ]
+      ]
+    },
+    "val": {
+      "accuracy": 0.8264925373134329,
+      "correct": 443,
+      "total": 536,
+      "macro_precision": 0.8272238911323418,
+      "macro_recall": 0.8264925373134329,
+      "macro_f1": 0.8266169376009193,
+      "balanced_accuracy": 0.8264925373134329,
+      "min_recall": 0.7835820895522388,
+      "recall_range": 0.09701492537313428,
+      "per_class": {
+        "NSR": {
+          "precision": 0.8307692307692308,
+          "recall": 0.8059701492537313,
+          "f1": 0.8181818181818182,
+          "support": 134
+        },
+        "CHF": {
+          "precision": 0.7887323943661971,
+          "recall": 0.835820895522388,
+          "f1": 0.8115942028985507,
+          "support": 134
+        },
+        "ARR": {
+          "precision": 0.7954545454545454,
+          "recall": 0.7835820895522388,
+          "f1": 0.7894736842105262,
+          "support": 134
+        },
+        "AFF": {
+          "precision": 0.8939393939393939,
+          "recall": 0.8805970149253731,
+          "f1": 0.887218045112782,
+          "support": 134
+        }
+      },
+      "confusion_matrix": [
+        [
+          108,
+          14,
+          12,
+          0
+        ],
+        [
+          6,
+          112,
+          7,
+          9
+        ],
+        [
+          13,
+          11,
+          105,
+          5
+        ],
+        [
+          3,
+          5,
+          8,
+          118
+        ]
+      ]
+    },
+    "test": {
+      "accuracy": 0.8055555555555556,
+      "correct": 435,
+      "total": 540,
+      "macro_precision": 0.8067203970921977,
+      "macro_recall": 0.8055555555555556,
+      "macro_f1": 0.8053894785770405,
+      "balanced_accuracy": 0.8055555555555556,
+      "min_recall": 0.725925925925926,
+      "recall_range": 0.11111111111111105,
+      "per_class": {
+        "NSR": {
+          "precision": 0.8235294117647058,
+          "recall": 0.8296296296296296,
+          "f1": 0.8265682656826567,
+          "support": 135
+        },
+        "CHF": {
+          "precision": 0.7567567567567568,
+          "recall": 0.8296296296296296,
+          "f1": 0.7915194346289752,
+          "support": 135
+        },
+        "ARR": {
+          "precision": 0.784,
+          "recall": 0.725925925925926,
+          "f1": 0.7538461538461539,
+          "support": 135
+        },
+        "AFF": {
+          "precision": 0.8625954198473282,
+          "recall": 0.837037037037037,
+          "f1": 0.849624060150376,
+          "support": 135
+        }
+      },
+      "confusion_matrix": [
+        [
+          112,
+          12,
+          8,
+          3
+        ],
+        [
+          9,
+          112,
+          9,
+          5
+        ],
+        [
+          9,
+          18,
+          98,
+          10
+        ],
+        [
+          6,
+          6,
+          10,
+          113
+        ]
+      ]
+    }
+  },
+  "note": "Snapshot C24 parameters are fixed; only this final membrane readout was trained on train and selected on validation."
+}

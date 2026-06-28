@@ -1,0 +1,571 @@
+{
+  "note": "Python-only threshold rule-tree search. The selected candidate is SNN/RTL implementable as threshold comparator neurons plus leaf rule spikes into class membranes. The selected candidate is exploratory because the scope may include all splits; do not treat it as a blind test estimate unless scope is train_only or train_val.",
+  "candidate_id": 64,
+  "scope": "all_splits_exploratory",
+  "max_depth": 6,
+  "min_leaf": 1,
+  "nodes": 37,
+  "leaves": 19,
+  "metrics": {
+    "train": {
+      "accuracy": 1.0,
+      "correct": 68,
+      "total": 68,
+      "macro_precision": 1.0,
+      "macro_recall": 1.0,
+      "macro_f1": 1.0,
+      "balanced_accuracy": 1.0,
+      "min_recall": 1.0,
+      "recall_range": 0.0,
+      "per_class": {
+        "NSR": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 17
+        },
+        "CHF": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 17
+        },
+        "ARR": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 17
+        },
+        "AFF": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 17
+        }
+      },
+      "confusion_matrix": [
+        [
+          17,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          17,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          17,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          17
+        ]
+      ]
+    },
+    "val": {
+      "accuracy": 1.0,
+      "correct": 32,
+      "total": 32,
+      "macro_precision": 1.0,
+      "macro_recall": 1.0,
+      "macro_f1": 1.0,
+      "balanced_accuracy": 1.0,
+      "min_recall": 1.0,
+      "recall_range": 0.0,
+      "per_class": {
+        "NSR": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 8
+        },
+        "CHF": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 8
+        },
+        "ARR": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 8
+        },
+        "AFF": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 8
+        }
+      },
+      "confusion_matrix": [
+        [
+          8,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          8,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          8,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          8
+        ]
+      ]
+    },
+    "test": {
+      "accuracy": 0.9722222222222222,
+      "correct": 35,
+      "total": 36,
+      "macro_precision": 0.975,
+      "macro_recall": 0.9722222222222222,
+      "macro_f1": 0.9721362229102167,
+      "balanced_accuracy": 0.9722222222222222,
+      "min_recall": 0.8888888888888888,
+      "recall_range": 0.11111111111111116,
+      "per_class": {
+        "NSR": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 9
+        },
+        "CHF": {
+          "precision": 1.0,
+          "recall": 0.8888888888888888,
+          "f1": 0.9411764705882353,
+          "support": 9
+        },
+        "ARR": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 9
+        },
+        "AFF": {
+          "precision": 0.9,
+          "recall": 1.0,
+          "f1": 0.9473684210526316,
+          "support": 9
+        }
+      },
+      "confusion_matrix": [
+        [
+          9,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          8,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          9,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          9
+        ]
+      ]
+    }
+  },
+  "tree": {
+    "feature": "mem_max_CHF",
+    "feature_index": 49,
+    "threshold": 35675531.5,
+    "if_le": {
+      "feature": "pred_count_diff_NSR_ARR",
+      "feature_index": 91,
+      "threshold": 18.0,
+      "if_le": {
+        "feature": "mem_max_ARR",
+        "feature_index": 48,
+        "threshold": 23454848.800000016,
+        "if_le": {
+          "feature": "pred_count_diff_NSR_AFF",
+          "feature_index": 90,
+          "threshold": 7.5,
+          "if_le": {
+            "feature": "mem_min_ARR",
+            "feature_index": 52,
+            "threshold": -128488578.0,
+            "if_le": {
+              "feature": "abnormal_evidence_count_max",
+              "feature_index": 1,
+              "threshold": 302.5,
+              "if_le": {
+                "leaf_class": "CHF",
+                "leaf_class_id": 1
+              },
+              "if_gt": {
+                "leaf_class": "NSR",
+                "leaf_class_id": 0
+              }
+            },
+            "if_gt": {
+              "feature": "eerg_applied_count_active",
+              "feature_index": 18,
+              "threshold": 5.0,
+              "if_le": {
+                "leaf_class": "AFF",
+                "leaf_class_id": 3
+              },
+              "if_gt": {
+                "leaf_class": "CHF",
+                "leaf_class_id": 1
+              }
+            }
+          },
+          "if_gt": {
+            "feature": "abnormal_evidence_count_max",
+            "feature_index": 1,
+            "threshold": 77.5,
+            "if_le": {
+              "leaf_class": "NSR",
+              "leaf_class_id": 0
+            },
+            "if_gt": {
+              "leaf_class": "ARR",
+              "leaf_class_id": 2
+            }
+          }
+        },
+        "if_gt": {
+          "feature": "qrs_width_abn_count_active",
+          "feature_index": 120,
+          "threshold": 29.5,
+          "if_le": {
+            "feature": "abnormal_evidence_count_active",
+            "feature_index": 0,
+            "threshold": 26.5,
+            "if_le": {
+              "leaf_class": "CHF",
+              "leaf_class_id": 1
+            },
+            "if_gt": {
+              "leaf_class": "ARR",
+              "leaf_class_id": 2
+            }
+          },
+          "if_gt": {
+            "feature": "abnormal_evidence_count_sum",
+            "feature_index": 2,
+            "threshold": 5301.5,
+            "if_le": {
+              "leaf_class": "NSR",
+              "leaf_class_id": 0
+            },
+            "if_gt": {
+              "leaf_class": "AFF",
+              "leaf_class_id": 3
+            }
+          }
+        }
+      },
+      "if_gt": {
+        "feature": "mem_min_AFF",
+        "feature_index": 51,
+        "threshold": -87200155.0,
+        "if_le": {
+          "feature": "dscr_flip_count_max",
+          "feature_index": 10,
+          "threshold": 114.0,
+          "if_le": {
+            "leaf_class": "CHF",
+            "leaf_class_id": 1
+          },
+          "if_gt": {
+            "feature": "eerg_applied_count_active",
+            "feature_index": 18,
+            "threshold": 6.5,
+            "if_le": {
+              "leaf_class": "NSR",
+              "leaf_class_id": 0
+            },
+            "if_gt": {
+              "leaf_class": "ARR",
+              "leaf_class_id": 2
+            }
+          }
+        },
+        "if_gt": {
+          "feature": "eerg_pnn_mismatch_count_active",
+          "feature_index": 33,
+          "threshold": 20.5,
+          "if_le": {
+            "leaf_class": "ARR",
+            "leaf_class_id": 2
+          },
+          "if_gt": {
+            "leaf_class": "NSR",
+            "leaf_class_id": 0
+          }
+        }
+      }
+    },
+    "if_gt": {
+      "feature": "mem_min_NSR",
+      "feature_index": 54,
+      "threshold": -75188422.0,
+      "if_le": {
+        "feature": "eerg_early_count_max",
+        "feature_index": 22,
+        "threshold": 47.5,
+        "if_le": {
+          "leaf_class": "CHF",
+          "leaf_class_id": 1
+        },
+        "if_gt": {
+          "feature": "abnormal_evidence_count_max",
+          "feature_index": 1,
+          "threshold": 373.0,
+          "if_le": {
+            "leaf_class": "ARR",
+            "leaf_class_id": 2
+          },
+          "if_gt": {
+            "leaf_class": "AFF",
+            "leaf_class_id": 3
+          }
+        }
+      },
+      "if_gt": {
+        "leaf_class": "NSR",
+        "leaf_class_id": 0
+      }
+    }
+  },
+  "leaf_rules": [
+    {
+      "class": "CHF",
+      "class_id": 1,
+      "conditions": [
+        "mem_max_CHF <= 3.56755e+07",
+        "pred_count_diff_NSR_ARR <= 18",
+        "mem_max_ARR <= 2.34548e+07",
+        "pred_count_diff_NSR_AFF <= 7.5",
+        "mem_min_ARR <= -1.28489e+08",
+        "abnormal_evidence_count_max <= 302.5"
+      ]
+    },
+    {
+      "class": "NSR",
+      "class_id": 0,
+      "conditions": [
+        "mem_max_CHF <= 3.56755e+07",
+        "pred_count_diff_NSR_ARR <= 18",
+        "mem_max_ARR <= 2.34548e+07",
+        "pred_count_diff_NSR_AFF <= 7.5",
+        "mem_min_ARR <= -1.28489e+08",
+        "abnormal_evidence_count_max > 302.5"
+      ]
+    },
+    {
+      "class": "AFF",
+      "class_id": 3,
+      "conditions": [
+        "mem_max_CHF <= 3.56755e+07",
+        "pred_count_diff_NSR_ARR <= 18",
+        "mem_max_ARR <= 2.34548e+07",
+        "pred_count_diff_NSR_AFF <= 7.5",
+        "mem_min_ARR > -1.28489e+08",
+        "eerg_applied_count_active <= 5"
+      ]
+    },
+    {
+      "class": "CHF",
+      "class_id": 1,
+      "conditions": [
+        "mem_max_CHF <= 3.56755e+07",
+        "pred_count_diff_NSR_ARR <= 18",
+        "mem_max_ARR <= 2.34548e+07",
+        "pred_count_diff_NSR_AFF <= 7.5",
+        "mem_min_ARR > -1.28489e+08",
+        "eerg_applied_count_active > 5"
+      ]
+    },
+    {
+      "class": "NSR",
+      "class_id": 0,
+      "conditions": [
+        "mem_max_CHF <= 3.56755e+07",
+        "pred_count_diff_NSR_ARR <= 18",
+        "mem_max_ARR <= 2.34548e+07",
+        "pred_count_diff_NSR_AFF > 7.5",
+        "abnormal_evidence_count_max <= 77.5"
+      ]
+    },
+    {
+      "class": "ARR",
+      "class_id": 2,
+      "conditions": [
+        "mem_max_CHF <= 3.56755e+07",
+        "pred_count_diff_NSR_ARR <= 18",
+        "mem_max_ARR <= 2.34548e+07",
+        "pred_count_diff_NSR_AFF > 7.5",
+        "abnormal_evidence_count_max > 77.5"
+      ]
+    },
+    {
+      "class": "CHF",
+      "class_id": 1,
+      "conditions": [
+        "mem_max_CHF <= 3.56755e+07",
+        "pred_count_diff_NSR_ARR <= 18",
+        "mem_max_ARR > 2.34548e+07",
+        "qrs_width_abn_count_active <= 29.5",
+        "abnormal_evidence_count_active <= 26.5"
+      ]
+    },
+    {
+      "class": "ARR",
+      "class_id": 2,
+      "conditions": [
+        "mem_max_CHF <= 3.56755e+07",
+        "pred_count_diff_NSR_ARR <= 18",
+        "mem_max_ARR > 2.34548e+07",
+        "qrs_width_abn_count_active <= 29.5",
+        "abnormal_evidence_count_active > 26.5"
+      ]
+    },
+    {
+      "class": "NSR",
+      "class_id": 0,
+      "conditions": [
+        "mem_max_CHF <= 3.56755e+07",
+        "pred_count_diff_NSR_ARR <= 18",
+        "mem_max_ARR > 2.34548e+07",
+        "qrs_width_abn_count_active > 29.5",
+        "abnormal_evidence_count_sum <= 5301.5"
+      ]
+    },
+    {
+      "class": "AFF",
+      "class_id": 3,
+      "conditions": [
+        "mem_max_CHF <= 3.56755e+07",
+        "pred_count_diff_NSR_ARR <= 18",
+        "mem_max_ARR > 2.34548e+07",
+        "qrs_width_abn_count_active > 29.5",
+        "abnormal_evidence_count_sum > 5301.5"
+      ]
+    },
+    {
+      "class": "CHF",
+      "class_id": 1,
+      "conditions": [
+        "mem_max_CHF <= 3.56755e+07",
+        "pred_count_diff_NSR_ARR > 18",
+        "mem_min_AFF <= -8.72002e+07",
+        "dscr_flip_count_max <= 114"
+      ]
+    },
+    {
+      "class": "NSR",
+      "class_id": 0,
+      "conditions": [
+        "mem_max_CHF <= 3.56755e+07",
+        "pred_count_diff_NSR_ARR > 18",
+        "mem_min_AFF <= -8.72002e+07",
+        "dscr_flip_count_max > 114",
+        "eerg_applied_count_active <= 6.5"
+      ]
+    },
+    {
+      "class": "ARR",
+      "class_id": 2,
+      "conditions": [
+        "mem_max_CHF <= 3.56755e+07",
+        "pred_count_diff_NSR_ARR > 18",
+        "mem_min_AFF <= -8.72002e+07",
+        "dscr_flip_count_max > 114",
+        "eerg_applied_count_active > 6.5"
+      ]
+    },
+    {
+      "class": "ARR",
+      "class_id": 2,
+      "conditions": [
+        "mem_max_CHF <= 3.56755e+07",
+        "pred_count_diff_NSR_ARR > 18",
+        "mem_min_AFF > -8.72002e+07",
+        "eerg_pnn_mismatch_count_active <= 20.5"
+      ]
+    },
+    {
+      "class": "NSR",
+      "class_id": 0,
+      "conditions": [
+        "mem_max_CHF <= 3.56755e+07",
+        "pred_count_diff_NSR_ARR > 18",
+        "mem_min_AFF > -8.72002e+07",
+        "eerg_pnn_mismatch_count_active > 20.5"
+      ]
+    },
+    {
+      "class": "CHF",
+      "class_id": 1,
+      "conditions": [
+        "mem_max_CHF > 3.56755e+07",
+        "mem_min_NSR <= -7.51884e+07",
+        "eerg_early_count_max <= 47.5"
+      ]
+    },
+    {
+      "class": "ARR",
+      "class_id": 2,
+      "conditions": [
+        "mem_max_CHF > 3.56755e+07",
+        "mem_min_NSR <= -7.51884e+07",
+        "eerg_early_count_max > 47.5",
+        "abnormal_evidence_count_max <= 373"
+      ]
+    },
+    {
+      "class": "AFF",
+      "class_id": 3,
+      "conditions": [
+        "mem_max_CHF > 3.56755e+07",
+        "mem_min_NSR <= -7.51884e+07",
+        "eerg_early_count_max > 47.5",
+        "abnormal_evidence_count_max > 373"
+      ]
+    },
+    {
+      "class": "NSR",
+      "class_id": 0,
+      "conditions": [
+        "mem_max_CHF > 3.56755e+07",
+        "mem_min_NSR > -7.51884e+07"
+      ]
+    }
+  ]
+}

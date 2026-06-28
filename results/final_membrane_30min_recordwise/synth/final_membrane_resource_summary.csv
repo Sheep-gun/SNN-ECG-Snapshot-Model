@@ -1,0 +1,7 @@
+design,scope,total_luts,logic_luts,srls,ffs,bram36,bram18,dsp,lut_util_pct,ff_util_pct,notes
+record_level_final_membrane_layer,standalone record-level final membrane,142,142,0,132,0,0,0,0.22,0.10,Conservative standalone synthesis with top-level ports exposed
+final_membrane_layer,standalone 30-minute chunk vote membrane,52,52,0,27,0,0,0,0.08,0.02,Counts 60-second Snapshot C24 pred spikes inside one 30-minute chunk
+final_membrane_record_chain_synth_top,chunk vote membrane plus record-level membrane,163,163,0,157,0,0,0,0.26,0.12,Combined final membrane chain only
+snn_ecg_30min_final_top,Snapshot C24 30-minute top plus chunk vote membrane,20147,20111,36,2129,0,0,0,31.78,1.68,Full 30-minute chunk top without record-level layer
+snn_ecg_30min_record_final_synth_top,Snapshot C24 30-minute top plus record-level final membrane,20256,20220,36,2259,0,0,0,31.95,1.78,Full synthesized structure used for final record-level verification
+delta_record_final_over_30min_top,incremental full-top cost of adding record-level membrane,109,109,0,130,0,0,0,0.17,0.10,Computed as full record-final top minus 30-minute top

@@ -1,0 +1,13 @@
+﻿split,class_label,record_count,chunk_count,snapshot_count
+train,NSR,9,17,510
+train,CHF,6,17,510
+train,ARR,17,17,510
+train,AFF,2,17,510
+val,NSR,4,8,240
+val,CHF,4,8,240
+val,ARR,8,8,240
+val,AFF,1,8,240
+test,NSR,5,9,270
+test,CHF,4,9,270
+test,ARR,9,9,270
+test,AFF,1,9,270

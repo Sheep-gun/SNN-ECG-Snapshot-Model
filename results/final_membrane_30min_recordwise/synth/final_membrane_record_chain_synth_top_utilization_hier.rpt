@@ -1,0 +1,30 @@
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
+| Date         : Mon Jun 29 03:48:39 2026
+| Host         : DESKTOP-F81OJT8 running 64-bit major release  (build 9200)
+| Command      : report_utilization -hierarchical -file C:/Users/YangGeon/SNN_ECG_RESTORE_MODEL_S/results/final_membrane_30min_recordwise/synth/final_membrane_record_chain_synth_top_utilization_hier.rpt
+| Design       : final_membrane_record_chain_synth_top
+| Device       : 7a100tcsg324-1
+| Design State : Synthesized
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++-------------------------------------------+-----------------------------------+------------+------------+---------+------+-----+--------+--------+------------+
+|                  Instance                 |               Module              | Total LUTs | Logic LUTs | LUTRAMs | SRLs | FFs | RAMB36 | RAMB18 | DSP Blocks |
++-------------------------------------------+-----------------------------------+------------+------------+---------+------+-----+--------+--------+------------+
+| final_membrane_record_chain_synth_top     |                             (top) |        163 |        163 |       0 |    0 | 157 |      0 |      0 |          0 |
+|   (final_membrane_record_chain_synth_top) |                             (top) |          0 |          0 |       0 |    0 |   0 |      0 |      0 |          0 |
+|   u_chunk_mem                             |              final_membrane_layer |         47 |         47 |       0 |    0 |  25 |      0 |      0 |          0 |
+|   u_record_mem                            | record_level_final_membrane_layer |        116 |        116 |       0 |    0 | 132 |      0 |      0 |          0 |
++-------------------------------------------+-----------------------------------+------------+------------+---------+------+-----+--------+--------+------------+
+
+

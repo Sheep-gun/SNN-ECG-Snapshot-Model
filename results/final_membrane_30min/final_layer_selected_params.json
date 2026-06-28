@@ -1,0 +1,5201 @@
+{
+  "classes": [
+    "NSR",
+    "CHF",
+    "ARR",
+    "AFF"
+  ],
+  "dataset": "C:\\Users\\YangGeon\\SNN_ECG_RESTORE_MODEL_S\\fullrec_afe_30min_annotation_valid_balanced",
+  "snapshot_samples": 60000,
+  "snapshots_per_chunk": 30,
+  "selection_rule": "validation accuracy, macro-F1, balanced accuracy, min recall, recall range, train accuracy/macro-F1 tie-break, then nnz",
+  "candidate_id": 60687,
+  "params": {
+    "kind": "threshold_overlay",
+    "epochs": 30,
+    "lr": 1,
+    "seed": 3,
+    "pred_init": 8,
+    "top_init": 16,
+    "mem_init": 1,
+    "base_candidate_id": 53280,
+    "overlay_feature": "pred_count_NSR_ge_13",
+    "overlay_target_class": "NSR",
+    "overlay_boost": 131072,
+    "cap": 0,
+    "leak": 0,
+    "tie_break": "lowest_class_index"
+  },
+  "feature_specs": [
+    {
+      "name": "bias",
+      "kind": "bias"
+    },
+    {
+      "name": "pred_eq_NSR",
+      "kind": "pred_eq",
+      "class": 0
+    },
+    {
+      "name": "top_eq_NSR",
+      "kind": "top_eq",
+      "class": 0
+    },
+    {
+      "name": "top_NSR_margin_ge_0",
+      "kind": "top_margin_ge",
+      "class": 0,
+      "threshold": 0
+    },
+    {
+      "name": "top_NSR_margin_ge_1000000",
+      "kind": "top_margin_ge",
+      "class": 0,
+      "threshold": 1000000
+    },
+    {
+      "name": "top_NSR_margin_ge_2500000",
+      "kind": "top_margin_ge",
+      "class": 0,
+      "threshold": 2500000
+    },
+    {
+      "name": "top_NSR_margin_ge_5000000",
+      "kind": "top_margin_ge",
+      "class": 0,
+      "threshold": 5000000
+    },
+    {
+      "name": "top_NSR_margin_ge_10000000",
+      "kind": "top_margin_ge",
+      "class": 0,
+      "threshold": 10000000
+    },
+    {
+      "name": "top_NSR_margin_ge_20000000",
+      "kind": "top_margin_ge",
+      "class": 0,
+      "threshold": 20000000
+    },
+    {
+      "name": "top_NSR_margin_ge_40000000",
+      "kind": "top_margin_ge",
+      "class": 0,
+      "threshold": 40000000
+    },
+    {
+      "name": "top_NSR_margin_ge_80000000",
+      "kind": "top_margin_ge",
+      "class": 0,
+      "threshold": 80000000
+    },
+    {
+      "name": "mem_NSR_ge_-80000000",
+      "kind": "mem_ge",
+      "class": 0,
+      "threshold": -80000000
+    },
+    {
+      "name": "mem_NSR_ge_-40000000",
+      "kind": "mem_ge",
+      "class": 0,
+      "threshold": -40000000
+    },
+    {
+      "name": "mem_NSR_ge_-20000000",
+      "kind": "mem_ge",
+      "class": 0,
+      "threshold": -20000000
+    },
+    {
+      "name": "mem_NSR_ge_0",
+      "kind": "mem_ge",
+      "class": 0,
+      "threshold": 0
+    },
+    {
+      "name": "mem_NSR_ge_20000000",
+      "kind": "mem_ge",
+      "class": 0,
+      "threshold": 20000000
+    },
+    {
+      "name": "mem_NSR_ge_40000000",
+      "kind": "mem_ge",
+      "class": 0,
+      "threshold": 40000000
+    },
+    {
+      "name": "mem_NSR_ge_80000000",
+      "kind": "mem_ge",
+      "class": 0,
+      "threshold": 80000000
+    },
+    {
+      "name": "pred_eq_CHF",
+      "kind": "pred_eq",
+      "class": 1
+    },
+    {
+      "name": "top_eq_CHF",
+      "kind": "top_eq",
+      "class": 1
+    },
+    {
+      "name": "top_CHF_margin_ge_0",
+      "kind": "top_margin_ge",
+      "class": 1,
+      "threshold": 0
+    },
+    {
+      "name": "top_CHF_margin_ge_1000000",
+      "kind": "top_margin_ge",
+      "class": 1,
+      "threshold": 1000000
+    },
+    {
+      "name": "top_CHF_margin_ge_2500000",
+      "kind": "top_margin_ge",
+      "class": 1,
+      "threshold": 2500000
+    },
+    {
+      "name": "top_CHF_margin_ge_5000000",
+      "kind": "top_margin_ge",
+      "class": 1,
+      "threshold": 5000000
+    },
+    {
+      "name": "top_CHF_margin_ge_10000000",
+      "kind": "top_margin_ge",
+      "class": 1,
+      "threshold": 10000000
+    },
+    {
+      "name": "top_CHF_margin_ge_20000000",
+      "kind": "top_margin_ge",
+      "class": 1,
+      "threshold": 20000000
+    },
+    {
+      "name": "top_CHF_margin_ge_40000000",
+      "kind": "top_margin_ge",
+      "class": 1,
+      "threshold": 40000000
+    },
+    {
+      "name": "top_CHF_margin_ge_80000000",
+      "kind": "top_margin_ge",
+      "class": 1,
+      "threshold": 80000000
+    },
+    {
+      "name": "mem_CHF_ge_-80000000",
+      "kind": "mem_ge",
+      "class": 1,
+      "threshold": -80000000
+    },
+    {
+      "name": "mem_CHF_ge_-40000000",
+      "kind": "mem_ge",
+      "class": 1,
+      "threshold": -40000000
+    },
+    {
+      "name": "mem_CHF_ge_-20000000",
+      "kind": "mem_ge",
+      "class": 1,
+      "threshold": -20000000
+    },
+    {
+      "name": "mem_CHF_ge_0",
+      "kind": "mem_ge",
+      "class": 1,
+      "threshold": 0
+    },
+    {
+      "name": "mem_CHF_ge_20000000",
+      "kind": "mem_ge",
+      "class": 1,
+      "threshold": 20000000
+    },
+    {
+      "name": "mem_CHF_ge_40000000",
+      "kind": "mem_ge",
+      "class": 1,
+      "threshold": 40000000
+    },
+    {
+      "name": "mem_CHF_ge_80000000",
+      "kind": "mem_ge",
+      "class": 1,
+      "threshold": 80000000
+    },
+    {
+      "name": "pred_eq_ARR",
+      "kind": "pred_eq",
+      "class": 2
+    },
+    {
+      "name": "top_eq_ARR",
+      "kind": "top_eq",
+      "class": 2
+    },
+    {
+      "name": "top_ARR_margin_ge_0",
+      "kind": "top_margin_ge",
+      "class": 2,
+      "threshold": 0
+    },
+    {
+      "name": "top_ARR_margin_ge_1000000",
+      "kind": "top_margin_ge",
+      "class": 2,
+      "threshold": 1000000
+    },
+    {
+      "name": "top_ARR_margin_ge_2500000",
+      "kind": "top_margin_ge",
+      "class": 2,
+      "threshold": 2500000
+    },
+    {
+      "name": "top_ARR_margin_ge_5000000",
+      "kind": "top_margin_ge",
+      "class": 2,
+      "threshold": 5000000
+    },
+    {
+      "name": "top_ARR_margin_ge_10000000",
+      "kind": "top_margin_ge",
+      "class": 2,
+      "threshold": 10000000
+    },
+    {
+      "name": "top_ARR_margin_ge_20000000",
+      "kind": "top_margin_ge",
+      "class": 2,
+      "threshold": 20000000
+    },
+    {
+      "name": "top_ARR_margin_ge_40000000",
+      "kind": "top_margin_ge",
+      "class": 2,
+      "threshold": 40000000
+    },
+    {
+      "name": "top_ARR_margin_ge_80000000",
+      "kind": "top_margin_ge",
+      "class": 2,
+      "threshold": 80000000
+    },
+    {
+      "name": "mem_ARR_ge_-80000000",
+      "kind": "mem_ge",
+      "class": 2,
+      "threshold": -80000000
+    },
+    {
+      "name": "mem_ARR_ge_-40000000",
+      "kind": "mem_ge",
+      "class": 2,
+      "threshold": -40000000
+    },
+    {
+      "name": "mem_ARR_ge_-20000000",
+      "kind": "mem_ge",
+      "class": 2,
+      "threshold": -20000000
+    },
+    {
+      "name": "mem_ARR_ge_0",
+      "kind": "mem_ge",
+      "class": 2,
+      "threshold": 0
+    },
+    {
+      "name": "mem_ARR_ge_20000000",
+      "kind": "mem_ge",
+      "class": 2,
+      "threshold": 20000000
+    },
+    {
+      "name": "mem_ARR_ge_40000000",
+      "kind": "mem_ge",
+      "class": 2,
+      "threshold": 40000000
+    },
+    {
+      "name": "mem_ARR_ge_80000000",
+      "kind": "mem_ge",
+      "class": 2,
+      "threshold": 80000000
+    },
+    {
+      "name": "pred_eq_AFF",
+      "kind": "pred_eq",
+      "class": 3
+    },
+    {
+      "name": "top_eq_AFF",
+      "kind": "top_eq",
+      "class": 3
+    },
+    {
+      "name": "top_AFF_margin_ge_0",
+      "kind": "top_margin_ge",
+      "class": 3,
+      "threshold": 0
+    },
+    {
+      "name": "top_AFF_margin_ge_1000000",
+      "kind": "top_margin_ge",
+      "class": 3,
+      "threshold": 1000000
+    },
+    {
+      "name": "top_AFF_margin_ge_2500000",
+      "kind": "top_margin_ge",
+      "class": 3,
+      "threshold": 2500000
+    },
+    {
+      "name": "top_AFF_margin_ge_5000000",
+      "kind": "top_margin_ge",
+      "class": 3,
+      "threshold": 5000000
+    },
+    {
+      "name": "top_AFF_margin_ge_10000000",
+      "kind": "top_margin_ge",
+      "class": 3,
+      "threshold": 10000000
+    },
+    {
+      "name": "top_AFF_margin_ge_20000000",
+      "kind": "top_margin_ge",
+      "class": 3,
+      "threshold": 20000000
+    },
+    {
+      "name": "top_AFF_margin_ge_40000000",
+      "kind": "top_margin_ge",
+      "class": 3,
+      "threshold": 40000000
+    },
+    {
+      "name": "top_AFF_margin_ge_80000000",
+      "kind": "top_margin_ge",
+      "class": 3,
+      "threshold": 80000000
+    },
+    {
+      "name": "mem_AFF_ge_-80000000",
+      "kind": "mem_ge",
+      "class": 3,
+      "threshold": -80000000
+    },
+    {
+      "name": "mem_AFF_ge_-40000000",
+      "kind": "mem_ge",
+      "class": 3,
+      "threshold": -40000000
+    },
+    {
+      "name": "mem_AFF_ge_-20000000",
+      "kind": "mem_ge",
+      "class": 3,
+      "threshold": -20000000
+    },
+    {
+      "name": "mem_AFF_ge_0",
+      "kind": "mem_ge",
+      "class": 3,
+      "threshold": 0
+    },
+    {
+      "name": "mem_AFF_ge_20000000",
+      "kind": "mem_ge",
+      "class": 3,
+      "threshold": 20000000
+    },
+    {
+      "name": "mem_AFF_ge_40000000",
+      "kind": "mem_ge",
+      "class": 3,
+      "threshold": 40000000
+    },
+    {
+      "name": "mem_AFF_ge_80000000",
+      "kind": "mem_ge",
+      "class": 3,
+      "threshold": 80000000
+    },
+    {
+      "name": "beat_count_ge_30",
+      "kind": "count_ge",
+      "field": "beat_count",
+      "threshold": 30
+    },
+    {
+      "name": "beat_count_ge_40",
+      "kind": "count_ge",
+      "field": "beat_count",
+      "threshold": 40
+    },
+    {
+      "name": "beat_count_ge_50",
+      "kind": "count_ge",
+      "field": "beat_count",
+      "threshold": 50
+    },
+    {
+      "name": "beat_count_ge_60",
+      "kind": "count_ge",
+      "field": "beat_count",
+      "threshold": 60
+    },
+    {
+      "name": "beat_count_ge_75",
+      "kind": "count_ge",
+      "field": "beat_count",
+      "threshold": 75
+    },
+    {
+      "name": "beat_count_ge_90",
+      "kind": "count_ge",
+      "field": "beat_count",
+      "threshold": 90
+    },
+    {
+      "name": "beat_count_ge_110",
+      "kind": "count_ge",
+      "field": "beat_count",
+      "threshold": 110
+    },
+    {
+      "name": "beat_count_ge_130",
+      "kind": "count_ge",
+      "field": "beat_count",
+      "threshold": 130
+    },
+    {
+      "name": "pnn_mismatch_count_ge_1",
+      "kind": "count_ge",
+      "field": "pnn_mismatch_count",
+      "threshold": 1
+    },
+    {
+      "name": "pnn_mismatch_count_ge_3",
+      "kind": "count_ge",
+      "field": "pnn_mismatch_count",
+      "threshold": 3
+    },
+    {
+      "name": "pnn_mismatch_count_ge_5",
+      "kind": "count_ge",
+      "field": "pnn_mismatch_count",
+      "threshold": 5
+    },
+    {
+      "name": "pnn_mismatch_count_ge_8",
+      "kind": "count_ge",
+      "field": "pnn_mismatch_count",
+      "threshold": 8
+    },
+    {
+      "name": "pnn_mismatch_count_ge_12",
+      "kind": "count_ge",
+      "field": "pnn_mismatch_count",
+      "threshold": 12
+    },
+    {
+      "name": "pnn_mismatch_count_ge_18",
+      "kind": "count_ge",
+      "field": "pnn_mismatch_count",
+      "threshold": 18
+    },
+    {
+      "name": "pnn_mismatch_count_ge_25",
+      "kind": "count_ge",
+      "field": "pnn_mismatch_count",
+      "threshold": 25
+    },
+    {
+      "name": "pnn_mismatch_count_ge_35",
+      "kind": "count_ge",
+      "field": "pnn_mismatch_count",
+      "threshold": 35
+    },
+    {
+      "name": "pnn_mismatch_count_ge_50",
+      "kind": "count_ge",
+      "field": "pnn_mismatch_count",
+      "threshold": 50
+    },
+    {
+      "name": "ectopic_pair_count_ge_1",
+      "kind": "count_ge",
+      "field": "ectopic_pair_count",
+      "threshold": 1
+    },
+    {
+      "name": "ectopic_pair_count_ge_3",
+      "kind": "count_ge",
+      "field": "ectopic_pair_count",
+      "threshold": 3
+    },
+    {
+      "name": "ectopic_pair_count_ge_5",
+      "kind": "count_ge",
+      "field": "ectopic_pair_count",
+      "threshold": 5
+    },
+    {
+      "name": "ectopic_pair_count_ge_8",
+      "kind": "count_ge",
+      "field": "ectopic_pair_count",
+      "threshold": 8
+    },
+    {
+      "name": "ectopic_pair_count_ge_12",
+      "kind": "count_ge",
+      "field": "ectopic_pair_count",
+      "threshold": 12
+    },
+    {
+      "name": "ectopic_pair_count_ge_18",
+      "kind": "count_ge",
+      "field": "ectopic_pair_count",
+      "threshold": 18
+    },
+    {
+      "name": "ectopic_pair_count_ge_25",
+      "kind": "count_ge",
+      "field": "ectopic_pair_count",
+      "threshold": 25
+    },
+    {
+      "name": "rdm_ge50_count_ge_1",
+      "kind": "count_ge",
+      "field": "rdm_ge50_count",
+      "threshold": 1
+    },
+    {
+      "name": "rdm_ge50_count_ge_3",
+      "kind": "count_ge",
+      "field": "rdm_ge50_count",
+      "threshold": 3
+    },
+    {
+      "name": "rdm_ge50_count_ge_5",
+      "kind": "count_ge",
+      "field": "rdm_ge50_count",
+      "threshold": 5
+    },
+    {
+      "name": "rdm_ge50_count_ge_8",
+      "kind": "count_ge",
+      "field": "rdm_ge50_count",
+      "threshold": 8
+    },
+    {
+      "name": "rdm_ge50_count_ge_12",
+      "kind": "count_ge",
+      "field": "rdm_ge50_count",
+      "threshold": 12
+    },
+    {
+      "name": "rdm_ge50_count_ge_18",
+      "kind": "count_ge",
+      "field": "rdm_ge50_count",
+      "threshold": 18
+    },
+    {
+      "name": "rdm_ge50_count_ge_25",
+      "kind": "count_ge",
+      "field": "rdm_ge50_count",
+      "threshold": 25
+    },
+    {
+      "name": "rdm_ge50_count_ge_40",
+      "kind": "count_ge",
+      "field": "rdm_ge50_count",
+      "threshold": 40
+    },
+    {
+      "name": "rdm_ge50_count_ge_60",
+      "kind": "count_ge",
+      "field": "rdm_ge50_count",
+      "threshold": 60
+    },
+    {
+      "name": "rdm_ge100_count_ge_1",
+      "kind": "count_ge",
+      "field": "rdm_ge100_count",
+      "threshold": 1
+    },
+    {
+      "name": "rdm_ge100_count_ge_3",
+      "kind": "count_ge",
+      "field": "rdm_ge100_count",
+      "threshold": 3
+    },
+    {
+      "name": "rdm_ge100_count_ge_5",
+      "kind": "count_ge",
+      "field": "rdm_ge100_count",
+      "threshold": 5
+    },
+    {
+      "name": "rdm_ge100_count_ge_8",
+      "kind": "count_ge",
+      "field": "rdm_ge100_count",
+      "threshold": 8
+    },
+    {
+      "name": "rdm_ge100_count_ge_12",
+      "kind": "count_ge",
+      "field": "rdm_ge100_count",
+      "threshold": 12
+    },
+    {
+      "name": "rdm_ge100_count_ge_18",
+      "kind": "count_ge",
+      "field": "rdm_ge100_count",
+      "threshold": 18
+    },
+    {
+      "name": "rdm_ge100_count_ge_25",
+      "kind": "count_ge",
+      "field": "rdm_ge100_count",
+      "threshold": 25
+    },
+    {
+      "name": "qrs_maf_count_ge_1",
+      "kind": "count_ge",
+      "field": "qrs_maf_count",
+      "threshold": 1
+    },
+    {
+      "name": "qrs_maf_count_ge_3",
+      "kind": "count_ge",
+      "field": "qrs_maf_count",
+      "threshold": 3
+    },
+    {
+      "name": "qrs_maf_count_ge_5",
+      "kind": "count_ge",
+      "field": "qrs_maf_count",
+      "threshold": 5
+    },
+    {
+      "name": "qrs_maf_count_ge_8",
+      "kind": "count_ge",
+      "field": "qrs_maf_count",
+      "threshold": 8
+    },
+    {
+      "name": "qrs_maf_count_ge_12",
+      "kind": "count_ge",
+      "field": "qrs_maf_count",
+      "threshold": 12
+    },
+    {
+      "name": "qrs_maf_count_ge_18",
+      "kind": "count_ge",
+      "field": "qrs_maf_count",
+      "threshold": 18
+    },
+    {
+      "name": "qrs_maf_count_ge_25",
+      "kind": "count_ge",
+      "field": "qrs_maf_count",
+      "threshold": 25
+    },
+    {
+      "name": "qrs_maf_count_ge_40",
+      "kind": "count_ge",
+      "field": "qrs_maf_count",
+      "threshold": 40
+    },
+    {
+      "name": "qrs_width_abn_count_ge_1",
+      "kind": "count_ge",
+      "field": "qrs_width_abn_count",
+      "threshold": 1
+    },
+    {
+      "name": "qrs_width_abn_count_ge_3",
+      "kind": "count_ge",
+      "field": "qrs_width_abn_count",
+      "threshold": 3
+    },
+    {
+      "name": "qrs_width_abn_count_ge_5",
+      "kind": "count_ge",
+      "field": "qrs_width_abn_count",
+      "threshold": 5
+    },
+    {
+      "name": "qrs_width_abn_count_ge_8",
+      "kind": "count_ge",
+      "field": "qrs_width_abn_count",
+      "threshold": 8
+    },
+    {
+      "name": "qrs_width_abn_count_ge_12",
+      "kind": "count_ge",
+      "field": "qrs_width_abn_count",
+      "threshold": 12
+    },
+    {
+      "name": "qrs_width_abn_count_ge_18",
+      "kind": "count_ge",
+      "field": "qrs_width_abn_count",
+      "threshold": 18
+    },
+    {
+      "name": "qrs_width_abn_count_ge_25",
+      "kind": "count_ge",
+      "field": "qrs_width_abn_count",
+      "threshold": 25
+    },
+    {
+      "name": "qrs_energy_abn_count_ge_1",
+      "kind": "count_ge",
+      "field": "qrs_energy_abn_count",
+      "threshold": 1
+    },
+    {
+      "name": "qrs_energy_abn_count_ge_3",
+      "kind": "count_ge",
+      "field": "qrs_energy_abn_count",
+      "threshold": 3
+    },
+    {
+      "name": "qrs_energy_abn_count_ge_5",
+      "kind": "count_ge",
+      "field": "qrs_energy_abn_count",
+      "threshold": 5
+    },
+    {
+      "name": "qrs_energy_abn_count_ge_8",
+      "kind": "count_ge",
+      "field": "qrs_energy_abn_count",
+      "threshold": 8
+    },
+    {
+      "name": "qrs_energy_abn_count_ge_12",
+      "kind": "count_ge",
+      "field": "qrs_energy_abn_count",
+      "threshold": 12
+    },
+    {
+      "name": "qrs_energy_abn_count_ge_18",
+      "kind": "count_ge",
+      "field": "qrs_energy_abn_count",
+      "threshold": 18
+    },
+    {
+      "name": "qrs_energy_abn_count_ge_25",
+      "kind": "count_ge",
+      "field": "qrs_energy_abn_count",
+      "threshold": 25
+    },
+    {
+      "name": "rbbb_delay_like_count_ge_1",
+      "kind": "count_ge",
+      "field": "rbbb_delay_like_count",
+      "threshold": 1
+    },
+    {
+      "name": "rbbb_delay_like_count_ge_3",
+      "kind": "count_ge",
+      "field": "rbbb_delay_like_count",
+      "threshold": 3
+    },
+    {
+      "name": "rbbb_delay_like_count_ge_5",
+      "kind": "count_ge",
+      "field": "rbbb_delay_like_count",
+      "threshold": 5
+    },
+    {
+      "name": "rbbb_delay_like_count_ge_8",
+      "kind": "count_ge",
+      "field": "rbbb_delay_like_count",
+      "threshold": 8
+    },
+    {
+      "name": "rbbb_delay_like_count_ge_12",
+      "kind": "count_ge",
+      "field": "rbbb_delay_like_count",
+      "threshold": 12
+    },
+    {
+      "name": "rbbb_delay_like_count_ge_18",
+      "kind": "count_ge",
+      "field": "rbbb_delay_like_count",
+      "threshold": 18
+    },
+    {
+      "name": "rbbb_delay_like_count_ge_25",
+      "kind": "count_ge",
+      "field": "rbbb_delay_like_count",
+      "threshold": 25
+    },
+    {
+      "name": "rbbb_delay_applied_count_ge_1",
+      "kind": "count_ge",
+      "field": "rbbb_delay_applied_count",
+      "threshold": 1
+    },
+    {
+      "name": "rbbb_delay_applied_count_ge_3",
+      "kind": "count_ge",
+      "field": "rbbb_delay_applied_count",
+      "threshold": 3
+    },
+    {
+      "name": "rbbb_delay_applied_count_ge_5",
+      "kind": "count_ge",
+      "field": "rbbb_delay_applied_count",
+      "threshold": 5
+    },
+    {
+      "name": "rbbb_delay_applied_count_ge_8",
+      "kind": "count_ge",
+      "field": "rbbb_delay_applied_count",
+      "threshold": 8
+    },
+    {
+      "name": "rbbb_delay_applied_count_ge_12",
+      "kind": "count_ge",
+      "field": "rbbb_delay_applied_count",
+      "threshold": 12
+    },
+    {
+      "name": "rbbb_delay_applied_count_ge_18",
+      "kind": "count_ge",
+      "field": "rbbb_delay_applied_count",
+      "threshold": 18
+    },
+    {
+      "name": "rbbb_delay_applied_count_ge_25",
+      "kind": "count_ge",
+      "field": "rbbb_delay_applied_count",
+      "threshold": 25
+    },
+    {
+      "name": "pre_qrs_bump_count_ge_1",
+      "kind": "count_ge",
+      "field": "pre_qrs_bump_count",
+      "threshold": 1
+    },
+    {
+      "name": "pre_qrs_bump_count_ge_5",
+      "kind": "count_ge",
+      "field": "pre_qrs_bump_count",
+      "threshold": 5
+    },
+    {
+      "name": "pre_qrs_bump_count_ge_15",
+      "kind": "count_ge",
+      "field": "pre_qrs_bump_count",
+      "threshold": 15
+    },
+    {
+      "name": "pre_qrs_bump_count_ge_30",
+      "kind": "count_ge",
+      "field": "pre_qrs_bump_count",
+      "threshold": 30
+    },
+    {
+      "name": "pre_qrs_bump_count_ge_45",
+      "kind": "count_ge",
+      "field": "pre_qrs_bump_count",
+      "threshold": 45
+    },
+    {
+      "name": "pre_qrs_bump_count_ge_60",
+      "kind": "count_ge",
+      "field": "pre_qrs_bump_count",
+      "threshold": 60
+    },
+    {
+      "name": "pre_qrs_bump_count_ge_90",
+      "kind": "count_ge",
+      "field": "pre_qrs_bump_count",
+      "threshold": 90
+    },
+    {
+      "name": "dscr_flip_count_ge_1",
+      "kind": "count_ge",
+      "field": "dscr_flip_count",
+      "threshold": 1
+    },
+    {
+      "name": "dscr_flip_count_ge_20",
+      "kind": "count_ge",
+      "field": "dscr_flip_count",
+      "threshold": 20
+    },
+    {
+      "name": "dscr_flip_count_ge_50",
+      "kind": "count_ge",
+      "field": "dscr_flip_count",
+      "threshold": 50
+    },
+    {
+      "name": "dscr_flip_count_ge_80",
+      "kind": "count_ge",
+      "field": "dscr_flip_count",
+      "threshold": 80
+    },
+    {
+      "name": "dscr_flip_count_ge_120",
+      "kind": "count_ge",
+      "field": "dscr_flip_count",
+      "threshold": 120
+    },
+    {
+      "name": "dscr_flip_count_ge_180",
+      "kind": "count_ge",
+      "field": "dscr_flip_count",
+      "threshold": 180
+    },
+    {
+      "name": "dscr_flip_count_ge_250",
+      "kind": "count_ge",
+      "field": "dscr_flip_count",
+      "threshold": 250
+    },
+    {
+      "name": "dscr_slope_count_ge_1",
+      "kind": "count_ge",
+      "field": "dscr_slope_count",
+      "threshold": 1
+    },
+    {
+      "name": "dscr_slope_count_ge_250",
+      "kind": "count_ge",
+      "field": "dscr_slope_count",
+      "threshold": 250
+    },
+    {
+      "name": "dscr_slope_count_ge_750",
+      "kind": "count_ge",
+      "field": "dscr_slope_count",
+      "threshold": 750
+    },
+    {
+      "name": "dscr_slope_count_ge_1500",
+      "kind": "count_ge",
+      "field": "dscr_slope_count",
+      "threshold": 1500
+    },
+    {
+      "name": "dscr_slope_count_ge_3000",
+      "kind": "count_ge",
+      "field": "dscr_slope_count",
+      "threshold": 3000
+    },
+    {
+      "name": "dscr_slope_count_ge_6000",
+      "kind": "count_ge",
+      "field": "dscr_slope_count",
+      "threshold": 6000
+    },
+    {
+      "name": "dscr_slope_count_ge_10000",
+      "kind": "count_ge",
+      "field": "dscr_slope_count",
+      "threshold": 10000
+    },
+    {
+      "name": "abnormal_evidence_count_ge_1",
+      "kind": "count_ge",
+      "field": "abnormal_evidence_count",
+      "threshold": 1
+    },
+    {
+      "name": "abnormal_evidence_count_ge_3",
+      "kind": "count_ge",
+      "field": "abnormal_evidence_count",
+      "threshold": 3
+    },
+    {
+      "name": "abnormal_evidence_count_ge_5",
+      "kind": "count_ge",
+      "field": "abnormal_evidence_count",
+      "threshold": 5
+    },
+    {
+      "name": "abnormal_evidence_count_ge_8",
+      "kind": "count_ge",
+      "field": "abnormal_evidence_count",
+      "threshold": 8
+    },
+    {
+      "name": "abnormal_evidence_count_ge_12",
+      "kind": "count_ge",
+      "field": "abnormal_evidence_count",
+      "threshold": 12
+    },
+    {
+      "name": "abnormal_evidence_count_ge_18",
+      "kind": "count_ge",
+      "field": "abnormal_evidence_count",
+      "threshold": 18
+    },
+    {
+      "name": "abnormal_evidence_count_ge_25",
+      "kind": "count_ge",
+      "field": "abnormal_evidence_count",
+      "threshold": 25
+    },
+    {
+      "name": "abnormal_evidence_count_ge_40",
+      "kind": "count_ge",
+      "field": "abnormal_evidence_count",
+      "threshold": 40
+    },
+    {
+      "name": "abnormal_evidence_count_ge_60",
+      "kind": "count_ge",
+      "field": "abnormal_evidence_count",
+      "threshold": 60
+    },
+    {
+      "name": "rhythm_irregular_evidence_count_ge_1",
+      "kind": "count_ge",
+      "field": "rhythm_irregular_evidence_count",
+      "threshold": 1
+    },
+    {
+      "name": "rhythm_irregular_evidence_count_ge_3",
+      "kind": "count_ge",
+      "field": "rhythm_irregular_evidence_count",
+      "threshold": 3
+    },
+    {
+      "name": "rhythm_irregular_evidence_count_ge_5",
+      "kind": "count_ge",
+      "field": "rhythm_irregular_evidence_count",
+      "threshold": 5
+    },
+    {
+      "name": "rhythm_irregular_evidence_count_ge_8",
+      "kind": "count_ge",
+      "field": "rhythm_irregular_evidence_count",
+      "threshold": 8
+    },
+    {
+      "name": "rhythm_irregular_evidence_count_ge_12",
+      "kind": "count_ge",
+      "field": "rhythm_irregular_evidence_count",
+      "threshold": 12
+    },
+    {
+      "name": "rhythm_irregular_evidence_count_ge_18",
+      "kind": "count_ge",
+      "field": "rhythm_irregular_evidence_count",
+      "threshold": 18
+    },
+    {
+      "name": "rhythm_irregular_evidence_count_ge_25",
+      "kind": "count_ge",
+      "field": "rhythm_irregular_evidence_count",
+      "threshold": 25
+    },
+    {
+      "name": "rhythm_irregular_evidence_count_ge_40",
+      "kind": "count_ge",
+      "field": "rhythm_irregular_evidence_count",
+      "threshold": 40
+    },
+    {
+      "name": "rhythm_irregular_evidence_count_ge_60",
+      "kind": "count_ge",
+      "field": "rhythm_irregular_evidence_count",
+      "threshold": 60
+    },
+    {
+      "name": "morphology_evidence_count_ge_1",
+      "kind": "count_ge",
+      "field": "morphology_evidence_count",
+      "threshold": 1
+    },
+    {
+      "name": "morphology_evidence_count_ge_3",
+      "kind": "count_ge",
+      "field": "morphology_evidence_count",
+      "threshold": 3
+    },
+    {
+      "name": "morphology_evidence_count_ge_5",
+      "kind": "count_ge",
+      "field": "morphology_evidence_count",
+      "threshold": 5
+    },
+    {
+      "name": "morphology_evidence_count_ge_8",
+      "kind": "count_ge",
+      "field": "morphology_evidence_count",
+      "threshold": 8
+    },
+    {
+      "name": "morphology_evidence_count_ge_12",
+      "kind": "count_ge",
+      "field": "morphology_evidence_count",
+      "threshold": 12
+    },
+    {
+      "name": "morphology_evidence_count_ge_18",
+      "kind": "count_ge",
+      "field": "morphology_evidence_count",
+      "threshold": 18
+    },
+    {
+      "name": "morphology_evidence_count_ge_25",
+      "kind": "count_ge",
+      "field": "morphology_evidence_count",
+      "threshold": 25
+    },
+    {
+      "name": "morphology_evidence_count_ge_40",
+      "kind": "count_ge",
+      "field": "morphology_evidence_count",
+      "threshold": 40
+    },
+    {
+      "name": "morphology_evidence_count_ge_60",
+      "kind": "count_ge",
+      "field": "morphology_evidence_count",
+      "threshold": 60
+    },
+    {
+      "name": "pnn_mismatch_count_le_0",
+      "kind": "count_le",
+      "field": "pnn_mismatch_count",
+      "threshold": 0
+    },
+    {
+      "name": "pnn_mismatch_count_le_1",
+      "kind": "count_le",
+      "field": "pnn_mismatch_count",
+      "threshold": 1
+    },
+    {
+      "name": "pnn_mismatch_count_le_3",
+      "kind": "count_le",
+      "field": "pnn_mismatch_count",
+      "threshold": 3
+    },
+    {
+      "name": "pnn_mismatch_count_le_5",
+      "kind": "count_le",
+      "field": "pnn_mismatch_count",
+      "threshold": 5
+    },
+    {
+      "name": "pnn_mismatch_count_le_8",
+      "kind": "count_le",
+      "field": "pnn_mismatch_count",
+      "threshold": 8
+    },
+    {
+      "name": "pnn_mismatch_count_le_12",
+      "kind": "count_le",
+      "field": "pnn_mismatch_count",
+      "threshold": 12
+    },
+    {
+      "name": "qrs_maf_count_le_0",
+      "kind": "count_le",
+      "field": "qrs_maf_count",
+      "threshold": 0
+    },
+    {
+      "name": "qrs_maf_count_le_1",
+      "kind": "count_le",
+      "field": "qrs_maf_count",
+      "threshold": 1
+    },
+    {
+      "name": "qrs_maf_count_le_3",
+      "kind": "count_le",
+      "field": "qrs_maf_count",
+      "threshold": 3
+    },
+    {
+      "name": "qrs_maf_count_le_5",
+      "kind": "count_le",
+      "field": "qrs_maf_count",
+      "threshold": 5
+    },
+    {
+      "name": "qrs_maf_count_le_8",
+      "kind": "count_le",
+      "field": "qrs_maf_count",
+      "threshold": 8
+    },
+    {
+      "name": "ectopic_pair_count_le_0",
+      "kind": "count_le",
+      "field": "ectopic_pair_count",
+      "threshold": 0
+    },
+    {
+      "name": "ectopic_pair_count_le_1",
+      "kind": "count_le",
+      "field": "ectopic_pair_count",
+      "threshold": 1
+    },
+    {
+      "name": "ectopic_pair_count_le_3",
+      "kind": "count_le",
+      "field": "ectopic_pair_count",
+      "threshold": 3
+    },
+    {
+      "name": "ectopic_pair_count_le_5",
+      "kind": "count_le",
+      "field": "ectopic_pair_count",
+      "threshold": 5
+    },
+    {
+      "name": "rdm_ge50_count_le_0",
+      "kind": "count_le",
+      "field": "rdm_ge50_count",
+      "threshold": 0
+    },
+    {
+      "name": "rdm_ge50_count_le_1",
+      "kind": "count_le",
+      "field": "rdm_ge50_count",
+      "threshold": 1
+    },
+    {
+      "name": "rdm_ge50_count_le_3",
+      "kind": "count_le",
+      "field": "rdm_ge50_count",
+      "threshold": 3
+    },
+    {
+      "name": "rdm_ge50_count_le_5",
+      "kind": "count_le",
+      "field": "rdm_ge50_count",
+      "threshold": 5
+    },
+    {
+      "name": "rdm_ge50_count_le_8",
+      "kind": "count_le",
+      "field": "rdm_ge50_count",
+      "threshold": 8
+    },
+    {
+      "name": "rbbb_delay_like_count_le_0",
+      "kind": "count_le",
+      "field": "rbbb_delay_like_count",
+      "threshold": 0
+    },
+    {
+      "name": "rbbb_delay_like_count_le_1",
+      "kind": "count_le",
+      "field": "rbbb_delay_like_count",
+      "threshold": 1
+    },
+    {
+      "name": "rbbb_delay_like_count_le_3",
+      "kind": "count_le",
+      "field": "rbbb_delay_like_count",
+      "threshold": 3
+    },
+    {
+      "name": "rbbb_delay_like_count_le_5",
+      "kind": "count_le",
+      "field": "rbbb_delay_like_count",
+      "threshold": 5
+    },
+    {
+      "name": "pnn_mis_rate_ge_3",
+      "kind": "ratio_ge",
+      "num": "pnn_mismatch_count",
+      "den": "pnn_decision_count",
+      "pct": 3
+    },
+    {
+      "name": "pnn_mis_rate_ge_5",
+      "kind": "ratio_ge",
+      "num": "pnn_mismatch_count",
+      "den": "pnn_decision_count",
+      "pct": 5
+    },
+    {
+      "name": "pnn_mis_rate_ge_8",
+      "kind": "ratio_ge",
+      "num": "pnn_mismatch_count",
+      "den": "pnn_decision_count",
+      "pct": 8
+    },
+    {
+      "name": "pnn_mis_rate_ge_10",
+      "kind": "ratio_ge",
+      "num": "pnn_mismatch_count",
+      "den": "pnn_decision_count",
+      "pct": 10
+    },
+    {
+      "name": "pnn_mis_rate_ge_12",
+      "kind": "ratio_ge",
+      "num": "pnn_mismatch_count",
+      "den": "pnn_decision_count",
+      "pct": 12
+    },
+    {
+      "name": "pnn_mis_rate_ge_15",
+      "kind": "ratio_ge",
+      "num": "pnn_mismatch_count",
+      "den": "pnn_decision_count",
+      "pct": 15
+    },
+    {
+      "name": "pnn_mis_rate_ge_20",
+      "kind": "ratio_ge",
+      "num": "pnn_mismatch_count",
+      "den": "pnn_decision_count",
+      "pct": 20
+    },
+    {
+      "name": "pnn_mis_rate_ge_30",
+      "kind": "ratio_ge",
+      "num": "pnn_mismatch_count",
+      "den": "pnn_decision_count",
+      "pct": 30
+    },
+    {
+      "name": "pnn_mis_rate_ge_40",
+      "kind": "ratio_ge",
+      "num": "pnn_mismatch_count",
+      "den": "pnn_decision_count",
+      "pct": 40
+    },
+    {
+      "name": "pnn_mis_rate_ge_55",
+      "kind": "ratio_ge",
+      "num": "pnn_mismatch_count",
+      "den": "pnn_decision_count",
+      "pct": 55
+    },
+    {
+      "name": "rdm_ge50_rate_ge_3",
+      "kind": "ratio_ge",
+      "num": "rdm_ge50_count",
+      "den": "rdm_valid_count",
+      "pct": 3
+    },
+    {
+      "name": "rdm_ge50_rate_ge_5",
+      "kind": "ratio_ge",
+      "num": "rdm_ge50_count",
+      "den": "rdm_valid_count",
+      "pct": 5
+    },
+    {
+      "name": "rdm_ge50_rate_ge_8",
+      "kind": "ratio_ge",
+      "num": "rdm_ge50_count",
+      "den": "rdm_valid_count",
+      "pct": 8
+    },
+    {
+      "name": "rdm_ge50_rate_ge_10",
+      "kind": "ratio_ge",
+      "num": "rdm_ge50_count",
+      "den": "rdm_valid_count",
+      "pct": 10
+    },
+    {
+      "name": "rdm_ge50_rate_ge_12",
+      "kind": "ratio_ge",
+      "num": "rdm_ge50_count",
+      "den": "rdm_valid_count",
+      "pct": 12
+    },
+    {
+      "name": "rdm_ge50_rate_ge_15",
+      "kind": "ratio_ge",
+      "num": "rdm_ge50_count",
+      "den": "rdm_valid_count",
+      "pct": 15
+    },
+    {
+      "name": "rdm_ge50_rate_ge_20",
+      "kind": "ratio_ge",
+      "num": "rdm_ge50_count",
+      "den": "rdm_valid_count",
+      "pct": 20
+    },
+    {
+      "name": "rdm_ge50_rate_ge_30",
+      "kind": "ratio_ge",
+      "num": "rdm_ge50_count",
+      "den": "rdm_valid_count",
+      "pct": 30
+    },
+    {
+      "name": "rdm_ge50_rate_ge_40",
+      "kind": "ratio_ge",
+      "num": "rdm_ge50_count",
+      "den": "rdm_valid_count",
+      "pct": 40
+    },
+    {
+      "name": "rdm_ge50_rate_ge_55",
+      "kind": "ratio_ge",
+      "num": "rdm_ge50_count",
+      "den": "rdm_valid_count",
+      "pct": 55
+    },
+    {
+      "name": "qrs_maf_rate_ge_3",
+      "kind": "ratio_ge",
+      "num": "qrs_maf_count",
+      "den": "beat_count",
+      "pct": 3
+    },
+    {
+      "name": "qrs_maf_rate_ge_5",
+      "kind": "ratio_ge",
+      "num": "qrs_maf_count",
+      "den": "beat_count",
+      "pct": 5
+    },
+    {
+      "name": "qrs_maf_rate_ge_8",
+      "kind": "ratio_ge",
+      "num": "qrs_maf_count",
+      "den": "beat_count",
+      "pct": 8
+    },
+    {
+      "name": "qrs_maf_rate_ge_10",
+      "kind": "ratio_ge",
+      "num": "qrs_maf_count",
+      "den": "beat_count",
+      "pct": 10
+    },
+    {
+      "name": "qrs_maf_rate_ge_12",
+      "kind": "ratio_ge",
+      "num": "qrs_maf_count",
+      "den": "beat_count",
+      "pct": 12
+    },
+    {
+      "name": "qrs_maf_rate_ge_15",
+      "kind": "ratio_ge",
+      "num": "qrs_maf_count",
+      "den": "beat_count",
+      "pct": 15
+    },
+    {
+      "name": "qrs_maf_rate_ge_20",
+      "kind": "ratio_ge",
+      "num": "qrs_maf_count",
+      "den": "beat_count",
+      "pct": 20
+    },
+    {
+      "name": "qrs_maf_rate_ge_30",
+      "kind": "ratio_ge",
+      "num": "qrs_maf_count",
+      "den": "beat_count",
+      "pct": 30
+    },
+    {
+      "name": "qrs_maf_rate_ge_40",
+      "kind": "ratio_ge",
+      "num": "qrs_maf_count",
+      "den": "beat_count",
+      "pct": 40
+    },
+    {
+      "name": "qrs_maf_rate_ge_55",
+      "kind": "ratio_ge",
+      "num": "qrs_maf_count",
+      "den": "beat_count",
+      "pct": 55
+    },
+    {
+      "name": "rdm_avg_ge_1",
+      "kind": "avg_ge",
+      "sum": "rdm_code_sum",
+      "den": "rdm_valid_count",
+      "threshold": 1
+    },
+    {
+      "name": "rdm_avg_ge_2",
+      "kind": "avg_ge",
+      "sum": "rdm_code_sum",
+      "den": "rdm_valid_count",
+      "threshold": 2
+    },
+    {
+      "name": "rdm_avg_ge_4",
+      "kind": "avg_ge",
+      "sum": "rdm_code_sum",
+      "den": "rdm_valid_count",
+      "threshold": 4
+    },
+    {
+      "name": "rdm_avg_ge_6",
+      "kind": "avg_ge",
+      "sum": "rdm_code_sum",
+      "den": "rdm_valid_count",
+      "threshold": 6
+    },
+    {
+      "name": "rdm_avg_ge_8",
+      "kind": "avg_ge",
+      "sum": "rdm_code_sum",
+      "den": "rdm_valid_count",
+      "threshold": 8
+    },
+    {
+      "name": "rdm_avg_ge_10",
+      "kind": "avg_ge",
+      "sum": "rdm_code_sum",
+      "den": "rdm_valid_count",
+      "threshold": 10
+    },
+    {
+      "name": "rdm_avg_ge_12",
+      "kind": "avg_ge",
+      "sum": "rdm_code_sum",
+      "den": "rdm_valid_count",
+      "threshold": 12
+    },
+    {
+      "name": "rdm_avg_ge_16",
+      "kind": "avg_ge",
+      "sum": "rdm_code_sum",
+      "den": "rdm_valid_count",
+      "threshold": 16
+    },
+    {
+      "name": "rdm_avg_ge_20",
+      "kind": "avg_ge",
+      "sum": "rdm_code_sum",
+      "den": "rdm_valid_count",
+      "threshold": 20
+    },
+    {
+      "name": "ram_avg_ge_2",
+      "kind": "avg_ge",
+      "sum": "ram_code_sum",
+      "den": "ram_code_count",
+      "threshold": 2
+    },
+    {
+      "name": "ram_avg_ge_4",
+      "kind": "avg_ge",
+      "sum": "ram_code_sum",
+      "den": "ram_code_count",
+      "threshold": 4
+    },
+    {
+      "name": "ram_avg_ge_6",
+      "kind": "avg_ge",
+      "sum": "ram_code_sum",
+      "den": "ram_code_count",
+      "threshold": 6
+    },
+    {
+      "name": "ram_avg_ge_8",
+      "kind": "avg_ge",
+      "sum": "ram_code_sum",
+      "den": "ram_code_count",
+      "threshold": 8
+    },
+    {
+      "name": "ram_avg_ge_10",
+      "kind": "avg_ge",
+      "sum": "ram_code_sum",
+      "den": "ram_code_count",
+      "threshold": 10
+    },
+    {
+      "name": "ram_avg_ge_14",
+      "kind": "avg_ge",
+      "sum": "ram_code_sum",
+      "den": "ram_code_count",
+      "threshold": 14
+    },
+    {
+      "name": "ram_avg_ge_18",
+      "kind": "avg_ge",
+      "sum": "ram_code_sum",
+      "den": "ram_code_count",
+      "threshold": 18
+    },
+    {
+      "name": "ram_avg_ge_24",
+      "kind": "avg_ge",
+      "sum": "ram_code_sum",
+      "den": "ram_code_count",
+      "threshold": 24
+    },
+    {
+      "name": "nsr_stability_strict",
+      "kind": "custom",
+      "custom": "nsr_stability_strict"
+    },
+    {
+      "name": "nsr_stability_soft",
+      "kind": "custom",
+      "custom": "nsr_stability_soft"
+    },
+    {
+      "name": "arr_burst_strong",
+      "kind": "custom",
+      "custom": "arr_burst_strong"
+    },
+    {
+      "name": "arr_episodic_soft",
+      "kind": "custom",
+      "custom": "arr_episodic_soft"
+    },
+    {
+      "name": "aff_irregular_persistent",
+      "kind": "custom",
+      "custom": "aff_irregular_persistent"
+    },
+    {
+      "name": "aff_irregular_soft",
+      "kind": "custom",
+      "custom": "aff_irregular_soft"
+    },
+    {
+      "name": "chf_morphology_low_irreg",
+      "kind": "custom",
+      "custom": "chf_morphology_low_irreg"
+    },
+    {
+      "name": "abnormal_priority_any",
+      "kind": "custom",
+      "custom": "abnormal_priority_any"
+    },
+    {
+      "name": "abnormal_priority_strong",
+      "kind": "custom",
+      "custom": "abnormal_priority_strong"
+    },
+    {
+      "name": "pred_count_NSR_ge_1",
+      "kind": "chunk_pred_count_ge",
+      "class": 0,
+      "threshold": 1
+    },
+    {
+      "name": "top_count_NSR_ge_1",
+      "kind": "chunk_top_count_ge",
+      "class": 0,
+      "threshold": 1
+    },
+    {
+      "name": "pred_count_NSR_ge_3",
+      "kind": "chunk_pred_count_ge",
+      "class": 0,
+      "threshold": 3
+    },
+    {
+      "name": "top_count_NSR_ge_3",
+      "kind": "chunk_top_count_ge",
+      "class": 0,
+      "threshold": 3
+    },
+    {
+      "name": "pred_count_NSR_ge_5",
+      "kind": "chunk_pred_count_ge",
+      "class": 0,
+      "threshold": 5
+    },
+    {
+      "name": "top_count_NSR_ge_5",
+      "kind": "chunk_top_count_ge",
+      "class": 0,
+      "threshold": 5
+    },
+    {
+      "name": "pred_count_NSR_ge_8",
+      "kind": "chunk_pred_count_ge",
+      "class": 0,
+      "threshold": 8
+    },
+    {
+      "name": "top_count_NSR_ge_8",
+      "kind": "chunk_top_count_ge",
+      "class": 0,
+      "threshold": 8
+    },
+    {
+      "name": "pred_count_NSR_ge_10",
+      "kind": "chunk_pred_count_ge",
+      "class": 0,
+      "threshold": 10
+    },
+    {
+      "name": "top_count_NSR_ge_10",
+      "kind": "chunk_top_count_ge",
+      "class": 0,
+      "threshold": 10
+    },
+    {
+      "name": "pred_count_NSR_ge_13",
+      "kind": "chunk_pred_count_ge",
+      "class": 0,
+      "threshold": 13
+    },
+    {
+      "name": "top_count_NSR_ge_13",
+      "kind": "chunk_top_count_ge",
+      "class": 0,
+      "threshold": 13
+    },
+    {
+      "name": "pred_count_NSR_ge_15",
+      "kind": "chunk_pred_count_ge",
+      "class": 0,
+      "threshold": 15
+    },
+    {
+      "name": "top_count_NSR_ge_15",
+      "kind": "chunk_top_count_ge",
+      "class": 0,
+      "threshold": 15
+    },
+    {
+      "name": "pred_count_NSR_ge_18",
+      "kind": "chunk_pred_count_ge",
+      "class": 0,
+      "threshold": 18
+    },
+    {
+      "name": "top_count_NSR_ge_18",
+      "kind": "chunk_top_count_ge",
+      "class": 0,
+      "threshold": 18
+    },
+    {
+      "name": "pred_count_NSR_ge_20",
+      "kind": "chunk_pred_count_ge",
+      "class": 0,
+      "threshold": 20
+    },
+    {
+      "name": "top_count_NSR_ge_20",
+      "kind": "chunk_top_count_ge",
+      "class": 0,
+      "threshold": 20
+    },
+    {
+      "name": "pred_count_NSR_ge_23",
+      "kind": "chunk_pred_count_ge",
+      "class": 0,
+      "threshold": 23
+    },
+    {
+      "name": "top_count_NSR_ge_23",
+      "kind": "chunk_top_count_ge",
+      "class": 0,
+      "threshold": 23
+    },
+    {
+      "name": "pred_count_NSR_ge_25",
+      "kind": "chunk_pred_count_ge",
+      "class": 0,
+      "threshold": 25
+    },
+    {
+      "name": "top_count_NSR_ge_25",
+      "kind": "chunk_top_count_ge",
+      "class": 0,
+      "threshold": 25
+    },
+    {
+      "name": "pred_count_NSR_ge_28",
+      "kind": "chunk_pred_count_ge",
+      "class": 0,
+      "threshold": 28
+    },
+    {
+      "name": "top_count_NSR_ge_28",
+      "kind": "chunk_top_count_ge",
+      "class": 0,
+      "threshold": 28
+    },
+    {
+      "name": "pred_count_NSR_ge_30",
+      "kind": "chunk_pred_count_ge",
+      "class": 0,
+      "threshold": 30
+    },
+    {
+      "name": "top_count_NSR_ge_30",
+      "kind": "chunk_top_count_ge",
+      "class": 0,
+      "threshold": 30
+    },
+    {
+      "name": "pred_count_CHF_ge_1",
+      "kind": "chunk_pred_count_ge",
+      "class": 1,
+      "threshold": 1
+    },
+    {
+      "name": "top_count_CHF_ge_1",
+      "kind": "chunk_top_count_ge",
+      "class": 1,
+      "threshold": 1
+    },
+    {
+      "name": "pred_count_CHF_ge_3",
+      "kind": "chunk_pred_count_ge",
+      "class": 1,
+      "threshold": 3
+    },
+    {
+      "name": "top_count_CHF_ge_3",
+      "kind": "chunk_top_count_ge",
+      "class": 1,
+      "threshold": 3
+    },
+    {
+      "name": "pred_count_CHF_ge_5",
+      "kind": "chunk_pred_count_ge",
+      "class": 1,
+      "threshold": 5
+    },
+    {
+      "name": "top_count_CHF_ge_5",
+      "kind": "chunk_top_count_ge",
+      "class": 1,
+      "threshold": 5
+    },
+    {
+      "name": "pred_count_CHF_ge_8",
+      "kind": "chunk_pred_count_ge",
+      "class": 1,
+      "threshold": 8
+    },
+    {
+      "name": "top_count_CHF_ge_8",
+      "kind": "chunk_top_count_ge",
+      "class": 1,
+      "threshold": 8
+    },
+    {
+      "name": "pred_count_CHF_ge_10",
+      "kind": "chunk_pred_count_ge",
+      "class": 1,
+      "threshold": 10
+    },
+    {
+      "name": "top_count_CHF_ge_10",
+      "kind": "chunk_top_count_ge",
+      "class": 1,
+      "threshold": 10
+    },
+    {
+      "name": "pred_count_CHF_ge_13",
+      "kind": "chunk_pred_count_ge",
+      "class": 1,
+      "threshold": 13
+    },
+    {
+      "name": "top_count_CHF_ge_13",
+      "kind": "chunk_top_count_ge",
+      "class": 1,
+      "threshold": 13
+    },
+    {
+      "name": "pred_count_CHF_ge_15",
+      "kind": "chunk_pred_count_ge",
+      "class": 1,
+      "threshold": 15
+    },
+    {
+      "name": "top_count_CHF_ge_15",
+      "kind": "chunk_top_count_ge",
+      "class": 1,
+      "threshold": 15
+    },
+    {
+      "name": "pred_count_CHF_ge_18",
+      "kind": "chunk_pred_count_ge",
+      "class": 1,
+      "threshold": 18
+    },
+    {
+      "name": "top_count_CHF_ge_18",
+      "kind": "chunk_top_count_ge",
+      "class": 1,
+      "threshold": 18
+    },
+    {
+      "name": "pred_count_CHF_ge_20",
+      "kind": "chunk_pred_count_ge",
+      "class": 1,
+      "threshold": 20
+    },
+    {
+      "name": "top_count_CHF_ge_20",
+      "kind": "chunk_top_count_ge",
+      "class": 1,
+      "threshold": 20
+    },
+    {
+      "name": "pred_count_CHF_ge_23",
+      "kind": "chunk_pred_count_ge",
+      "class": 1,
+      "threshold": 23
+    },
+    {
+      "name": "top_count_CHF_ge_23",
+      "kind": "chunk_top_count_ge",
+      "class": 1,
+      "threshold": 23
+    },
+    {
+      "name": "pred_count_CHF_ge_25",
+      "kind": "chunk_pred_count_ge",
+      "class": 1,
+      "threshold": 25
+    },
+    {
+      "name": "top_count_CHF_ge_25",
+      "kind": "chunk_top_count_ge",
+      "class": 1,
+      "threshold": 25
+    },
+    {
+      "name": "pred_count_CHF_ge_28",
+      "kind": "chunk_pred_count_ge",
+      "class": 1,
+      "threshold": 28
+    },
+    {
+      "name": "top_count_CHF_ge_28",
+      "kind": "chunk_top_count_ge",
+      "class": 1,
+      "threshold": 28
+    },
+    {
+      "name": "pred_count_CHF_ge_30",
+      "kind": "chunk_pred_count_ge",
+      "class": 1,
+      "threshold": 30
+    },
+    {
+      "name": "top_count_CHF_ge_30",
+      "kind": "chunk_top_count_ge",
+      "class": 1,
+      "threshold": 30
+    },
+    {
+      "name": "pred_count_ARR_ge_1",
+      "kind": "chunk_pred_count_ge",
+      "class": 2,
+      "threshold": 1
+    },
+    {
+      "name": "top_count_ARR_ge_1",
+      "kind": "chunk_top_count_ge",
+      "class": 2,
+      "threshold": 1
+    },
+    {
+      "name": "pred_count_ARR_ge_3",
+      "kind": "chunk_pred_count_ge",
+      "class": 2,
+      "threshold": 3
+    },
+    {
+      "name": "top_count_ARR_ge_3",
+      "kind": "chunk_top_count_ge",
+      "class": 2,
+      "threshold": 3
+    },
+    {
+      "name": "pred_count_ARR_ge_5",
+      "kind": "chunk_pred_count_ge",
+      "class": 2,
+      "threshold": 5
+    },
+    {
+      "name": "top_count_ARR_ge_5",
+      "kind": "chunk_top_count_ge",
+      "class": 2,
+      "threshold": 5
+    },
+    {
+      "name": "pred_count_ARR_ge_8",
+      "kind": "chunk_pred_count_ge",
+      "class": 2,
+      "threshold": 8
+    },
+    {
+      "name": "top_count_ARR_ge_8",
+      "kind": "chunk_top_count_ge",
+      "class": 2,
+      "threshold": 8
+    },
+    {
+      "name": "pred_count_ARR_ge_10",
+      "kind": "chunk_pred_count_ge",
+      "class": 2,
+      "threshold": 10
+    },
+    {
+      "name": "top_count_ARR_ge_10",
+      "kind": "chunk_top_count_ge",
+      "class": 2,
+      "threshold": 10
+    },
+    {
+      "name": "pred_count_ARR_ge_13",
+      "kind": "chunk_pred_count_ge",
+      "class": 2,
+      "threshold": 13
+    },
+    {
+      "name": "top_count_ARR_ge_13",
+      "kind": "chunk_top_count_ge",
+      "class": 2,
+      "threshold": 13
+    },
+    {
+      "name": "pred_count_ARR_ge_15",
+      "kind": "chunk_pred_count_ge",
+      "class": 2,
+      "threshold": 15
+    },
+    {
+      "name": "top_count_ARR_ge_15",
+      "kind": "chunk_top_count_ge",
+      "class": 2,
+      "threshold": 15
+    },
+    {
+      "name": "pred_count_ARR_ge_18",
+      "kind": "chunk_pred_count_ge",
+      "class": 2,
+      "threshold": 18
+    },
+    {
+      "name": "top_count_ARR_ge_18",
+      "kind": "chunk_top_count_ge",
+      "class": 2,
+      "threshold": 18
+    },
+    {
+      "name": "pred_count_ARR_ge_20",
+      "kind": "chunk_pred_count_ge",
+      "class": 2,
+      "threshold": 20
+    },
+    {
+      "name": "top_count_ARR_ge_20",
+      "kind": "chunk_top_count_ge",
+      "class": 2,
+      "threshold": 20
+    },
+    {
+      "name": "pred_count_ARR_ge_23",
+      "kind": "chunk_pred_count_ge",
+      "class": 2,
+      "threshold": 23
+    },
+    {
+      "name": "top_count_ARR_ge_23",
+      "kind": "chunk_top_count_ge",
+      "class": 2,
+      "threshold": 23
+    },
+    {
+      "name": "pred_count_ARR_ge_25",
+      "kind": "chunk_pred_count_ge",
+      "class": 2,
+      "threshold": 25
+    },
+    {
+      "name": "top_count_ARR_ge_25",
+      "kind": "chunk_top_count_ge",
+      "class": 2,
+      "threshold": 25
+    },
+    {
+      "name": "pred_count_ARR_ge_28",
+      "kind": "chunk_pred_count_ge",
+      "class": 2,
+      "threshold": 28
+    },
+    {
+      "name": "top_count_ARR_ge_28",
+      "kind": "chunk_top_count_ge",
+      "class": 2,
+      "threshold": 28
+    },
+    {
+      "name": "pred_count_ARR_ge_30",
+      "kind": "chunk_pred_count_ge",
+      "class": 2,
+      "threshold": 30
+    },
+    {
+      "name": "top_count_ARR_ge_30",
+      "kind": "chunk_top_count_ge",
+      "class": 2,
+      "threshold": 30
+    },
+    {
+      "name": "pred_count_AFF_ge_1",
+      "kind": "chunk_pred_count_ge",
+      "class": 3,
+      "threshold": 1
+    },
+    {
+      "name": "top_count_AFF_ge_1",
+      "kind": "chunk_top_count_ge",
+      "class": 3,
+      "threshold": 1
+    },
+    {
+      "name": "pred_count_AFF_ge_3",
+      "kind": "chunk_pred_count_ge",
+      "class": 3,
+      "threshold": 3
+    },
+    {
+      "name": "top_count_AFF_ge_3",
+      "kind": "chunk_top_count_ge",
+      "class": 3,
+      "threshold": 3
+    },
+    {
+      "name": "pred_count_AFF_ge_5",
+      "kind": "chunk_pred_count_ge",
+      "class": 3,
+      "threshold": 5
+    },
+    {
+      "name": "top_count_AFF_ge_5",
+      "kind": "chunk_top_count_ge",
+      "class": 3,
+      "threshold": 5
+    },
+    {
+      "name": "pred_count_AFF_ge_8",
+      "kind": "chunk_pred_count_ge",
+      "class": 3,
+      "threshold": 8
+    },
+    {
+      "name": "top_count_AFF_ge_8",
+      "kind": "chunk_top_count_ge",
+      "class": 3,
+      "threshold": 8
+    },
+    {
+      "name": "pred_count_AFF_ge_10",
+      "kind": "chunk_pred_count_ge",
+      "class": 3,
+      "threshold": 10
+    },
+    {
+      "name": "top_count_AFF_ge_10",
+      "kind": "chunk_top_count_ge",
+      "class": 3,
+      "threshold": 10
+    },
+    {
+      "name": "pred_count_AFF_ge_13",
+      "kind": "chunk_pred_count_ge",
+      "class": 3,
+      "threshold": 13
+    },
+    {
+      "name": "top_count_AFF_ge_13",
+      "kind": "chunk_top_count_ge",
+      "class": 3,
+      "threshold": 13
+    },
+    {
+      "name": "pred_count_AFF_ge_15",
+      "kind": "chunk_pred_count_ge",
+      "class": 3,
+      "threshold": 15
+    },
+    {
+      "name": "top_count_AFF_ge_15",
+      "kind": "chunk_top_count_ge",
+      "class": 3,
+      "threshold": 15
+    },
+    {
+      "name": "pred_count_AFF_ge_18",
+      "kind": "chunk_pred_count_ge",
+      "class": 3,
+      "threshold": 18
+    },
+    {
+      "name": "top_count_AFF_ge_18",
+      "kind": "chunk_top_count_ge",
+      "class": 3,
+      "threshold": 18
+    },
+    {
+      "name": "pred_count_AFF_ge_20",
+      "kind": "chunk_pred_count_ge",
+      "class": 3,
+      "threshold": 20
+    },
+    {
+      "name": "top_count_AFF_ge_20",
+      "kind": "chunk_top_count_ge",
+      "class": 3,
+      "threshold": 20
+    },
+    {
+      "name": "pred_count_AFF_ge_23",
+      "kind": "chunk_pred_count_ge",
+      "class": 3,
+      "threshold": 23
+    },
+    {
+      "name": "top_count_AFF_ge_23",
+      "kind": "chunk_top_count_ge",
+      "class": 3,
+      "threshold": 23
+    },
+    {
+      "name": "pred_count_AFF_ge_25",
+      "kind": "chunk_pred_count_ge",
+      "class": 3,
+      "threshold": 25
+    },
+    {
+      "name": "top_count_AFF_ge_25",
+      "kind": "chunk_top_count_ge",
+      "class": 3,
+      "threshold": 25
+    },
+    {
+      "name": "pred_count_AFF_ge_28",
+      "kind": "chunk_pred_count_ge",
+      "class": 3,
+      "threshold": 28
+    },
+    {
+      "name": "top_count_AFF_ge_28",
+      "kind": "chunk_top_count_ge",
+      "class": 3,
+      "threshold": 28
+    },
+    {
+      "name": "pred_count_AFF_ge_30",
+      "kind": "chunk_pred_count_ge",
+      "class": 3,
+      "threshold": 30
+    },
+    {
+      "name": "top_count_AFF_ge_30",
+      "kind": "chunk_top_count_ge",
+      "class": 3,
+      "threshold": 30
+    },
+    {
+      "name": "nsr_stability_strict_count_ge_1",
+      "kind": "chunk_custom_count_ge",
+      "custom": "nsr_stability_strict",
+      "threshold": 1
+    },
+    {
+      "name": "nsr_stability_strict_count_ge_3",
+      "kind": "chunk_custom_count_ge",
+      "custom": "nsr_stability_strict",
+      "threshold": 3
+    },
+    {
+      "name": "nsr_stability_strict_count_ge_5",
+      "kind": "chunk_custom_count_ge",
+      "custom": "nsr_stability_strict",
+      "threshold": 5
+    },
+    {
+      "name": "nsr_stability_strict_count_ge_8",
+      "kind": "chunk_custom_count_ge",
+      "custom": "nsr_stability_strict",
+      "threshold": 8
+    },
+    {
+      "name": "nsr_stability_strict_count_ge_10",
+      "kind": "chunk_custom_count_ge",
+      "custom": "nsr_stability_strict",
+      "threshold": 10
+    },
+    {
+      "name": "nsr_stability_strict_count_ge_13",
+      "kind": "chunk_custom_count_ge",
+      "custom": "nsr_stability_strict",
+      "threshold": 13
+    },
+    {
+      "name": "nsr_stability_strict_count_ge_15",
+      "kind": "chunk_custom_count_ge",
+      "custom": "nsr_stability_strict",
+      "threshold": 15
+    },
+    {
+      "name": "nsr_stability_strict_count_ge_18",
+      "kind": "chunk_custom_count_ge",
+      "custom": "nsr_stability_strict",
+      "threshold": 18
+    },
+    {
+      "name": "nsr_stability_strict_count_ge_20",
+      "kind": "chunk_custom_count_ge",
+      "custom": "nsr_stability_strict",
+      "threshold": 20
+    },
+    {
+      "name": "nsr_stability_strict_count_ge_23",
+      "kind": "chunk_custom_count_ge",
+      "custom": "nsr_stability_strict",
+      "threshold": 23
+    },
+    {
+      "name": "nsr_stability_strict_count_ge_25",
+      "kind": "chunk_custom_count_ge",
+      "custom": "nsr_stability_strict",
+      "threshold": 25
+    },
+    {
+      "name": "nsr_stability_strict_count_ge_28",
+      "kind": "chunk_custom_count_ge",
+      "custom": "nsr_stability_strict",
+      "threshold": 28
+    },
+    {
+      "name": "nsr_stability_strict_count_ge_30",
+      "kind": "chunk_custom_count_ge",
+      "custom": "nsr_stability_strict",
+      "threshold": 30
+    },
+    {
+      "name": "nsr_stability_soft_count_ge_1",
+      "kind": "chunk_custom_count_ge",
+      "custom": "nsr_stability_soft",
+      "threshold": 1
+    },
+    {
+      "name": "nsr_stability_soft_count_ge_3",
+      "kind": "chunk_custom_count_ge",
+      "custom": "nsr_stability_soft",
+      "threshold": 3
+    },
+    {
+      "name": "nsr_stability_soft_count_ge_5",
+      "kind": "chunk_custom_count_ge",
+      "custom": "nsr_stability_soft",
+      "threshold": 5
+    },
+    {
+      "name": "nsr_stability_soft_count_ge_8",
+      "kind": "chunk_custom_count_ge",
+      "custom": "nsr_stability_soft",
+      "threshold": 8
+    },
+    {
+      "name": "nsr_stability_soft_count_ge_10",
+      "kind": "chunk_custom_count_ge",
+      "custom": "nsr_stability_soft",
+      "threshold": 10
+    },
+    {
+      "name": "nsr_stability_soft_count_ge_13",
+      "kind": "chunk_custom_count_ge",
+      "custom": "nsr_stability_soft",
+      "threshold": 13
+    },
+    {
+      "name": "nsr_stability_soft_count_ge_15",
+      "kind": "chunk_custom_count_ge",
+      "custom": "nsr_stability_soft",
+      "threshold": 15
+    },
+    {
+      "name": "nsr_stability_soft_count_ge_18",
+      "kind": "chunk_custom_count_ge",
+      "custom": "nsr_stability_soft",
+      "threshold": 18
+    },
+    {
+      "name": "nsr_stability_soft_count_ge_20",
+      "kind": "chunk_custom_count_ge",
+      "custom": "nsr_stability_soft",
+      "threshold": 20
+    },
+    {
+      "name": "nsr_stability_soft_count_ge_23",
+      "kind": "chunk_custom_count_ge",
+      "custom": "nsr_stability_soft",
+      "threshold": 23
+    },
+    {
+      "name": "nsr_stability_soft_count_ge_25",
+      "kind": "chunk_custom_count_ge",
+      "custom": "nsr_stability_soft",
+      "threshold": 25
+    },
+    {
+      "name": "nsr_stability_soft_count_ge_28",
+      "kind": "chunk_custom_count_ge",
+      "custom": "nsr_stability_soft",
+      "threshold": 28
+    },
+    {
+      "name": "nsr_stability_soft_count_ge_30",
+      "kind": "chunk_custom_count_ge",
+      "custom": "nsr_stability_soft",
+      "threshold": 30
+    },
+    {
+      "name": "arr_burst_strong_count_ge_1",
+      "kind": "chunk_custom_count_ge",
+      "custom": "arr_burst_strong",
+      "threshold": 1
+    },
+    {
+      "name": "arr_burst_strong_count_ge_3",
+      "kind": "chunk_custom_count_ge",
+      "custom": "arr_burst_strong",
+      "threshold": 3
+    },
+    {
+      "name": "arr_burst_strong_count_ge_5",
+      "kind": "chunk_custom_count_ge",
+      "custom": "arr_burst_strong",
+      "threshold": 5
+    },
+    {
+      "name": "arr_burst_strong_count_ge_8",
+      "kind": "chunk_custom_count_ge",
+      "custom": "arr_burst_strong",
+      "threshold": 8
+    },
+    {
+      "name": "arr_burst_strong_count_ge_10",
+      "kind": "chunk_custom_count_ge",
+      "custom": "arr_burst_strong",
+      "threshold": 10
+    },
+    {
+      "name": "arr_burst_strong_count_ge_13",
+      "kind": "chunk_custom_count_ge",
+      "custom": "arr_burst_strong",
+      "threshold": 13
+    },
+    {
+      "name": "arr_burst_strong_count_ge_15",
+      "kind": "chunk_custom_count_ge",
+      "custom": "arr_burst_strong",
+      "threshold": 15
+    },
+    {
+      "name": "arr_burst_strong_count_ge_18",
+      "kind": "chunk_custom_count_ge",
+      "custom": "arr_burst_strong",
+      "threshold": 18
+    },
+    {
+      "name": "arr_burst_strong_count_ge_20",
+      "kind": "chunk_custom_count_ge",
+      "custom": "arr_burst_strong",
+      "threshold": 20
+    },
+    {
+      "name": "arr_burst_strong_count_ge_23",
+      "kind": "chunk_custom_count_ge",
+      "custom": "arr_burst_strong",
+      "threshold": 23
+    },
+    {
+      "name": "arr_burst_strong_count_ge_25",
+      "kind": "chunk_custom_count_ge",
+      "custom": "arr_burst_strong",
+      "threshold": 25
+    },
+    {
+      "name": "arr_burst_strong_count_ge_28",
+      "kind": "chunk_custom_count_ge",
+      "custom": "arr_burst_strong",
+      "threshold": 28
+    },
+    {
+      "name": "arr_burst_strong_count_ge_30",
+      "kind": "chunk_custom_count_ge",
+      "custom": "arr_burst_strong",
+      "threshold": 30
+    },
+    {
+      "name": "arr_episodic_soft_count_ge_1",
+      "kind": "chunk_custom_count_ge",
+      "custom": "arr_episodic_soft",
+      "threshold": 1
+    },
+    {
+      "name": "arr_episodic_soft_count_ge_3",
+      "kind": "chunk_custom_count_ge",
+      "custom": "arr_episodic_soft",
+      "threshold": 3
+    },
+    {
+      "name": "arr_episodic_soft_count_ge_5",
+      "kind": "chunk_custom_count_ge",
+      "custom": "arr_episodic_soft",
+      "threshold": 5
+    },
+    {
+      "name": "arr_episodic_soft_count_ge_8",
+      "kind": "chunk_custom_count_ge",
+      "custom": "arr_episodic_soft",
+      "threshold": 8
+    },
+    {
+      "name": "arr_episodic_soft_count_ge_10",
+      "kind": "chunk_custom_count_ge",
+      "custom": "arr_episodic_soft",
+      "threshold": 10
+    },
+    {
+      "name": "arr_episodic_soft_count_ge_13",
+      "kind": "chunk_custom_count_ge",
+      "custom": "arr_episodic_soft",
+      "threshold": 13
+    },
+    {
+      "name": "arr_episodic_soft_count_ge_15",
+      "kind": "chunk_custom_count_ge",
+      "custom": "arr_episodic_soft",
+      "threshold": 15
+    },
+    {
+      "name": "arr_episodic_soft_count_ge_18",
+      "kind": "chunk_custom_count_ge",
+      "custom": "arr_episodic_soft",
+      "threshold": 18
+    },
+    {
+      "name": "arr_episodic_soft_count_ge_20",
+      "kind": "chunk_custom_count_ge",
+      "custom": "arr_episodic_soft",
+      "threshold": 20
+    },
+    {
+      "name": "arr_episodic_soft_count_ge_23",
+      "kind": "chunk_custom_count_ge",
+      "custom": "arr_episodic_soft",
+      "threshold": 23
+    },
+    {
+      "name": "arr_episodic_soft_count_ge_25",
+      "kind": "chunk_custom_count_ge",
+      "custom": "arr_episodic_soft",
+      "threshold": 25
+    },
+    {
+      "name": "arr_episodic_soft_count_ge_28",
+      "kind": "chunk_custom_count_ge",
+      "custom": "arr_episodic_soft",
+      "threshold": 28
+    },
+    {
+      "name": "arr_episodic_soft_count_ge_30",
+      "kind": "chunk_custom_count_ge",
+      "custom": "arr_episodic_soft",
+      "threshold": 30
+    },
+    {
+      "name": "aff_irregular_persistent_count_ge_1",
+      "kind": "chunk_custom_count_ge",
+      "custom": "aff_irregular_persistent",
+      "threshold": 1
+    },
+    {
+      "name": "aff_irregular_persistent_count_ge_3",
+      "kind": "chunk_custom_count_ge",
+      "custom": "aff_irregular_persistent",
+      "threshold": 3
+    },
+    {
+      "name": "aff_irregular_persistent_count_ge_5",
+      "kind": "chunk_custom_count_ge",
+      "custom": "aff_irregular_persistent",
+      "threshold": 5
+    },
+    {
+      "name": "aff_irregular_persistent_count_ge_8",
+      "kind": "chunk_custom_count_ge",
+      "custom": "aff_irregular_persistent",
+      "threshold": 8
+    },
+    {
+      "name": "aff_irregular_persistent_count_ge_10",
+      "kind": "chunk_custom_count_ge",
+      "custom": "aff_irregular_persistent",
+      "threshold": 10
+    },
+    {
+      "name": "aff_irregular_persistent_count_ge_13",
+      "kind": "chunk_custom_count_ge",
+      "custom": "aff_irregular_persistent",
+      "threshold": 13
+    },
+    {
+      "name": "aff_irregular_persistent_count_ge_15",
+      "kind": "chunk_custom_count_ge",
+      "custom": "aff_irregular_persistent",
+      "threshold": 15
+    },
+    {
+      "name": "aff_irregular_persistent_count_ge_18",
+      "kind": "chunk_custom_count_ge",
+      "custom": "aff_irregular_persistent",
+      "threshold": 18
+    },
+    {
+      "name": "aff_irregular_persistent_count_ge_20",
+      "kind": "chunk_custom_count_ge",
+      "custom": "aff_irregular_persistent",
+      "threshold": 20
+    },
+    {
+      "name": "aff_irregular_persistent_count_ge_23",
+      "kind": "chunk_custom_count_ge",
+      "custom": "aff_irregular_persistent",
+      "threshold": 23
+    },
+    {
+      "name": "aff_irregular_persistent_count_ge_25",
+      "kind": "chunk_custom_count_ge",
+      "custom": "aff_irregular_persistent",
+      "threshold": 25
+    },
+    {
+      "name": "aff_irregular_persistent_count_ge_28",
+      "kind": "chunk_custom_count_ge",
+      "custom": "aff_irregular_persistent",
+      "threshold": 28
+    },
+    {
+      "name": "aff_irregular_persistent_count_ge_30",
+      "kind": "chunk_custom_count_ge",
+      "custom": "aff_irregular_persistent",
+      "threshold": 30
+    },
+    {
+      "name": "aff_irregular_soft_count_ge_1",
+      "kind": "chunk_custom_count_ge",
+      "custom": "aff_irregular_soft",
+      "threshold": 1
+    },
+    {
+      "name": "aff_irregular_soft_count_ge_3",
+      "kind": "chunk_custom_count_ge",
+      "custom": "aff_irregular_soft",
+      "threshold": 3
+    },
+    {
+      "name": "aff_irregular_soft_count_ge_5",
+      "kind": "chunk_custom_count_ge",
+      "custom": "aff_irregular_soft",
+      "threshold": 5
+    },
+    {
+      "name": "aff_irregular_soft_count_ge_8",
+      "kind": "chunk_custom_count_ge",
+      "custom": "aff_irregular_soft",
+      "threshold": 8
+    },
+    {
+      "name": "aff_irregular_soft_count_ge_10",
+      "kind": "chunk_custom_count_ge",
+      "custom": "aff_irregular_soft",
+      "threshold": 10
+    },
+    {
+      "name": "aff_irregular_soft_count_ge_13",
+      "kind": "chunk_custom_count_ge",
+      "custom": "aff_irregular_soft",
+      "threshold": 13
+    },
+    {
+      "name": "aff_irregular_soft_count_ge_15",
+      "kind": "chunk_custom_count_ge",
+      "custom": "aff_irregular_soft",
+      "threshold": 15
+    },
+    {
+      "name": "aff_irregular_soft_count_ge_18",
+      "kind": "chunk_custom_count_ge",
+      "custom": "aff_irregular_soft",
+      "threshold": 18
+    },
+    {
+      "name": "aff_irregular_soft_count_ge_20",
+      "kind": "chunk_custom_count_ge",
+      "custom": "aff_irregular_soft",
+      "threshold": 20
+    },
+    {
+      "name": "aff_irregular_soft_count_ge_23",
+      "kind": "chunk_custom_count_ge",
+      "custom": "aff_irregular_soft",
+      "threshold": 23
+    },
+    {
+      "name": "aff_irregular_soft_count_ge_25",
+      "kind": "chunk_custom_count_ge",
+      "custom": "aff_irregular_soft",
+      "threshold": 25
+    },
+    {
+      "name": "aff_irregular_soft_count_ge_28",
+      "kind": "chunk_custom_count_ge",
+      "custom": "aff_irregular_soft",
+      "threshold": 28
+    },
+    {
+      "name": "aff_irregular_soft_count_ge_30",
+      "kind": "chunk_custom_count_ge",
+      "custom": "aff_irregular_soft",
+      "threshold": 30
+    },
+    {
+      "name": "chf_morphology_low_irreg_count_ge_1",
+      "kind": "chunk_custom_count_ge",
+      "custom": "chf_morphology_low_irreg",
+      "threshold": 1
+    },
+    {
+      "name": "chf_morphology_low_irreg_count_ge_3",
+      "kind": "chunk_custom_count_ge",
+      "custom": "chf_morphology_low_irreg",
+      "threshold": 3
+    },
+    {
+      "name": "chf_morphology_low_irreg_count_ge_5",
+      "kind": "chunk_custom_count_ge",
+      "custom": "chf_morphology_low_irreg",
+      "threshold": 5
+    },
+    {
+      "name": "chf_morphology_low_irreg_count_ge_8",
+      "kind": "chunk_custom_count_ge",
+      "custom": "chf_morphology_low_irreg",
+      "threshold": 8
+    },
+    {
+      "name": "chf_morphology_low_irreg_count_ge_10",
+      "kind": "chunk_custom_count_ge",
+      "custom": "chf_morphology_low_irreg",
+      "threshold": 10
+    },
+    {
+      "name": "chf_morphology_low_irreg_count_ge_13",
+      "kind": "chunk_custom_count_ge",
+      "custom": "chf_morphology_low_irreg",
+      "threshold": 13
+    },
+    {
+      "name": "chf_morphology_low_irreg_count_ge_15",
+      "kind": "chunk_custom_count_ge",
+      "custom": "chf_morphology_low_irreg",
+      "threshold": 15
+    },
+    {
+      "name": "chf_morphology_low_irreg_count_ge_18",
+      "kind": "chunk_custom_count_ge",
+      "custom": "chf_morphology_low_irreg",
+      "threshold": 18
+    },
+    {
+      "name": "chf_morphology_low_irreg_count_ge_20",
+      "kind": "chunk_custom_count_ge",
+      "custom": "chf_morphology_low_irreg",
+      "threshold": 20
+    },
+    {
+      "name": "chf_morphology_low_irreg_count_ge_23",
+      "kind": "chunk_custom_count_ge",
+      "custom": "chf_morphology_low_irreg",
+      "threshold": 23
+    },
+    {
+      "name": "chf_morphology_low_irreg_count_ge_25",
+      "kind": "chunk_custom_count_ge",
+      "custom": "chf_morphology_low_irreg",
+      "threshold": 25
+    },
+    {
+      "name": "chf_morphology_low_irreg_count_ge_28",
+      "kind": "chunk_custom_count_ge",
+      "custom": "chf_morphology_low_irreg",
+      "threshold": 28
+    },
+    {
+      "name": "chf_morphology_low_irreg_count_ge_30",
+      "kind": "chunk_custom_count_ge",
+      "custom": "chf_morphology_low_irreg",
+      "threshold": 30
+    },
+    {
+      "name": "abnormal_priority_any_count_ge_1",
+      "kind": "chunk_custom_count_ge",
+      "custom": "abnormal_priority_any",
+      "threshold": 1
+    },
+    {
+      "name": "abnormal_priority_any_count_ge_3",
+      "kind": "chunk_custom_count_ge",
+      "custom": "abnormal_priority_any",
+      "threshold": 3
+    },
+    {
+      "name": "abnormal_priority_any_count_ge_5",
+      "kind": "chunk_custom_count_ge",
+      "custom": "abnormal_priority_any",
+      "threshold": 5
+    },
+    {
+      "name": "abnormal_priority_any_count_ge_8",
+      "kind": "chunk_custom_count_ge",
+      "custom": "abnormal_priority_any",
+      "threshold": 8
+    },
+    {
+      "name": "abnormal_priority_any_count_ge_10",
+      "kind": "chunk_custom_count_ge",
+      "custom": "abnormal_priority_any",
+      "threshold": 10
+    },
+    {
+      "name": "abnormal_priority_any_count_ge_13",
+      "kind": "chunk_custom_count_ge",
+      "custom": "abnormal_priority_any",
+      "threshold": 13
+    },
+    {
+      "name": "abnormal_priority_any_count_ge_15",
+      "kind": "chunk_custom_count_ge",
+      "custom": "abnormal_priority_any",
+      "threshold": 15
+    },
+    {
+      "name": "abnormal_priority_any_count_ge_18",
+      "kind": "chunk_custom_count_ge",
+      "custom": "abnormal_priority_any",
+      "threshold": 18
+    },
+    {
+      "name": "abnormal_priority_any_count_ge_20",
+      "kind": "chunk_custom_count_ge",
+      "custom": "abnormal_priority_any",
+      "threshold": 20
+    },
+    {
+      "name": "abnormal_priority_any_count_ge_23",
+      "kind": "chunk_custom_count_ge",
+      "custom": "abnormal_priority_any",
+      "threshold": 23
+    },
+    {
+      "name": "abnormal_priority_any_count_ge_25",
+      "kind": "chunk_custom_count_ge",
+      "custom": "abnormal_priority_any",
+      "threshold": 25
+    },
+    {
+      "name": "abnormal_priority_any_count_ge_28",
+      "kind": "chunk_custom_count_ge",
+      "custom": "abnormal_priority_any",
+      "threshold": 28
+    },
+    {
+      "name": "abnormal_priority_any_count_ge_30",
+      "kind": "chunk_custom_count_ge",
+      "custom": "abnormal_priority_any",
+      "threshold": 30
+    },
+    {
+      "name": "abnormal_priority_strong_count_ge_1",
+      "kind": "chunk_custom_count_ge",
+      "custom": "abnormal_priority_strong",
+      "threshold": 1
+    },
+    {
+      "name": "abnormal_priority_strong_count_ge_3",
+      "kind": "chunk_custom_count_ge",
+      "custom": "abnormal_priority_strong",
+      "threshold": 3
+    },
+    {
+      "name": "abnormal_priority_strong_count_ge_5",
+      "kind": "chunk_custom_count_ge",
+      "custom": "abnormal_priority_strong",
+      "threshold": 5
+    },
+    {
+      "name": "abnormal_priority_strong_count_ge_8",
+      "kind": "chunk_custom_count_ge",
+      "custom": "abnormal_priority_strong",
+      "threshold": 8
+    },
+    {
+      "name": "abnormal_priority_strong_count_ge_10",
+      "kind": "chunk_custom_count_ge",
+      "custom": "abnormal_priority_strong",
+      "threshold": 10
+    },
+    {
+      "name": "abnormal_priority_strong_count_ge_13",
+      "kind": "chunk_custom_count_ge",
+      "custom": "abnormal_priority_strong",
+      "threshold": 13
+    },
+    {
+      "name": "abnormal_priority_strong_count_ge_15",
+      "kind": "chunk_custom_count_ge",
+      "custom": "abnormal_priority_strong",
+      "threshold": 15
+    },
+    {
+      "name": "abnormal_priority_strong_count_ge_18",
+      "kind": "chunk_custom_count_ge",
+      "custom": "abnormal_priority_strong",
+      "threshold": 18
+    },
+    {
+      "name": "abnormal_priority_strong_count_ge_20",
+      "kind": "chunk_custom_count_ge",
+      "custom": "abnormal_priority_strong",
+      "threshold": 20
+    },
+    {
+      "name": "abnormal_priority_strong_count_ge_23",
+      "kind": "chunk_custom_count_ge",
+      "custom": "abnormal_priority_strong",
+      "threshold": 23
+    },
+    {
+      "name": "abnormal_priority_strong_count_ge_25",
+      "kind": "chunk_custom_count_ge",
+      "custom": "abnormal_priority_strong",
+      "threshold": 25
+    },
+    {
+      "name": "abnormal_priority_strong_count_ge_28",
+      "kind": "chunk_custom_count_ge",
+      "custom": "abnormal_priority_strong",
+      "threshold": 28
+    },
+    {
+      "name": "abnormal_priority_strong_count_ge_30",
+      "kind": "chunk_custom_count_ge",
+      "custom": "abnormal_priority_strong",
+      "threshold": 30
+    }
+  ],
+  "weights_by_class": {
+    "NSR": [
+      -2,
+      83,
+      91,
+      75,
+      91,
+      85,
+      86,
+      82,
+      55,
+      -19,
+      6,
+      133,
+      52,
+      2,
+      -3,
+      -12,
+      78,
+      1,
+      -113,
+      -109,
+      -109,
+      -106,
+      -106,
+      -103,
+      -98,
+      -114,
+      -1,
+      40,
+      295,
+      50,
+      -111,
+      -118,
+      -49,
+      -2,
+      -85,
+      -6,
+      -2,
+      -2,
+      -9,
+      -5,
+      -14,
+      -9,
+      -3,
+      -37,
+      -5,
+      -391,
+      -289,
+      -185,
+      -28,
+      -65,
+      -12,
+      -1,
+      -28,
+      -24,
+      -24,
+      -24,
+      -22,
+      -19,
+      -25,
+      -13,
+      -1,
+      -5,
+      -261,
+      -66,
+      -30,
+      -23,
+      -9,
+      -7,
+      0,
+      38,
+      94,
+      118,
+      162,
+      557,
+      -390,
+      -95,
+      0,
+      -147,
+      -122,
+      -249,
+      -111,
+      -123,
+      -1,
+      -10,
+      -25,
+      -18,
+      22,
+      -86,
+      -109,
+      -40,
+      -26,
+      -26,
+      -21,
+      165,
+      123,
+      167,
+      130,
+      47,
+      -53,
+      -127,
+      -36,
+      -20,
+      -72,
+      -154,
+      -219,
+      -224,
+      -110,
+      -55,
+      -3,
+      50,
+      -114,
+      -160,
+      -111,
+      -132,
+      -49,
+      -49,
+      -11,
+      183,
+      -11,
+      -57,
+      -47,
+      -49,
+      0,
+      -14,
+      -343,
+      -275,
+      -161,
+      -70,
+      -58,
+      -35,
+      -23,
+      -5,
+      -165,
+      -112,
+      -68,
+      -17,
+      -4,
+      -1,
+      -30,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      29,
+      36,
+      38,
+      110,
+      162,
+      -392,
+      20,
+      -46,
+      -25,
+      173,
+      205,
+      -403,
+      -3,
+      43,
+      81,
+      -111,
+      46,
+      208,
+      -41,
+      0,
+      91,
+      40,
+      20,
+      -25,
+      -66,
+      -177,
+      -139,
+      -157,
+      -105,
+      164,
+      101,
+      81,
+      97,
+      -26,
+      -101,
+      -57,
+      -83,
+      -15,
+      58,
+      13,
+      -61,
+      -191,
+      -189,
+      -124,
+      -149,
+      -65,
+      -17,
+      87,
+      45,
+      149,
+      146,
+      29,
+      48,
+      -110,
+      -58,
+      137,
+      102,
+      57,
+      -82,
+      -34,
+      30,
+      -3,
+      -225,
+      -208,
+      -218,
+      -192,
+      -132,
+      -55,
+      46,
+      108,
+      35,
+      -221,
+      -243,
+      -269,
+      -190,
+      -109,
+      -84,
+      -43,
+      -47,
+      -39,
+      -32,
+      73,
+      99,
+      96,
+      111,
+      75,
+      15,
+      59,
+      -128,
+      -167,
+      -51,
+      -132,
+      -196,
+      -126,
+      -131,
+      -136,
+      -110,
+      -50,
+      -23,
+      -15,
+      -5,
+      -122,
+      28,
+      -180,
+      -54,
+      -36,
+      -26,
+      -12,
+      0,
+      0,
+      100,
+      137,
+      173,
+      -42,
+      -658,
+      233,
+      536,
+      232,
+      177,
+      232,
+      -110,
+      -16,
+      -26,
+      -24,
+      8,
+      -396,
+      -217,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      131072,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "CHF": [
+      -1,
+      -20,
+      -16,
+      -16,
+      -7,
+      -5,
+      14,
+      37,
+      15,
+      66,
+      -16,
+      -364,
+      -72,
+      103,
+      196,
+      111,
+      -11,
+      0,
+      136,
+      144,
+      128,
+      136,
+      136,
+      140,
+      113,
+      127,
+      200,
+      220,
+      342,
+      208,
+      305,
+      282,
+      427,
+      234,
+      167,
+      -211,
+      -207,
+      -207,
+      -194,
+      -198,
+      -203,
+      -203,
+      -183,
+      -157,
+      -68,
+      -269,
+      -163,
+      -47,
+      -113,
+      -54,
+      -6,
+      2,
+      61,
+      65,
+      65,
+      50,
+      57,
+      77,
+      110,
+      206,
+      203,
+      47,
+      -368,
+      -33,
+      173,
+      283,
+      250,
+      10,
+      -30,
+      31,
+      8,
+      -37,
+      -121,
+      -249,
+      155,
+      210,
+      -10,
+      221,
+      106,
+      -8,
+      -130,
+      -129,
+      -35,
+      176,
+      197,
+      106,
+      7,
+      -166,
+      -125,
+      28,
+      134,
+      274,
+      217,
+      29,
+      21,
+      -37,
+      -96,
+      -8,
+      -69,
+      -75,
+      -143,
+      180,
+      222,
+      216,
+      59,
+      -92,
+      -119,
+      -138,
+      -42,
+      106,
+      83,
+      8,
+      -67,
+      -140,
+      -157,
+      -139,
+      -119,
+      -40,
+      51,
+      -54,
+      -85,
+      -184,
+      -200,
+      -158,
+      286,
+      119,
+      20,
+      -26,
+      -8,
+      23,
+      7,
+      -87,
+      -3,
+      5,
+      21,
+      -23,
+      -28,
+      -6,
+      4,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      21,
+      61,
+      78,
+      31,
+      -20,
+      -121,
+      168,
+      114,
+      -133,
+      -137,
+      -375,
+      -476,
+      -112,
+      7,
+      -238,
+      -34,
+      89,
+      -482,
+      6,
+      48,
+      60,
+      138,
+      104,
+      125,
+      168,
+      294,
+      295,
+      229,
+      166,
+      26,
+      27,
+      6,
+      52,
+      5,
+      75,
+      44,
+      -53,
+      -119,
+      -97,
+      108,
+      75,
+      73,
+      89,
+      48,
+      -67,
+      -120,
+      -128,
+      -127,
+      -251,
+      -145,
+      -55,
+      16,
+      134,
+      77,
+      -136,
+      -75,
+      -96,
+      -59,
+      21,
+      -37,
+      118,
+      159,
+      24,
+      -59,
+      -70,
+      -39,
+      32,
+      25,
+      57,
+      -13,
+      -53,
+      -63,
+      138,
+      31,
+      -90,
+      -118,
+      -89,
+      -106,
+      -17,
+      189,
+      171,
+      153,
+      53,
+      -9,
+      -122,
+      -131,
+      -91,
+      -86,
+      5,
+      -5,
+      -56,
+      -113,
+      177,
+      139,
+      32,
+      -22,
+      -110,
+      -79,
+      -115,
+      -113,
+      -108,
+      -65,
+      30,
+      -118,
+      -74,
+      -95,
+      119,
+      56,
+      -50,
+      0,
+      0,
+      121,
+      -119,
+      -180,
+      101,
+      456,
+      0,
+      3,
+      136,
+      26,
+      43,
+      -113,
+      -191,
+      126,
+      65,
+      -181,
+      311,
+      131,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -65536,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ARR": [
+      0,
+      -24,
+      -20,
+      -20,
+      -19,
+      -18,
+      -38,
+      -32,
+      19,
+      55,
+      72,
+      87,
+      -256,
+      -24,
+      -105,
+      0,
+      -32,
+      0,
+      -54,
+      -50,
+      -50,
+      -55,
+      -55,
+      -54,
+      -33,
+      -30,
+      -41,
+      -194,
+      -651,
+      -388,
+      -113,
+      -118,
+      -252,
+      -170,
+      -76,
+      327,
+      335,
+      319,
+      316,
+      323,
+      346,
+      375,
+      380,
+      357,
+      153,
+      385,
+      251,
+      460,
+      370,
+      307,
+      82,
+      1,
+      -253,
+      -249,
+      -249,
+      -232,
+      -223,
+      -224,
+      -200,
+      -201,
+      -179,
+      -141,
+      429,
+      -210,
+      -126,
+      -94,
+      -161,
+      -184,
+      -47,
+      85,
+      43,
+      56,
+      40,
+      -487,
+      291,
+      89,
+      -21,
+      -126,
+      -84,
+      134,
+      61,
+      67,
+      -38,
+      62,
+      95,
+      30,
+      -101,
+      126,
+      260,
+      219,
+      236,
+      115,
+      115,
+      -102,
+      -27,
+      -19,
+      16,
+      -78,
+      31,
+      139,
+      128,
+      -153,
+      -174,
+      -115,
+      65,
+      164,
+      62,
+      74,
+      4,
+      -173,
+      -46,
+      115,
+      112,
+      137,
+      47,
+      24,
+      -1,
+      -222,
+      -232,
+      -9,
+      -50,
+      7,
+      -39,
+      11,
+      207,
+      200,
+      117,
+      77,
+      33,
+      -10,
+      -7,
+      -101,
+      -25,
+      -38,
+      -75,
+      -84,
+      -92,
+      -97,
+      47,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      32,
+      56,
+      60,
+      85,
+      46,
+      39,
+      280,
+      -26,
+      -72,
+      -43,
+      30,
+      21,
+      473,
+      -2,
+      327,
+      75,
+      -203,
+      163,
+      1,
+      -6,
+      -60,
+      -142,
+      -51,
+      -41,
+      -65,
+      -201,
+      -135,
+      -106,
+      -14,
+      143,
+      -103,
+      -13,
+      -39,
+      -47,
+      -76,
+      -18,
+      1,
+      94,
+      77,
+      -204,
+      -177,
+      -69,
+      69,
+      125,
+      162,
+      173,
+      16,
+      -58,
+      126,
+      71,
+      -72,
+      -105,
+      -65,
+      -28,
+      173,
+      137,
+      -77,
+      -91,
+      -95,
+      101,
+      -34,
+      -157,
+      -237,
+      102,
+      84,
+      58,
+      -22,
+      -1,
+      101,
+      95,
+      12,
+      73,
+      -30,
+      51,
+      137,
+      66,
+      -31,
+      -66,
+      -43,
+      115,
+      124,
+      22,
+      -48,
+      -26,
+      66,
+      28,
+      -18,
+      -3,
+      -186,
+      60,
+      150,
+      112,
+      -85,
+      78,
+      36,
+      71,
+      144,
+      74,
+      -8,
+      -16,
+      -21,
+      10,
+      173,
+      93,
+      107,
+      91,
+      157,
+      113,
+      57,
+      0,
+      0,
+      -204,
+      -1,
+      214,
+      62,
+      570,
+      218,
+      -321,
+      -346,
+      -141,
+      -197,
+      92,
+      337,
+      34,
+      -249,
+      140,
+      33,
+      6,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -65536,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "AFF": [
+      3,
+      -43,
+      -39,
+      -39,
+      -65,
+      -62,
+      -62,
+      -87,
+      -89,
+      -102,
+      -62,
+      144,
+      276,
+      -81,
+      -87,
+      -98,
+      -34,
+      0,
+      27,
+      31,
+      31,
+      25,
+      25,
+      17,
+      18,
+      17,
+      -158,
+      -66,
+      14,
+      130,
+      -81,
+      -45,
+      -125,
+      -61,
+      -5,
+      -114,
+      -110,
+      -110,
+      -113,
+      -120,
+      -129,
+      -163,
+      -194,
+      -163,
+      -80,
+      275,
+      201,
+      -228,
+      -228,
+      -187,
+      -63,
+      -1,
+      216,
+      224,
+      208,
+      206,
+      188,
+      166,
+      115,
+      8,
+      -23,
+      99,
+      200,
+      309,
+      -17,
+      -165,
+      -79,
+      182,
+      78,
+      -154,
+      -145,
+      -137,
+      -81,
+      179,
+      -56,
+      -204,
+      31,
+      52,
+      100,
+      123,
+      180,
+      185,
+      74,
+      -228,
+      -267,
+      -118,
+      72,
+      126,
+      -26,
+      -207,
+      -344,
+      -363,
+      -311,
+      -92,
+      -117,
+      -111,
+      -50,
+      39,
+      91,
+      63,
+      51,
+      -7,
+      24,
+      53,
+      95,
+      152,
+      167,
+      119,
+      41,
+      17,
+      77,
+      37,
+      66,
+      135,
+      159,
+      164,
+      131,
+      79,
+      192,
+      120,
+      182,
+      226,
+      239,
+      161,
+      -150,
+      -44,
+      24,
+      19,
+      33,
+      22,
+      23,
+      193,
+      193,
+      145,
+      122,
+      124,
+      124,
+      104,
+      -21,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -52,
+      -146,
+      -174,
+      -154,
+      -136,
+      -80,
+      -56,
+      -108,
+      251,
+      205,
+      172,
+      250,
+      42,
+      -2,
+      -132,
+      -122,
+      225,
+      273,
+      -215,
+      -1,
+      0,
+      -87,
+      -93,
+      -104,
+      -78,
+      -27,
+      17,
+      16,
+      5,
+      -64,
+      -88,
+      -94,
+      -94,
+      -55,
+      27,
+      75,
+      109,
+      108,
+      35,
+      38,
+      89,
+      57,
+      33,
+      16,
+      29,
+      96,
+      177,
+      202,
+      38,
+      29,
+      -22,
+      -57,
+      -98,
+      -97,
+      73,
+      -4,
+      36,
+      48,
+      17,
+      18,
+      -50,
+      -32,
+      216,
+      182,
+      194,
+      199,
+      182,
+      108,
+      -103,
+      -128,
+      -67,
+      -45,
+      113,
+      161,
+      222,
+      242,
+      229,
+      256,
+      103,
+      -257,
+      -256,
+      -143,
+      -78,
+      -64,
+      -40,
+      -8,
+      34,
+      74,
+      122,
+      73,
+      73,
+      52,
+      40,
+      -21,
+      58,
+      82,
+      102,
+      115,
+      173,
+      152,
+      144,
+      60,
+      -81,
+      -3,
+      147,
+      58,
+      -240,
+      -143,
+      5,
+      0,
+      0,
+      -17,
+      -17,
+      -207,
+      -121,
+      -368,
+      -451,
+      -218,
+      -22,
+      -62,
+      -78,
+      131,
+      -130,
+      -134,
+      208,
+      33,
+      52,
+      80,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -65536,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "metrics": {
+    "train": {
+      "accuracy": 0.8823529411764706,
+      "correct": 60,
+      "total": 68,
+      "macro_precision": 0.92,
+      "macro_recall": 0.8823529411764706,
+      "macro_f1": 0.8836580086580087,
+      "balanced_accuracy": 0.8823529411764706,
+      "min_recall": 0.6470588235294118,
+      "recall_range": 0.3529411764705882,
+      "per_class": {
+        "NSR": {
+          "precision": 0.68,
+          "recall": 1.0,
+          "f1": 0.8095238095238095,
+          "support": 17
+        },
+        "CHF": {
+          "precision": 1.0,
+          "recall": 0.9411764705882353,
+          "f1": 0.9696969696969697,
+          "support": 17
+        },
+        "ARR": {
+          "precision": 1.0,
+          "recall": 0.6470588235294118,
+          "f1": 0.7857142857142858,
+          "support": 17
+        },
+        "AFF": {
+          "precision": 1.0,
+          "recall": 0.9411764705882353,
+          "f1": 0.9696969696969697,
+          "support": 17
+        }
+      },
+      "confusion_matrix": [
+        [
+          17,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          16,
+          0,
+          0
+        ],
+        [
+          6,
+          0,
+          11,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          16
+        ]
+      ]
+    },
+    "val": {
+      "accuracy": 0.90625,
+      "correct": 29,
+      "total": 32,
+      "macro_precision": 0.9052579365079365,
+      "macro_recall": 0.90625,
+      "macro_f1": 0.9040441176470588,
+      "balanced_accuracy": 0.90625,
+      "min_recall": 0.75,
+      "recall_range": 0.25,
+      "per_class": {
+        "NSR": {
+          "precision": 0.875,
+          "recall": 0.875,
+          "f1": 0.875,
+          "support": 8
+        },
+        "CHF": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 8
+        },
+        "ARR": {
+          "precision": 0.8571428571428571,
+          "recall": 0.75,
+          "f1": 0.7999999999999999,
+          "support": 8
+        },
+        "AFF": {
+          "precision": 0.8888888888888888,
+          "recall": 1.0,
+          "f1": 0.9411764705882353,
+          "support": 8
+        }
+      },
+      "confusion_matrix": [
+        [
+          7,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          8,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          6,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          8
+        ]
+      ]
+    },
+    "test": {
+      "accuracy": 0.7777777777777778,
+      "correct": 28,
+      "total": 36,
+      "macro_precision": 0.8294642857142858,
+      "macro_recall": 0.7777777777777778,
+      "macro_f1": 0.7659069964898475,
+      "balanced_accuracy": 0.7777777777777778,
+      "min_recall": 0.4444444444444444,
+      "recall_range": 0.5555555555555556,
+      "per_class": {
+        "NSR": {
+          "precision": 0.6428571428571429,
+          "recall": 1.0,
+          "f1": 0.782608695652174,
+          "support": 9
+        },
+        "CHF": {
+          "precision": 0.875,
+          "recall": 0.7777777777777778,
+          "f1": 0.823529411764706,
+          "support": 9
+        },
+        "ARR": {
+          "precision": 1.0,
+          "recall": 0.4444444444444444,
+          "f1": 0.6153846153846153,
+          "support": 9
+        },
+        "AFF": {
+          "precision": 0.8,
+          "recall": 0.8888888888888888,
+          "f1": 0.8421052631578948,
+          "support": 9
+        }
+      },
+      "confusion_matrix": [
+        [
+          9,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          7,
+          0,
+          2
+        ],
+        [
+          4,
+          1,
+          4,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          8
+        ]
+      ]
+    }
+  },
+  "note": "Snapshot C24 parameters are fixed. Only the 30min final membrane readout is trained on train and selected on validation. Test metrics are reported after selection and are not used for candidate selection."
+}

@@ -1,6 +1,8 @@
 # Vivado generated files
 *.jou
 *.log
+*.err
+*.pid
 *.str
 *.wdb
 *.wcfg
@@ -18,11 +20,26 @@ webtalk/
 # Large/generated ECG datasets
 person_data_record_split_strict_varlen/**/mem/
 datasets/afe_output_xmodelmatch_curated_v2_50_25_25/
+fullrec_afe/
 *.pwl
+*.zip
+handoff_to_suhwan/
+handoff_to_suhwan_remaining_records/
+fullrec_afe_30s_chunks/
+fullrec_afe_30s_balanced_chunks/
+fullrec_afe_30s_annotation_valid_balanced/
+fullrec_afe_30min_annotation_valid_balanced/
+fullrec_afe_remaining/
 
 # Local verification workdirs
 results/c24_rtl_equivalence/xsim_work/
 results/c24_rtl_equivalence/xsim_*_manifest.txt
+results/**/xsim_work/
+results/**/xsim_stream_work/
+results/**/xsim_record_level_strict_work/
+results/**/xsim_replay_work/
+results/**/windows/
+results/**/synth/vivado_*/
 vivado_project/SNN_ECG_ModelS_Restore/
 
 # Python

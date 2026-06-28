@@ -712,6 +712,14 @@ module snn_ecg_3feat_top #(
 
     output [19:0] eerg_rdm_code_sum,
 
+    output signed [63:0] c24_mem_nsr,
+
+    output signed [63:0] c24_mem_chf,
+
+    output signed [63:0] c24_mem_arr,
+
+    output signed [63:0] c24_mem_aff,
+
     output [1:0] pred_class,
 
     output pred_valid
@@ -1918,6 +1926,14 @@ module snn_ecg_3feat_top #(
         .eerg_rdm_valid_count(eerg_rdm_valid_count),
 
         .eerg_rdm_code_sum(eerg_rdm_code_sum),
+
+        .c24_mem_nsr(c24_mem_nsr),
+
+        .c24_mem_chf(c24_mem_chf),
+
+        .c24_mem_arr(c24_mem_arr),
+
+        .c24_mem_aff(c24_mem_aff),
 
         .pred_class(pred_class),
 

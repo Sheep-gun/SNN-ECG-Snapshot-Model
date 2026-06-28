@@ -1,0 +1,42 @@
+{
+  "record_accuracy": 0.9166666666666666,
+  "record_correct": 11,
+  "record_total": 12,
+  "macro_f1": 0.9142857142857143,
+  "balanced_accuracy": 0.9166666666666666,
+  "class_metrics": [
+    {
+      "class": "NSR",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 3,
+      "correct": 3
+    },
+    {
+      "class": "CHF",
+      "precision": 1.0,
+      "recall": 0.6666666666666666,
+      "f1": 0.8,
+      "support": 3,
+      "correct": 2
+    },
+    {
+      "class": "ARR",
+      "precision": 0.75,
+      "recall": 1.0,
+      "f1": 0.8571428571428571,
+      "support": 3,
+      "correct": 3
+    },
+    {
+      "class": "AFF",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 3,
+      "correct": 3
+    }
+  ],
+  "float_vs_fixed_mismatch": 0
+}

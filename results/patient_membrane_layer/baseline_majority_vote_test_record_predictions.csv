@@ -1,0 +1,13 @@
+﻿split,baseline,record_id,true_class,pred_class,correct,valid_window_count,score_NSR,score_CHF,score_ARR,score_AFF
+test,majority_vote,06426,AFF,AFF,1,613,42.0,0.0,115.0,456.0
+test,majority_vote,07859,AFF,AFF,1,613,0.0,0.0,19.0,594.0
+test,majority_vote,07910,AFF,NSR,0,613,394.0,0.0,58.0,161.0
+test,majority_vote,16272,NSR,AFF,0,1499,284.0,26.0,308.0,881.0
+test,majority_vote,19090,NSR,NSR,1,1450,1015.0,241.0,2.0,192.0
+test,majority_vote,19140,NSR,NSR,1,1450,992.0,162.0,3.0,293.0
+test,majority_vote,200,ARR,AFF,0,30,7.0,0.0,0.0,23.0
+test,majority_vote,208,ARR,AFF,0,30,1.0,0.0,0.0,29.0
+test,majority_vote,chf05,CHF,CHF,1,1186,411.0,701.0,34.0,40.0
+test,majority_vote,chf11,CHF,CHF,1,1199,524.0,667.0,3.0,5.0
+test,majority_vote,chf14,CHF,NSR,0,1199,866.0,133.0,145.0,55.0
+test,majority_vote,x_124,ARR,ARR,1,9,3.0,0.0,5.0,1.0

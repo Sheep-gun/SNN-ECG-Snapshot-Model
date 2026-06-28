@@ -1,0 +1,2 @@
+case_id,expected_class,final_pred_class,correct,final_valid,samples_driven,final_mem_NSR,final_mem_CHF,final_mem_ARR,final_mem_AFF,cycles
+15,0,0,1,1,1800000,237393,-86411,-63942,-152140,1800480
