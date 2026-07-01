@@ -52,6 +52,9 @@ results/snapshot_c24_v2_search/
 results/final_membrane_v2_snn/
 scripts/snapshot_c24_v2_search.py
 scripts/search_final_membrane_v2_*.py
+!scripts/snapshot_c24_v2_search.py
+!scripts/search_final_membrane_v2_snn.py
+!scripts/search_final_membrane_v2_arr_focus.py
 results/final_membrane_v2_snn/*train_val_search.csv
 results/final_membrane_v2_snn/*iter_test_attempts.csv
 results/final_membrane_v2_snn/*candidate*.csv

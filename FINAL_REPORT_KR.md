@@ -1113,12 +1113,18 @@ sim/tb_snn_ecg_30min_chunk_dataset.v
 Scripts:
 
 ```text
+scripts/snapshot_c24_rtl_exact.py
+scripts/snapshot_c24_v2_search.py
+scripts/search_final_membrane_v2_snn.py
+scripts/search_final_membrane_v2_arr_focus.py
 scripts/run_snapshot_v2_xsim.py
 scripts/run_final_membrane_v2_xsim.py
 scripts/build_snn_ecg_v2_bitstream.py
 scripts/build_snapshot_v2_expected.py
 scripts/build_final_membrane_v2_fresh_dump.py
 ```
+
+위 `search_*` 이름의 Python 파일은 중간 탐색 산출물이 아니라, 최종 V2 Python 등가모델과 XSim expected 결과 생성을 위해 보존한 고정 모듈이다.
 
 Results:
 

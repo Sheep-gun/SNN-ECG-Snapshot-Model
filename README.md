@@ -148,10 +148,16 @@ rtl/board/snn_ecg_v2_nexys_a7_top.v
 ## 검증 스크립트
 
 ```text
+scripts/snapshot_c24_rtl_exact.py
+scripts/snapshot_c24_v2_search.py
+scripts/search_final_membrane_v2_snn.py
+scripts/search_final_membrane_v2_arr_focus.py
 scripts/run_snapshot_v2_xsim.py
 scripts/run_final_membrane_v2_xsim.py
 scripts/build_snn_ecg_v2_bitstream.py
 ```
+
+`snapshot_c24_v2_search.py`, `search_final_membrane_v2_snn.py`, `search_final_membrane_v2_arr_focus.py`는 이름에 `search`가 남아 있지만, 현재 repo에서는 최종 V2 Python 등가모델과 XSim expected 결과 생성에 필요한 고정 모듈로 보존한다.
 
 실행 예:
 
