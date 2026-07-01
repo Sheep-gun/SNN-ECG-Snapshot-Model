@@ -4,6 +4,8 @@
 
 현재 확정 모델명은 **SNN ECG V2**이다.
 
+대회 제출/최종 설명 기준의 상세 문서는 [FINAL_REPORT_KR.md](FINAL_REPORT_KR.md)를 먼저 읽으면 된다. 해당 문서에는 연구 목적, Holter-style 설계 동기, AFE+ADC 조건, Snapshot feature block, Final Membrane Layer V2, XSim 성능, Vivado 자원량이 모두 포함되어 있다.
+
 ```text
 SNN ECG V2
 = Snapshot Model V2
@@ -67,6 +69,20 @@ AFE+ADC sample
 ```
 
 Snapshot V2는 기존 C24 folded spike readout을 유지하되, EERG direct class-membrane 기여를 제거한 구조이다. EERG 제거는 validation에서 불필요한 경로를 줄이면서 test 성능을 유지했기 때문에 V2에 반영했다.
+
+Snapshot Model V2의 주요 feature neuron은 다음과 같다. 상세 알고리즘은 [FINAL_REPORT_KR.md](FINAL_REPORT_KR.md)의 “Snapshot Feature Block 상세 설명” 절에 정리되어 있다.
+
+| Feature block | 역할 |
+|---|---|
+| Adaptive QRS LIF | ADC slope event를 적분해 QRS/beat spike를 만든다. |
+| PNN Rhythm Predictor | RR interval 예측 window 기반 match/mismatch rhythm evidence를 만든다. |
+| RDM Variability Neuron | 연속 RR interval 변화량을 level/count로 누적한다. |
+| DSCR Spike Counter | slope sign flip과 morphology complexity evidence를 만든다. |
+| RAM Peak Accumulator | R-peak amplitude response를 threshold-bank code로 누적한다. |
+| ECP Ectopic Pair Neuron | early beat + compensatory pause pattern을 감지한다. |
+| QRS MAF Neuron | QRS width/complexity/energy abnormal evidence를 만든다. |
+| RBBB QRS Delay Bank | RBBB-like conduction delay proxy evidence를 만든다. |
+| EERG Gate | 검토된 ARR-like rescue gate이며, V2에서는 direct class-membrane 자극 경로를 제거했다. |
 
 ## Final Membrane Layer V2
 
