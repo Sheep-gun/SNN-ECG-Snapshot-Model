@@ -4,7 +4,7 @@
 
 현재 확정 모델명은 **SNN ECG V2**이다.
 
-대회 제출/최종 설명 기준의 상세 문서는 [FINAL_REPORT_KR.md](FINAL_REPORT_KR.md)를 먼저 읽으면 된다. 해당 문서에는 연구 목적, Holter-style 설계 동기, AFE+ADC 조건, Snapshot feature block, Final Membrane Layer V2, XSim 성능, Vivado 자원량이 모두 포함되어 있다.
+대회 제출/최종 설명 기준의 상세 문서는 반드시 [FINAL_REPORT_KR.md](FINAL_REPORT_KR.md)를 먼저 읽으면 된다. 해당 문서에는 연구 목적, Holter-style 설계 동기, AFE+ADC 조건, Snapshot feature block의 뉴로모픽 동작 설명, Final Membrane Layer V2, XSim 성능, Vivado 자원량이 모두 포함되어 있다.
 
 ```text
 SNN ECG V2
@@ -256,6 +256,7 @@ DSP 0개이므로 multiplier 기반 ML classifier가 아니라, comparator/count
 
 - 본 모델은 `SNN-inspired` 구조이다. 완전한 생물학적 SNN이나 STDP 학습 구조라고 주장하지 않는다.
 - Final Membrane Layer V2는 1 kSPS sample마다 직접 class spike를 내는 층이 아니라, 60초 snapshot event를 시간축으로 누적하는 final readout이다.
+- 30분 데이터셋은 class별 30분 chunk 수를 균형화한 `chunk-level balanced` 데이터셋이다. 원천 record 수가 class별로 같지 않기 때문에 모든 chunk가 서로 다른 record에서 나온 strict record-wise holdout은 아니다.
 - XSim 정확도는 30분 `.mem` dataset testbench 기준이다.
 - Vivado power는 실제 보드 측정값이 아니라 post-implementation 추정값이다.
 - ARR test recall은 6/9로 남은 병목이다. 전체 accuracy와 별도로 보고해야 한다.
