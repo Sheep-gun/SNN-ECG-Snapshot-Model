@@ -1,0 +1,59 @@
+{
+  "correct": 205,
+  "total": 256,
+  "accuracy": 0.80078125,
+  "macro_f1": 0.8006420437122934,
+  "balanced_accuracy": 0.80078125,
+  "per_class": {
+    "NSR": {
+      "precision": 0.6944444444444444,
+      "recall": 0.78125,
+      "f1": 0.7352941176470588
+    },
+    "CHF": {
+      "precision": 0.7466666666666667,
+      "recall": 0.875,
+      "f1": 0.8057553956834532
+    },
+    "ARR": {
+      "precision": 0.8936170212765957,
+      "recall": 0.65625,
+      "f1": 0.7567567567567568
+    },
+    "AFF": {
+      "precision": 0.9193548387096774,
+      "recall": 0.890625,
+      "f1": 0.9047619047619047
+    }
+  },
+  "confusion": {
+    "NSR": {
+      "NSR": 50,
+      "CHF": 12,
+      "ARR": 2,
+      "AFF": 0
+    },
+    "CHF": {
+      "NSR": 7,
+      "CHF": 56,
+      "ARR": 0,
+      "AFF": 1
+    },
+    "ARR": {
+      "NSR": 15,
+      "CHF": 3,
+      "ARR": 42,
+      "AFF": 4
+    },
+    "AFF": {
+      "NSR": 0,
+      "CHF": 4,
+      "ARR": 3,
+      "AFF": 57
+    }
+  },
+  "python_expected_rows": 256,
+  "pred_mismatch_vs_python": 1,
+  "mem_mismatch_rows_vs_python": 23,
+  "pred_valid_not_1": 0
+}

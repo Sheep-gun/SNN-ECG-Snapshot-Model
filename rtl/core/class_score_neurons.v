@@ -96,21 +96,7 @@ module class_score_neurons #(
 
     parameter T_RBBB_DELAY_CHF_BLOCK_MARGIN = 0,
 
-    parameter RBBB_DELAY_CHF_OVER_ARR_BLOCK = 1,
-
-    parameter ENABLE_EERG_GATE = 1,
-
-    parameter W_EERG_ARR_BOOST = 25000,
-
-    parameter EERG_PRE_QRS_BUMP_TH = 1,
-
-    parameter EERG_EARLY_TH = 10,
-
-    parameter EERG_ECP_TH = 3,
-
-    parameter EERG_PNN_MIS_PCT_TH = 15,
-
-    parameter EERG_RDM_AVG_TH = 5
+    parameter RBBB_DELAY_CHF_OVER_ARR_BLOCK = 1
 
 )(
 
@@ -153,8 +139,6 @@ module class_score_neurons #(
     input [14:0] rdm_level_spike,
 
     input ectopic_pair_spike,
-
-    input ectopic_early_spike,
 
     input pre_qrs_bump_spike,
 
@@ -216,31 +200,11 @@ module class_score_neurons #(
 
     output reg signed [SCORE_WIDTH-1:0] score_aff_before_rbbb_delay,
 
-    output reg signed [SCORE_WIDTH-1:0] score_arr_before_eerg,
-
     output reg nsr_suppress_applied,
 
     output reg rbbb_lateslope_applied,
 
     output reg rbbb_qrs_delay_applied,
-
-    output reg eerg_gate,
-
-    output reg eerg_applied,
-
-    output reg [15:0] eerg_pre_qrs_bump_count,
-
-    output reg [15:0] eerg_early_count,
-
-    output reg [15:0] eerg_ecp_count,
-
-    output reg [15:0] eerg_pnn_decision_count,
-
-    output reg [15:0] eerg_pnn_mismatch_count,
-
-    output reg [15:0] eerg_rdm_valid_count,
-
-    output reg [19:0] eerg_rdm_code_sum,
 
     output reg signed [63:0] c24_mem_nsr,
 
@@ -367,16 +331,6 @@ module class_score_neurons #(
     localparam signed [63:0] C24_W_RBBB_LATE_APPLIED_CHF = -64'sd45450000;
     localparam signed [63:0] C24_W_RBBB_LATE_APPLIED_ARR = 64'sd51150000;
     localparam signed [63:0] C24_W_RBBB_LATE_APPLIED_AFF = 64'sd6600000;
-
-    localparam signed [63:0] C24_W_EERG_GATE_NSR = 64'sd5042413;
-    localparam signed [63:0] C24_W_EERG_GATE_CHF = 64'sd1853587;
-    localparam signed [63:0] C24_W_EERG_GATE_ARR = -64'sd6346411;
-    localparam signed [63:0] C24_W_EERG_GATE_AFF = -64'sd825955;
-
-    localparam signed [63:0] C24_W_EERG_APPLIED_NSR = 64'sd4717413;
-    localparam signed [63:0] C24_W_EERG_APPLIED_CHF = -64'sd4196413;
-    localparam signed [63:0] C24_W_EERG_APPLIED_ARR = 64'sd2653589;
-    localparam signed [63:0] C24_W_EERG_APPLIED_AFF = -64'sd1775955;
 
     localparam signed [63:0] C24_W_ARR_HIGH_IRR_NSR = -64'sd520000;
     localparam signed [63:0] C24_W_ARR_HIGH_IRR_CHF = -64'sd9680000;
@@ -838,11 +792,6 @@ module class_score_neurons #(
     localparam signed [63:0] C24_W_GATE_EPISODIC_ECTOPIC_ARR_ARR = 64'sd1282935;
     localparam signed [63:0] C24_W_GATE_EPISODIC_ECTOPIC_ARR_AFF = -64'sd1075221;
 
-    localparam signed [63:0] C24_W_GATE_EERG_LIKE_NSR = 64'sd5042413;
-    localparam signed [63:0] C24_W_GATE_EERG_LIKE_CHF = 64'sd1853587;
-    localparam signed [63:0] C24_W_GATE_EERG_LIKE_ARR = -64'sd6346411;
-    localparam signed [63:0] C24_W_GATE_EERG_LIKE_AFF = -64'sd825955;
-
     localparam signed [63:0] C24_W_GATE_AFF_PERSISTENT_IRREG_NSR = -64'sd217384;
     localparam signed [63:0] C24_W_GATE_AFF_PERSISTENT_IRREG_CHF = -64'sd3743518;
     localparam signed [63:0] C24_W_GATE_AFF_PERSISTENT_IRREG_ARR = -64'sd2278623;
@@ -999,14 +948,6 @@ module class_score_neurons #(
 
     localparam signed [SCORE_WIDTH-1:0] T_RBBB_DELAY_CHF_BLOCK_MARGIN_S = T_RBBB_DELAY_CHF_BLOCK_MARGIN;
 
-    localparam signed [SCORE_WIDTH-1:0] W_EERG_ARR_BOOST_S = W_EERG_ARR_BOOST;
-
-    localparam [15:0] EERG_PRE_QRS_BUMP_TH_U = EERG_PRE_QRS_BUMP_TH;
-
-    localparam [15:0] EERG_EARLY_TH_U = EERG_EARLY_TH;
-
-    localparam [15:0] EERG_ECP_TH_U = EERG_ECP_TH;
-
 
 
     reg signed [SCORE_WIDTH-1:0] local_nsr;
@@ -1145,10 +1086,6 @@ module class_score_neurons #(
 
     reg [15:0] ectopic_pair_seg_count_next;
 
-    reg [15:0] ectopic_early_seg_count;
-
-    reg [15:0] ectopic_early_seg_count_next;
-
     reg [15:0] pre_qrs_bump_seg_count;
 
     reg [15:0] pre_qrs_bump_seg_count_next;
@@ -1199,17 +1136,11 @@ module class_score_neurons #(
 
     reg [31:0] pnn_mis_x100;
 
-    reg [31:0] pnn_mis_seg_x100;
-
-    reg [31:0] pnn_decision_seg_x15;
-
     reg [31:0] pnn_decision_x12;
 
     reg [31:0] pnn_decision_x65;
 
     reg [31:0] rdm_valid_x5;
-
-    reg [31:0] rdm_valid_seg_x5;
 
     reg [31:0] rdm_valid_x12;
 
@@ -1240,8 +1171,6 @@ module class_score_neurons #(
     reg rbbb_delay_top_nsr_before;
 
     reg rbbb_delay_chf_block_before;
-
-    reg eerg_gate_next;
 
     integer i;
 
@@ -1796,17 +1725,11 @@ module class_score_neurons #(
 
         score_aff_before_rbbb_delay = score_aff_next;
 
-        score_arr_before_eerg = score_arr_next;
-
         nsr_suppress_applied = 1'b0;
 
         rbbb_lateslope_applied = 1'b0;
 
         rbbb_qrs_delay_applied = 1'b0;
-
-        eerg_applied = 1'b0;
-
-        eerg_gate_next = 1'b0;
 
         c24_mem_nsr_next = c24_mem_nsr;
 
@@ -1863,8 +1786,6 @@ module class_score_neurons #(
         ectopic_pair_win_count_next = ectopic_pair_win_count + (ectopic_pair_spike ? 8'd1 : 8'd0);
 
         ectopic_pair_seg_count_next = ectopic_pair_seg_count + (ectopic_pair_spike ? 16'd1 : 16'd0);
-
-        ectopic_early_seg_count_next = ectopic_early_seg_count + (ectopic_early_spike ? 16'd1 : 16'd0);
 
         pre_qrs_bump_seg_count_next = pre_qrs_bump_seg_count + (pre_qrs_bump_spike ? 16'd1 : 16'd0);
 
@@ -2257,42 +2178,6 @@ module class_score_neurons #(
 
         pnn_decision_seg_count = {1'b0, pnn_match_seg_count_next} + {1'b0, pnn_mis_seg_count_next};
 
-        pnn_mis_seg_x100 = ({16'd0, pnn_mis_seg_count_next} << 6) +
-
-                           ({16'd0, pnn_mis_seg_count_next} << 5) +
-
-                           ({16'd0, pnn_mis_seg_count_next} << 2);
-
-        pnn_decision_seg_x15 = ({15'd0, pnn_decision_seg_count} << 3) +
-
-                               ({15'd0, pnn_decision_seg_count} << 2) +
-
-                               ({15'd0, pnn_decision_seg_count} << 1) +
-
-                               {15'd0, pnn_decision_seg_count};
-
-        rdm_valid_seg_x5 = ({16'd0, rdm_valid_seg_count_next} << 2) +
-
-                           {16'd0, rdm_valid_seg_count_next};
-
-        eerg_gate_next = (ENABLE_EERG_GATE != 0) &&
-
-                         (rbbb_qrs_like_count == 8'd0) &&
-
-                         (pre_qrs_bump_seg_count_next >= EERG_PRE_QRS_BUMP_TH_U) &&
-
-                         ((ectopic_early_seg_count_next >= EERG_EARLY_TH_U) ||
-
-                          (ectopic_pair_seg_count_next >= EERG_ECP_TH_U)) &&
-
-                         (pnn_decision_seg_count != 17'd0) &&
-
-                         (pnn_mis_seg_x100 <= pnn_decision_seg_x15) &&
-
-                         (rdm_valid_seg_count_next != 16'd0) &&
-
-                         ({12'd0, rdm_code_seg_sum_next} <= rdm_valid_seg_x5);
-
         arr_high_irregular_spike = finalize_window &&
 
                                    (pnn_decision_win_count != 17'd0) &&
@@ -2489,22 +2374,6 @@ module class_score_neurons #(
 
         end
 
-        score_arr_before_eerg = score_arr_next;
-
-        if (segment_done && eerg_gate_next) begin
-
-            score_arr_next = score_arr_next + W_EERG_ARR_BOOST_S;
-
-            eerg_applied = 1'b1;
-
-            c24_add4(C24_W_EERG_GATE_NSR, C24_W_EERG_GATE_CHF, C24_W_EERG_GATE_ARR, C24_W_EERG_GATE_AFF);
-
-            c24_add4(C24_W_EERG_APPLIED_NSR, C24_W_EERG_APPLIED_CHF, C24_W_EERG_APPLIED_ARR, C24_W_EERG_APPLIED_AFF);
-
-        end
-
-
-
                 if ((ENABLE_C24_GLOBAL_READOUT != 0) && segment_done) begin
             if (c24_ge_pct({16'd0, pnn_mis_seg_count_next}, {15'd0, pnn_decision_seg_count}, 32'd3))
                 c24_add4(C24_W_PNN_MIS_GE_3_NSR, C24_W_PNN_MIS_GE_3_CHF, C24_W_PNN_MIS_GE_3_ARR, C24_W_PNN_MIS_GE_3_AFF); // pnn_mis_ge_3
@@ -2676,8 +2545,6 @@ module class_score_neurons #(
                 c24_add4(C24_W_GATE_REGULAR_QRS_ARR_RESCUE_NSR, C24_W_GATE_REGULAR_QRS_ARR_RESCUE_CHF, C24_W_GATE_REGULAR_QRS_ARR_RESCUE_ARR, C24_W_GATE_REGULAR_QRS_ARR_RESCUE_AFF); // gate_regular_qrs_arr_rescue
             if (c24_ge_pct({16'd0, ectopic_pair_seg_count_next}, {16'd0, beat_seg_count_next}, 32'd3) && c24_le_pct({16'd0, pnn_mis_seg_count_next}, {15'd0, pnn_decision_seg_count}, 32'd35) && c24_le_avg({12'd0, rdm_code_seg_sum_next}, {16'd0, rdm_valid_seg_count_next}, 32'd8))
                 c24_add4(C24_W_GATE_EPISODIC_ECTOPIC_ARR_NSR, C24_W_GATE_EPISODIC_ECTOPIC_ARR_CHF, C24_W_GATE_EPISODIC_ECTOPIC_ARR_ARR, C24_W_GATE_EPISODIC_ECTOPIC_ARR_AFF); // gate_episodic_ectopic_arr
-            if ((rbbb_like_seg_count_next == 16'd0) && (pre_qrs_bump_seg_count_next >= 16'd1) && ((ectopic_early_seg_count_next >= 16'd10) || (ectopic_pair_seg_count_next >= 16'd3)) && c24_le_pct({16'd0, pnn_mis_seg_count_next}, {15'd0, pnn_decision_seg_count}, 32'd15) && c24_le_avg({12'd0, rdm_code_seg_sum_next}, {16'd0, rdm_valid_seg_count_next}, 32'd5))
-                c24_add4(C24_W_GATE_EERG_LIKE_NSR, C24_W_GATE_EERG_LIKE_CHF, C24_W_GATE_EERG_LIKE_ARR, C24_W_GATE_EERG_LIKE_AFF); // gate_eerg_like
             if (c24_ge_pct({16'd0, pnn_mis_seg_count_next}, {15'd0, pnn_decision_seg_count}, 32'd25) && c24_ge_avg({12'd0, rdm_code_seg_sum_next}, {16'd0, rdm_valid_seg_count_next}, 32'd7) && c24_ge_pct({16'd0, ectopic_pair_seg_count_next}, {16'd0, beat_seg_count_next}, 32'd5))
                 c24_add4(C24_W_GATE_AFF_PERSISTENT_IRREG_NSR, C24_W_GATE_AFF_PERSISTENT_IRREG_CHF, C24_W_GATE_AFF_PERSISTENT_IRREG_ARR, C24_W_GATE_AFF_PERSISTENT_IRREG_AFF); // gate_aff_persistent_irreg
             if (c24_ge_pct({16'd0, pnn_mis_seg_count_next}, {15'd0, pnn_decision_seg_count}, 32'd5) && c24_le_pct({16'd0, pnn_mis_seg_count_next}, {15'd0, pnn_decision_seg_count}, 32'd30) && c24_ge_avg({12'd0, rdm_code_seg_sum_next}, {16'd0, rdm_valid_seg_count_next}, 32'd2) && c24_le_avg({12'd0, rdm_code_seg_sum_next}, {16'd0, rdm_valid_seg_count_next}, 32'd9))
@@ -2794,8 +2661,6 @@ module class_score_neurons #(
 
             ectopic_pair_seg_count <= 16'd0;
 
-            ectopic_early_seg_count <= 16'd0;
-
             pre_qrs_bump_seg_count <= 16'd0;
 
             pnn_match_win_count <= 16'd0;
@@ -2817,22 +2682,6 @@ module class_score_neurons #(
             ram_count_win <= 16'd0;
 
             ram_code_win_sum <= 22'd0;
-
-            eerg_gate <= 1'b0;
-
-            eerg_pre_qrs_bump_count <= 16'd0;
-
-            eerg_early_count <= 16'd0;
-
-            eerg_ecp_count <= 16'd0;
-
-            eerg_pnn_decision_count <= 16'd0;
-
-            eerg_pnn_mismatch_count <= 16'd0;
-
-            eerg_rdm_valid_count <= 16'd0;
-
-            eerg_rdm_code_sum <= 20'd0;
 
         end else if (clear) begin
 
@@ -2914,8 +2763,6 @@ module class_score_neurons #(
 
             ectopic_pair_seg_count <= 16'd0;
 
-            ectopic_early_seg_count <= 16'd0;
-
             pre_qrs_bump_seg_count <= 16'd0;
 
             pnn_match_win_count <= 16'd0;
@@ -2937,22 +2784,6 @@ module class_score_neurons #(
             ram_count_win <= 16'd0;
 
             ram_code_win_sum <= 22'd0;
-
-            eerg_gate <= 1'b0;
-
-            eerg_pre_qrs_bump_count <= 16'd0;
-
-            eerg_early_count <= 16'd0;
-
-            eerg_ecp_count <= 16'd0;
-
-            eerg_pnn_decision_count <= 16'd0;
-
-            eerg_pnn_mismatch_count <= 16'd0;
-
-            eerg_rdm_valid_count <= 16'd0;
-
-            eerg_rdm_code_sum <= 20'd0;
 
         end else begin
 
@@ -3056,22 +2887,6 @@ module class_score_neurons #(
 
             if (segment_done) begin
 
-                eerg_gate <= eerg_gate_next;
-
-                eerg_pre_qrs_bump_count <= pre_qrs_bump_seg_count_next;
-
-                eerg_early_count <= ectopic_early_seg_count_next;
-
-                eerg_ecp_count <= ectopic_pair_seg_count_next;
-
-                eerg_pnn_decision_count <= pnn_decision_seg_count[15:0];
-
-                eerg_pnn_mismatch_count <= pnn_mis_seg_count_next;
-
-                eerg_rdm_valid_count <= rdm_valid_seg_count_next;
-
-                eerg_rdm_code_sum <= rdm_code_seg_sum_next;
-
                 beat_seg_count <= 16'd0;
 
                 dscr_flip_seg_count <= 16'd0;
@@ -3110,8 +2925,6 @@ module class_score_neurons #(
 
                 ectopic_pair_seg_count <= 16'd0;
 
-                ectopic_early_seg_count <= 16'd0;
-
                 pre_qrs_bump_seg_count <= 16'd0;
 
                 pnn_match_seg_count <= 16'd0;
@@ -3123,8 +2936,6 @@ module class_score_neurons #(
                 rdm_code_seg_sum <= 20'd0;
 
             end else begin
-
-                eerg_gate <= 1'b0;
 
                 beat_seg_count <= beat_seg_count_next;
 
@@ -3163,8 +2974,6 @@ module class_score_neurons #(
                 rbbb_segment_seg_count <= rbbb_segment_seg_count_next;
 
                 ectopic_pair_seg_count <= ectopic_pair_seg_count_next;
-
-                ectopic_early_seg_count <= ectopic_early_seg_count_next;
 
                 pre_qrs_bump_seg_count <= pre_qrs_bump_seg_count_next;
 

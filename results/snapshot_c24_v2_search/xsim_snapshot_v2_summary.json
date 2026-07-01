@@ -1,0 +1,179 @@
+{
+  "train": {
+    "correct": 466,
+    "total": 512,
+    "accuracy": 0.91015625,
+    "macro_f1": 0.909629671165779,
+    "balanced_accuracy": 0.91015625,
+    "per_class": {
+      "NSR": {
+        "precision": 0.8931297709923665,
+        "recall": 0.9140625,
+        "f1": 0.9034749034749036
+      },
+      "CHF": {
+        "precision": 0.8863636363636364,
+        "recall": 0.9140625,
+        "f1": 0.9
+      },
+      "ARR": {
+        "precision": 0.8907563025210085,
+        "recall": 0.828125,
+        "f1": 0.8582995951417005
+      },
+      "AFF": {
+        "precision": 0.9692307692307692,
+        "recall": 0.984375,
+        "f1": 0.9767441860465116
+      }
+    },
+    "confusion": {
+      "NSR": {
+        "NSR": 117,
+        "CHF": 6,
+        "ARR": 5,
+        "AFF": 0
+      },
+      "CHF": {
+        "NSR": 4,
+        "CHF": 117,
+        "ARR": 7,
+        "AFF": 0
+      },
+      "ARR": {
+        "NSR": 10,
+        "CHF": 8,
+        "ARR": 106,
+        "AFF": 4
+      },
+      "AFF": {
+        "NSR": 0,
+        "CHF": 1,
+        "ARR": 1,
+        "AFF": 126
+      }
+    },
+    "python_expected_rows": 512,
+    "pred_mismatch_vs_python": 0,
+    "mem_mismatch_rows_vs_python": 46,
+    "pred_valid_not_1": 0
+  },
+  "val": {
+    "correct": 231,
+    "total": 256,
+    "accuracy": 0.90234375,
+    "macro_f1": 0.9029312977099236,
+    "balanced_accuracy": 0.90234375,
+    "per_class": {
+      "NSR": {
+        "precision": 0.9836065573770492,
+        "recall": 0.9375,
+        "f1": 0.96
+      },
+      "CHF": {
+        "precision": 0.9180327868852459,
+        "recall": 0.875,
+        "f1": 0.8959999999999999
+      },
+      "ARR": {
+        "precision": 0.8507462686567164,
+        "recall": 0.890625,
+        "f1": 0.8702290076335878
+      },
+      "AFF": {
+        "precision": 0.8656716417910447,
+        "recall": 0.90625,
+        "f1": 0.8854961832061069
+      }
+    },
+    "confusion": {
+      "NSR": {
+        "NSR": 60,
+        "CHF": 1,
+        "ARR": 3,
+        "AFF": 0
+      },
+      "CHF": {
+        "NSR": 0,
+        "CHF": 56,
+        "ARR": 4,
+        "AFF": 4
+      },
+      "ARR": {
+        "NSR": 1,
+        "CHF": 1,
+        "ARR": 57,
+        "AFF": 5
+      },
+      "AFF": {
+        "NSR": 0,
+        "CHF": 3,
+        "ARR": 3,
+        "AFF": 58
+      }
+    },
+    "python_expected_rows": 256,
+    "pred_mismatch_vs_python": 0,
+    "mem_mismatch_rows_vs_python": 19,
+    "pred_valid_not_1": 0
+  },
+  "test": {
+    "correct": 205,
+    "total": 256,
+    "accuracy": 0.80078125,
+    "macro_f1": 0.8006420437122934,
+    "balanced_accuracy": 0.80078125,
+    "per_class": {
+      "NSR": {
+        "precision": 0.6944444444444444,
+        "recall": 0.78125,
+        "f1": 0.7352941176470588
+      },
+      "CHF": {
+        "precision": 0.7466666666666667,
+        "recall": 0.875,
+        "f1": 0.8057553956834532
+      },
+      "ARR": {
+        "precision": 0.8936170212765957,
+        "recall": 0.65625,
+        "f1": 0.7567567567567568
+      },
+      "AFF": {
+        "precision": 0.9193548387096774,
+        "recall": 0.890625,
+        "f1": 0.9047619047619047
+      }
+    },
+    "confusion": {
+      "NSR": {
+        "NSR": 50,
+        "CHF": 12,
+        "ARR": 2,
+        "AFF": 0
+      },
+      "CHF": {
+        "NSR": 7,
+        "CHF": 56,
+        "ARR": 0,
+        "AFF": 1
+      },
+      "ARR": {
+        "NSR": 15,
+        "CHF": 3,
+        "ARR": 42,
+        "AFF": 4
+      },
+      "AFF": {
+        "NSR": 0,
+        "CHF": 4,
+        "ARR": 3,
+        "AFF": 57
+      }
+    },
+    "python_expected_rows": 256,
+    "pred_mismatch_vs_python": 1,
+    "mem_mismatch_rows_vs_python": 23,
+    "pred_valid_not_1": 0
+  }
+}

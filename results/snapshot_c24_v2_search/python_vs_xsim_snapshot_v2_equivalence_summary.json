@@ -1,0 +1,20 @@
+{
+  "train": {
+    "rows": 512,
+    "pred_mismatch": 0,
+    "mem_mismatch_rows": 33,
+    "pred_valid_not_1": 0
+  },
+  "val": {
+    "rows": 256,
+    "pred_mismatch": 0,
+    "mem_mismatch_rows": 12,
+    "pred_valid_not_1": 0
+  },
+  "test": {
+    "rows": 256,
+    "pred_mismatch": 0,
+    "mem_mismatch_rows": 13,
+    "pred_valid_not_1": 0
+  }
+}

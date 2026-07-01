@@ -308,20 +308,6 @@ module snn_ecg_3feat_top #(
 
     parameter RBBB_DELAY_CHF_OVER_ARR_BLOCK = 1,
 
-    parameter ENABLE_EERG_GATE = 1,
-
-    parameter W_EERG_ARR_BOOST = 25000,
-
-    parameter EERG_PRE_QRS_BUMP_TH = 1,
-
-    parameter EERG_EARLY_TH = 10,
-
-    parameter EERG_ECP_TH = 3,
-
-    parameter EERG_PNN_MIS_PCT_TH = 15,
-
-    parameter EERG_RDM_AVG_TH = 5,
-
     parameter W_ETMC_NSR = 0,
 
     parameter W_ETMC_CHF = 0,
@@ -691,26 +677,6 @@ module snn_ecg_3feat_top #(
     output signed [31:0] score_arr_before_rbbb_delay,
 
     output signed [31:0] score_aff_before_rbbb_delay,
-
-    output signed [31:0] score_arr_before_eerg,
-
-    output eerg_gate,
-
-    output eerg_applied,
-
-    output [15:0] eerg_pre_qrs_bump_count,
-
-    output [15:0] eerg_early_count,
-
-    output [15:0] eerg_ecp_count,
-
-    output [15:0] eerg_pnn_decision_count,
-
-    output [15:0] eerg_pnn_mismatch_count,
-
-    output [15:0] eerg_rdm_valid_count,
-
-    output [19:0] eerg_rdm_code_sum,
 
     output signed [63:0] c24_mem_nsr,
 
@@ -1781,21 +1747,7 @@ module snn_ecg_3feat_top #(
 
         .T_RBBB_DELAY_CHF_BLOCK_MARGIN(T_RBBB_DELAY_CHF_BLOCK_MARGIN),
 
-        .RBBB_DELAY_CHF_OVER_ARR_BLOCK(RBBB_DELAY_CHF_OVER_ARR_BLOCK),
-
-        .ENABLE_EERG_GATE(ENABLE_EERG_GATE),
-
-        .W_EERG_ARR_BOOST(W_EERG_ARR_BOOST),
-
-        .EERG_PRE_QRS_BUMP_TH(EERG_PRE_QRS_BUMP_TH),
-
-        .EERG_EARLY_TH(EERG_EARLY_TH),
-
-        .EERG_ECP_TH(EERG_ECP_TH),
-
-        .EERG_PNN_MIS_PCT_TH(EERG_PNN_MIS_PCT_TH),
-
-        .EERG_RDM_AVG_TH(EERG_RDM_AVG_TH)
+        .RBBB_DELAY_CHF_OVER_ARR_BLOCK(RBBB_DELAY_CHF_OVER_ARR_BLOCK)
 
     ) u_class (
 
@@ -1838,8 +1790,6 @@ module snn_ecg_3feat_top #(
         .rdm_level_spike(rdm_level_spike),
 
         .ectopic_pair_spike(ectopic_pair_spike),
-
-        .ectopic_early_spike(ectopic_early_spike),
 
         .pre_qrs_bump_spike(pre_qrs_bump_i),
 
@@ -1901,31 +1851,11 @@ module snn_ecg_3feat_top #(
 
         .score_aff_before_rbbb_delay(score_aff_before_rbbb_delay),
 
-        .score_arr_before_eerg(score_arr_before_eerg),
-
         .nsr_suppress_applied(nsr_suppress_applied),
 
         .rbbb_lateslope_applied(rbbb_lateslope_applied),
 
         .rbbb_qrs_delay_applied(rbbb_qrs_delay_applied),
-
-        .eerg_gate(eerg_gate),
-
-        .eerg_applied(eerg_applied),
-
-        .eerg_pre_qrs_bump_count(eerg_pre_qrs_bump_count),
-
-        .eerg_early_count(eerg_early_count),
-
-        .eerg_ecp_count(eerg_ecp_count),
-
-        .eerg_pnn_decision_count(eerg_pnn_decision_count),
-
-        .eerg_pnn_mismatch_count(eerg_pnn_mismatch_count),
-
-        .eerg_rdm_valid_count(eerg_rdm_valid_count),
-
-        .eerg_rdm_code_sum(eerg_rdm_code_sum),
 
         .c24_mem_nsr(c24_mem_nsr),
 

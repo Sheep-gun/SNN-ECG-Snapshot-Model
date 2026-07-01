@@ -1,5 +1,12 @@
 `timescale 1ns / 1ps
 
+// Full 30-minute stream top.
+//
+// The timer neuron integrates accepted ADC sample ticks. When its membrane
+// reaches SNAPSHOT_SAMPLES, it emits a snapshot boundary spike, drives
+// Snapshot V2 segment_done, resets itself, and starts the next 60s snapshot.
+// Each snapshot spike then stimulates the final membrane layer with class
+// spikes and feature-evidence neuron activity.
 module snn_ecg_30min_final_top #(
     parameter ADC_WIDTH = 12,
     parameter SNAPSHOT_SAMPLES = 60000,
@@ -34,8 +41,6 @@ module snn_ecg_30min_final_top #(
     reg [3:0] state;
     reg [3:0] reset_count;
     reg [3:0] flush_count;
-    // Timer neuron: sample ticks integrate into timer_mem; reaching the
-    // 60s threshold emits snapshot_boundary_spike and resets the membrane.
     reg [31:0] timer_mem;
     reg [5:0] snapshot_index;
 
@@ -100,10 +105,13 @@ module snn_ecg_30min_final_top #(
     reg [31:0] pre_qrs_bump_count;
 
     wire [31:0] pnn_decision_count = pnn_match_count + pnn_mismatch_count;
-    wire [31:0] rhythm_irregular_evidence_count = pnn_mismatch_count + rdm_ge50_count + ectopic_pair_count;
-    wire [31:0] morphology_evidence_count = qrs_maf_count + qrs_width_abn_count + qrs_complex_abn_count +
-                                             qrs_energy_abn_count + rbbb_delay_like_count;
-    wire [31:0] abnormal_evidence_count = rhythm_irregular_evidence_count + morphology_evidence_count;
+    wire [31:0] rhythm_irregular_evidence_count = pnn_mismatch_count + rdm_code_sum + ectopic_pair_count;
+    wire [31:0] morphology_evidence_count = dscr_flip_count + qrs_maf_count + qrs_width_abn_count +
+                                             qrs_complex_abn_count + qrs_energy_abn_count +
+                                             rbbb_delay_like_count;
+    wire [31:0] abnormal_evidence_count = pnn_mismatch_count + ectopic_pair_count + qrs_maf_count +
+                                           qrs_width_abn_count + qrs_complex_abn_count +
+                                           qrs_energy_abn_count + rbbb_delay_like_count;
 
     snn_ecg_3feat_top #(
         .ADC_WIDTH(12),

@@ -1,0 +1,80 @@
+{
+  "recommended_engineering_model_for_v2": {
+    "name": "snapshot_c24_v2_eerg_off_pruned_equivalent",
+    "reason": "Pure EERG-off is a performance-equivalent pruning candidate: it keeps held-out test predictions identical to full-feature C24 while disabling one non-contributing internal feature group. It is not an accuracy-improvement claim.",
+    "params": {
+      "candidate": "eerg_off",
+      "eerg_off": true
+    },
+    "feature_enable_mask": {
+      "PNN": true,
+      "RDM": true,
+      "DSCR": true,
+      "RAM": true,
+      "ECP": true,
+      "QRS_MAF": true,
+      "RBBB": true,
+      "EERG": false
+    },
+    "rtl_mapping": {
+      "eerg_off": "hard-zero or remove the EERG gate/applied class-membrane contribution",
+      "extra_rules": "none",
+      "multipliers": "none",
+      "floating_point": "none",
+      "behavior_note": "The opened held-out test dump shows 0 pred_class changes versus full-feature C24."
+    }
+  },
+  "accuracy_improvement_candidate_not_accepted_after_test": {
+    "name": "snapshot_c24_v2_eerg_off_chf_guard",
+    "reason": "This candidate improved validation by one window but reduced held-out test accuracy from 205/256 to 203/256, so it is rejected as an accuracy-improvement model.",
+    "params": {
+      "candidate": "eerg_off_chf_guard_004",
+      "chf_aff_penalty": 0,
+      "chf_arr_penalty": 0,
+      "chf_boost": 8000000,
+      "chf_dscr_flip_le": 1,
+      "chf_dscr_slope_le": 50,
+      "chf_guard": true,
+      "chf_pnn_x10_le": 280,
+      "chf_ram_x100_le": 800,
+      "chf_rdm_x100_le": 600,
+      "eerg_off": true
+    },
+    "feature_enable_mask": {
+      "PNN": true,
+      "RDM": true,
+      "DSCR": true,
+      "RAM": true,
+      "ECP": true,
+      "QRS_MAF": true,
+      "RBBB": true,
+      "EERG": false
+    },
+    "rtl_mapping": {
+      "eerg_off": "hard-zero EERG class membrane contribution",
+      "chf_guard": "integer comparator conjunction using pnn_x10, ram_x100, rdm_x100, dscr_slope, dscr_flip",
+      "chf_boost": "fixed signed add of 8000000 to CHF class membrane when guard fires",
+      "multipliers": "none",
+      "floating_point": "none"
+    }
+  },
+  "full_feature_c24_reference": {
+    "name": "full_feature_c24_baseline",
+    "feature_enable_mask": {
+      "PNN": true,
+      "RDM": true,
+      "DSCR": true,
+      "RAM": true,
+      "ECP": true,
+      "QRS_MAF": true,
+      "RBBB": true,
+      "EERG": true
+    }
+  },
+  "test_policy": {
+    "final_test_lock_file": "FINAL_TEST_ONCE_OPENED.lock",
+    "test_used_for_accuracy_candidate_selection": false,
+    "post_test_accuracy_retuning_allowed": false,
+    "eerg_off_test_equivalence_checked_after_test_opened": true
+  }
+}

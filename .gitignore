@@ -30,17 +30,32 @@ fullrec_afe_30s_balanced_chunks/
 fullrec_afe_30s_annotation_valid_balanced/
 fullrec_afe_30min_annotation_valid_balanced/
 fullrec_afe_remaining/
+60s_afe_datasets/
+annotation_cache_ascii/
 
 # Local verification workdirs
 results/c24_rtl_equivalence/xsim_work/
 results/c24_rtl_equivalence/xsim_*_manifest.txt
 results/**/xsim_work/
+results/**/xsim_*_work/
 results/**/xsim_stream_work/
 results/**/xsim_record_level_strict_work/
 results/**/xsim_replay_work/
 results/**/windows/
 results/**/synth/vivado_*/
+results/**/vivado_*/project/
+results/**/vivado_*/reports/*.dcp
 vivado_project/SNN_ECG_ModelS_Restore/
+
+# Exploratory search artifacts kept local only
+results/snapshot_c24_v2_search/
+results/final_membrane_v2_snn/
+scripts/snapshot_c24_v2_search.py
+scripts/search_final_membrane_v2_*.py
+results/final_membrane_v2_snn/*train_val_search.csv
+results/final_membrane_v2_snn/*iter_test_attempts.csv
+results/final_membrane_v2_snn/*candidate*.csv
+results/final_membrane_v2_snn/chatgpt55pro_*
 
 # Python
 __pycache__/

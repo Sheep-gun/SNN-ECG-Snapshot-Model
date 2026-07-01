@@ -1,0 +1,24 @@
+{
+  "top": "snn_ecg_v2_nexys_a7_top",
+  "part": "xc7a100tcsg324-1",
+  "bitstream": "C:\\Users\\YangGeon\\SNN_ECG_RESTORE_MODEL_S\\results\\final_membrane_v2_snn\\vivado_snn_ecg_v2\\bitstream\\snn_ecg_v2_nexys_a7_top.bit",
+  "bitstream_exists": true,
+  "utilization": {
+    "slice_lut": "21002",
+    "slice_reg": "2803",
+    "ff": "2803",
+    "bram_tile": "0",
+    "dsp": "0"
+  },
+  "power": {
+    "total_on_chip_power_w": "0.101",
+    "dynamic_power_w": "0.004",
+    "device_static_power_w": "0.097"
+  },
+  "reports": {
+    "utilization": "C:\\Users\\YangGeon\\SNN_ECG_RESTORE_MODEL_S\\results\\final_membrane_v2_snn\\vivado_snn_ecg_v2\\reports\\snn_ecg_v2_impl_utilization.rpt",
+    "utilization_hier": "C:\\Users\\YangGeon\\SNN_ECG_RESTORE_MODEL_S\\results\\final_membrane_v2_snn\\vivado_snn_ecg_v2\\reports\\snn_ecg_v2_impl_utilization_hier.rpt",
+    "timing": "C:\\Users\\YangGeon\\SNN_ECG_RESTORE_MODEL_S\\results\\final_membrane_v2_snn\\vivado_snn_ecg_v2\\reports\\snn_ecg_v2_timing_summary.rpt",
+    "power": "C:\\Users\\YangGeon\\SNN_ECG_RESTORE_MODEL_S\\results\\final_membrane_v2_snn\\vivado_snn_ecg_v2\\reports\\snn_ecg_v2_power.rpt"
+  }
+}

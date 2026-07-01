@@ -1,0 +1,388 @@
+{
+  "candidate_id": "margin_evidence_0038974",
+  "splits": {
+    "train": {
+      "python": {
+        "correct": 62,
+        "total": 68,
+        "accuracy": 0.9117647058823529,
+        "macro_f1": 0.912441378066378,
+        "balanced_accuracy": 0.9117647058823529,
+        "min_recall": 0.8823529411764706,
+        "per_class": {
+          "NSR": {
+            "precision": 0.8421052631578947,
+            "recall": 0.9411764705882353,
+            "f1": 0.8888888888888888,
+            "support": 17
+          },
+          "CHF": {
+            "precision": 1.0,
+            "recall": 0.8823529411764706,
+            "f1": 0.9375,
+            "support": 17
+          },
+          "ARR": {
+            "precision": 0.8888888888888888,
+            "recall": 0.9411764705882353,
+            "f1": 0.9142857142857143,
+            "support": 17
+          },
+          "AFF": {
+            "precision": 0.9375,
+            "recall": 0.8823529411764706,
+            "f1": 0.9090909090909091,
+            "support": 17
+          }
+        },
+        "confusion_matrix": [
+          [
+            16,
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            15,
+            0,
+            1
+          ],
+          [
+            1,
+            0,
+            16,
+            0
+          ],
+          [
+            1,
+            0,
+            1,
+            15
+          ]
+        ]
+      },
+      "xsim": {
+        "correct": 62,
+        "total": 68,
+        "accuracy": 0.9117647058823529,
+        "macro_f1": 0.912441378066378,
+        "balanced_accuracy": 0.9117647058823529,
+        "min_recall": 0.8823529411764706,
+        "per_class": {
+          "NSR": {
+            "precision": 0.8421052631578947,
+            "recall": 0.9411764705882353,
+            "f1": 0.8888888888888888,
+            "support": 17
+          },
+          "CHF": {
+            "precision": 1.0,
+            "recall": 0.8823529411764706,
+            "f1": 0.9375,
+            "support": 17
+          },
+          "ARR": {
+            "precision": 0.8888888888888888,
+            "recall": 0.9411764705882353,
+            "f1": 0.9142857142857143,
+            "support": 17
+          },
+          "AFF": {
+            "precision": 0.9375,
+            "recall": 0.8823529411764706,
+            "f1": 0.9090909090909091,
+            "support": 17
+          }
+        },
+        "confusion_matrix": [
+          [
+            16,
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            15,
+            0,
+            1
+          ],
+          [
+            1,
+            0,
+            16,
+            0
+          ],
+          [
+            1,
+            0,
+            1,
+            15
+          ]
+        ]
+      }
+    },
+    "val": {
+      "python": {
+        "correct": 31,
+        "total": 32,
+        "accuracy": 0.96875,
+        "macro_f1": 0.9686274509803922,
+        "balanced_accuracy": 0.96875,
+        "min_recall": 0.875,
+        "per_class": {
+          "NSR": {
+            "precision": 1.0,
+            "recall": 0.875,
+            "f1": 0.9333333333333333,
+            "support": 8
+          },
+          "CHF": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 8
+          },
+          "ARR": {
+            "precision": 0.8888888888888888,
+            "recall": 1.0,
+            "f1": 0.9411764705882353,
+            "support": 8
+          },
+          "AFF": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 8
+          }
+        },
+        "confusion_matrix": [
+          [
+            7,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            8,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            8,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            8
+          ]
+        ]
+      },
+      "xsim": {
+        "correct": 31,
+        "total": 32,
+        "accuracy": 0.96875,
+        "macro_f1": 0.9686274509803922,
+        "balanced_accuracy": 0.96875,
+        "min_recall": 0.875,
+        "per_class": {
+          "NSR": {
+            "precision": 1.0,
+            "recall": 0.875,
+            "f1": 0.9333333333333333,
+            "support": 8
+          },
+          "CHF": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 8
+          },
+          "ARR": {
+            "precision": 0.8888888888888888,
+            "recall": 1.0,
+            "f1": 0.9411764705882353,
+            "support": 8
+          },
+          "AFF": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 8
+          }
+        },
+        "confusion_matrix": [
+          [
+            7,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            8,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            8,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            8
+          ]
+        ]
+      }
+    },
+    "test": {
+      "python": {
+        "correct": 32,
+        "total": 36,
+        "accuracy": 0.8888888888888888,
+        "macro_f1": 0.8846362229102167,
+        "balanced_accuracy": 0.8888888888888888,
+        "min_recall": 0.6666666666666666,
+        "per_class": {
+          "NSR": {
+            "precision": 0.8181818181818182,
+            "recall": 1.0,
+            "f1": 0.9,
+            "support": 9
+          },
+          "CHF": {
+            "precision": 0.9,
+            "recall": 1.0,
+            "f1": 0.9473684210526316,
+            "support": 9
+          },
+          "ARR": {
+            "precision": 0.8571428571428571,
+            "recall": 0.6666666666666666,
+            "f1": 0.75,
+            "support": 9
+          },
+          "AFF": {
+            "precision": 1.0,
+            "recall": 0.8888888888888888,
+            "f1": 0.9411764705882353,
+            "support": 9
+          }
+        },
+        "confusion_matrix": [
+          [
+            9,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            9,
+            0,
+            0
+          ],
+          [
+            2,
+            1,
+            6,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            8
+          ]
+        ]
+      },
+      "xsim": {
+        "correct": 32,
+        "total": 36,
+        "accuracy": 0.8888888888888888,
+        "macro_f1": 0.8846362229102167,
+        "balanced_accuracy": 0.8888888888888888,
+        "min_recall": 0.6666666666666666,
+        "per_class": {
+          "NSR": {
+            "precision": 0.8181818181818182,
+            "recall": 1.0,
+            "f1": 0.9,
+            "support": 9
+          },
+          "CHF": {
+            "precision": 0.9,
+            "recall": 1.0,
+            "f1": 0.9473684210526316,
+            "support": 9
+          },
+          "ARR": {
+            "precision": 0.8571428571428571,
+            "recall": 0.6666666666666666,
+            "f1": 0.75,
+            "support": 9
+          },
+          "AFF": {
+            "precision": 1.0,
+            "recall": 0.8888888888888888,
+            "f1": 0.9411764705882353,
+            "support": 9
+          }
+        },
+        "confusion_matrix": [
+          [
+            9,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            9,
+            0,
+            0
+          ],
+          [
+            2,
+            1,
+            6,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            8
+          ]
+        ]
+      }
+    }
+  },
+  "python_vs_xsim": {
+    "train": {
+      "rows": 68,
+      "pred_mismatch": 0,
+      "mem_mismatch": 0
+    },
+    "val": {
+      "rows": 32,
+      "pred_mismatch": 0,
+      "mem_mismatch": 0
+    },
+    "test": {
+      "rows": 36,
+      "pred_mismatch": 0,
+      "mem_mismatch": 0
+    }
+  }
+}

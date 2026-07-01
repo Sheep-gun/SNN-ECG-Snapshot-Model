@@ -1,122 +1,245 @@
-# SNN ECG 4-Class Classifier
+# SNN ECG V2
 
-본 저장소는 AFE+ADC를 거친 ECG stream을 입력으로 받아 NSR / CHF / ARR / AFF를
-분류하는 SNN-inspired RTL classifier의 최종 정리본이다.
+이 저장소는 AFE+ADC가 완료된 ECG stream을 저전력 RTL 구조로 처리하는 **SNN-inspired 4-class ECG classifier**이다.
 
-자세한 연구 배경, Holter 방식의 의학적 동기, 데이터셋 구성, AFE+ADC 변환,
-Snapshot C24 구조, C01-C32 후보 탐색, Final Membrane Layer 설계, Python 등가모델,
-RTL/XSim 검증, 합성 자원, 전력 산출 상태는 아래 최종 보고서에 정리했다.
+현재 확정 모델명은 **SNN ECG V2**이다.
 
 ```text
-FINAL_REPORT_KR.md
+SNN ECG V2
+= Snapshot Model V2
++ Final Membrane Layer V2
 ```
 
-## 최종 시스템 개요
+분류 class는 다음 네 가지이다.
+
+| Class | 의미 |
+|---|---|
+| NSR | Normal Sinus Rhythm |
+| CHF | Congestive Heart Failure |
+| ARR | Arrhythmia |
+| AFF | Atrial Fibrillation/Flutter 계열 |
+
+## 전체 구조
+
+SNN ECG V2는 30분 AFE+ADC ECG stream을 직접 입력받고, 내부 timer neuron이 60초마다 snapshot boundary spike를 만든다. 각 60초 구간은 Snapshot Model V2로 분류되고, 30개의 snapshot 결과는 Final Membrane Layer V2에 누적된다.
 
 ```text
-full-record ECG
--> AFE+ADC signed 12-bit stream
--> 60초 Snapshot C24 classifier
--> 30분 chunk-level snapshot vote membrane
--> record-level Final Membrane Layer
--> NSR / CHF / ARR / AFF 최종 판정
+30분 signed 12-bit AFE+ADC ECG stream
+-> timer neuron: 60000 sample마다 60초 boundary spike 발생
+-> Snapshot Model V2: 60초 구간별 class/evidence spike 생성
+-> Final Membrane Layer V2: class neuron membrane에 흥분성/억제성 자극 누적
+-> 30분 chunk_done
+-> WTA
+-> NSR / CHF / ARR / AFF
 ```
 
-이 모델은 60초 ECG 하나를 환자 진단으로 단정하는 구조가 아니다. Holter ECG처럼 긴
-ECG stream에서 반복적으로 발생하는 snapshot-level class evidence를 누적해 최종
-class를 결정하는 계층형 SNN-inspired classifier이다.
+이 구조는 단순 software classifier가 아니라, RTL에서 counter, comparator, signed accumulator, threshold, WTA로 구현되는 **event-driven membrane readout**이다.
 
-## 핵심 결과
+## Snapshot Model V2
 
-| 항목 | 결과 |
-| --- | ---: |
-| 60초 Snapshot C24 test accuracy | 193 / 240 = 80.42% |
-| Final Membrane Python test accuracy | 30 / 36 = 83.33% |
-| Final Membrane RTL/XSim test accuracy | 30 / 36 = 83.33% |
-| Python-vs-XSim prediction mismatch | 0 / 136 |
-| full RTL top resource | 20,256 LUT / 2,259 FF / DSP 0 / BRAM 0 |
-| final membrane chain resource | 163 LUT / 157 FF / DSP 0 / BRAM 0 |
+Snapshot Model V2는 60초 ECG window 하나를 분류하는 고정 snapshot classifier이다.
 
-정량 전력 소모량은 아직 최종 측정하지 않았다. 현재 저장소에는 synthesis resource
-결과만 남아 있으며, mW 단위 전력 보고는 Vivado implementation, clock constraint,
-switching activity 기반 `report_power`가 추가로 필요하다.
+입력:
 
-## 최종 데이터셋
+- 60초
+- 1 kSPS
+- signed 12-bit AFE+ADC `.mem`
+- 60000 samples/window
 
-최종 검증 데이터셋:
+출력:
+
+- `pred_class`
+- `pred_valid`
+- `c24_mem_nsr`
+- `c24_mem_chf`
+- `c24_mem_arr`
+- `c24_mem_aff`
+
+핵심 흐름:
 
 ```text
-fullrec_afe_30min_annotation_valid_balanced/
+AFE+ADC sample
+-> QRS/event/rhythm/morphology feature spike
+-> fixed signed synaptic weight
+-> class membrane accumulation
+-> 60초 segment_done
+-> 4-class WTA
 ```
 
-구성:
+Snapshot V2는 기존 C24 folded spike readout을 유지하되, EERG direct class-membrane 기여를 제거한 구조이다. EERG 제거는 validation에서 불필요한 경로를 줄이면서 test 성능을 유지했기 때문에 V2에 반영했다.
 
-| Split | NSR | CHF | ARR | AFF | Total |
-| --- | ---: | ---: | ---: | ---: | ---: |
-| train | 17 | 17 | 17 | 17 | 68 |
-| val | 8 | 8 | 8 | 8 | 32 |
-| test | 9 | 9 | 9 | 9 | 36 |
-| all | 34 | 34 | 34 | 34 | 136 |
+## Final Membrane Layer V2
 
-원천 DB:
+Final Membrane Layer V2는 30분 동안 들어오는 30개의 snapshot 발화 결과를 모아 최종 class를 판정한다.
 
-| Class | Source DB |
-| --- | --- |
-| NSR | MIT-BIH Normal Sinus Rhythm Database |
-| CHF | BIDMC Congestive Heart Failure Database |
-| ARR | MIT-BIH Arrhythmia Database |
-| AFF | MIT-BIH Atrial Fibrillation Database |
-
-## 주요 파일
+가장 단순한 기준은 snapshot `pred_class`의 class별 발화 횟수이다.
 
 ```text
-FINAL_REPORT_KR.md
-
-rtl/
-  final_membrane_layer.v
-  record_level_final_membrane_layer.v
-  snn_ecg_30min_final_top.v
-  core/*.v
-
-sim/
-  tb_snn_ecg_30min_record_level_dataset.v
-
-scripts/
-  snapshot_c24_rtl_exact.py
-  final_membrane_30min_recordwise_pipeline.py
-  search_final_membrane_30min_recordwise.py
-  search_final_membrane_30min_recordwise_recordlevel.py
-  search_final_membrane_30min_recordwise_recordlevel_strict.py
-  run_record_level_strict_xsim.py
-
-results/final_membrane_30min_recordwise/
-  no_oracle_record_level_strict_selected_params.json
-  xsim_record_level_strict_*_metrics.json
-  xsim_record_level_strict_*_predictions.csv
-  python_vs_xsim_record_level_strict_compare.csv
-  record_level_strict_rtl_xsim_report.md
-  synth/final_membrane_resource_report.md
+pred_count_NSR
+pred_count_CHF
+pred_count_ARR
+pred_count_AFF
 ```
 
-## XSim 재검증
+이것은 majority vote membrane에 해당한다.
 
-test split 실행:
+하지만 snapshot WTA는 60초마다 하나의 class만 출력하므로, WTA에서 패배한 subthreshold evidence가 사라질 수 있다. 그래서 Final Membrane V2는 보조 evidence neuron membrane도 함께 누적한다.
+
+예:
+
+- pNN mismatch evidence neuron
+- RDM irregularity evidence neuron
+- ectopic-pair evidence neuron
+- QRS MAF morphology evidence neuron
+- RBBB-like conduction evidence neuron
+- abnormal evidence neuron
+
+30분 동안 특정 병적 evidence neuron이 충분히 활성화되면, 최종 class neuron에 자극을 넣는다.
+
+- ARR neuron에 양의 자극: ARR membrane 상승
+- AFF/NSR/CHF neuron에 음의 자극: 해당 membrane 억제
+
+RTL에서는 이것이 signed add/subtract로 구현된다.
+
+```verilog
+final_mem_arr = final_mem_arr + 4;   // ARR neuron 흥분성 자극
+final_mem_aff = final_mem_aff - 16;  // AFF neuron 억제성 자극
+```
+
+최종 확정 후보는 `margin_evidence_0038974`이다.
+
+```text
+if 현재 우세 class가 AFF이고
+   AFF 우세 margin이 작고
+   ARR snapshot 발화가 최소 3회 이상이며
+   RDM / pNN mismatch / ectopic / abnormal evidence가 충분하면:
+       ARR final neuron에 흥분성 자극 +4
+       AFF final neuron에 억제성 자극 -16
+```
+
+이 구조는 SVC, XGBoost, dense classifier가 아니다. RTL에서 comparator, counter, signed accumulator, WTA만 사용한다.
+
+## 주요 RTL 파일
+
+```text
+rtl/core/class_score_neurons.v
+rtl/core/snn_ecg_3feat_top.v
+rtl/final_membrane_layer.v
+rtl/snn_ecg_30min_final_top.v
+rtl/board/snn_ecg_v2_nexys_a7_top.v
+```
+
+## 검증 스크립트
+
+```text
+scripts/run_snapshot_v2_xsim.py
+scripts/run_final_membrane_v2_xsim.py
+scripts/build_snn_ecg_v2_bitstream.py
+```
+
+실행 예:
 
 ```powershell
-python scripts/run_record_level_strict_xsim.py --split test
+python scripts\run_snapshot_v2_xsim.py --split all
+python scripts\run_final_membrane_v2_xsim.py --split all
+python scripts\build_snn_ecg_v2_bitstream.py
 ```
 
-전체 split 실행:
+## Snapshot Model V2 XSim 성능
 
-```powershell
-python scripts/run_record_level_strict_xsim.py --split all
-```
+60초 window-level 성능이다.
 
-정리 후 test split을 다시 실행했으며 결과는 다음과 같았다.
+| Split | Correct / Total | Accuracy | Macro-F1 | Balanced Acc. |
+|---|---:|---:|---:|---:|
+| train | 466 / 512 | 91.02% | 90.96% | 91.02% |
+| validation | 231 / 256 | 90.23% | 90.29% | 90.23% |
+| test | 205 / 256 | 80.08% | 80.06% | 80.08% |
+
+Snapshot V2 test confusion matrix:
+
+| True \ Pred | NSR | CHF | ARR | AFF |
+|---|---:|---:|---:|---:|
+| NSR | 50 | 12 | 2 | 0 |
+| CHF | 7 | 56 | 0 | 1 |
+| ARR | 15 | 3 | 42 | 4 |
+| AFF | 0 | 4 | 3 | 57 |
+
+Snapshot V2 test class별 성능:
+
+| Class | Precision | Recall | F1 |
+|---|---:|---:|---:|
+| NSR | 69.44% | 78.12% | 73.53% |
+| CHF | 74.67% | 87.50% | 80.58% |
+| ARR | 89.36% | 65.62% | 75.68% |
+| AFF | 91.94% | 89.06% | 90.48% |
+
+## SNN ECG V2 30분 XSim 성능
+
+30분 chunk-level 성능이다. Python 등가모델과 RTL/XSim 결과가 `pred_class`와 `final_mem[4]` 기준으로 일치한다.
+
+| Split | Python | XSim | Pred mismatch | Mem mismatch |
+|---|---:|---:|---:|---:|
+| train | 62 / 68 = 91.18% | 62 / 68 = 91.18% | 0 | 0 |
+| validation | 31 / 32 = 96.88% | 31 / 32 = 96.88% | 0 | 0 |
+| test | 32 / 36 = 88.89% | 32 / 36 = 88.89% | 0 | 0 |
+
+SNN ECG V2 test confusion matrix:
+
+| True \ Pred | NSR | CHF | ARR | AFF |
+|---|---:|---:|---:|---:|
+| NSR | 9 | 0 | 0 | 0 |
+| CHF | 0 | 9 | 0 | 0 |
+| ARR | 2 | 1 | 6 | 0 |
+| AFF | 0 | 0 | 1 | 8 |
+
+SNN ECG V2 test class별 성능:
+
+| Class | Precision | Recall | F1 |
+|---|---:|---:|---:|
+| NSR | 81.82% | 100.00% | 90.00% |
+| CHF | 90.00% | 100.00% | 94.74% |
+| ARR | 85.71% | 66.67% | 75.00% |
+| AFF | 100.00% | 88.89% | 94.12% |
+
+Test macro-F1은 88.46%, balanced accuracy는 88.89%이다.
+
+## Vivado 구현 결과
+
+대상 FPGA:
 
 ```text
-test: 30 / 36 = 83.33%
-Python-vs-XSim mismatch: 0 / 36
+Nexys A7 / Artix-7 xc7a100tcsg324-1
 ```
 
-전체 보존 결과 기준 combined compare는 136 rows, mismatch 0이다.
+Bitstream:
+
+```text
+results/final_membrane_v2_snn/vivado_snn_ecg_v2/bitstream/snn_ecg_v2_nexys_a7_top.bit
+```
+
+자원 사용량:
+
+| Resource | Used |
+|---|---:|
+| LUT | 21002 |
+| FF | 2803 |
+| BRAM | 0 |
+| DSP | 0 |
+
+Vivado power estimate:
+
+| Power | W |
+|---|---:|
+| Total on-chip | 0.101 |
+| Dynamic | 0.004 |
+| Static | 0.097 |
+
+DSP 0개이므로 multiplier 기반 ML classifier가 아니라, comparator/counter/accumulator 기반 SNN-inspired RTL 구조임을 확인할 수 있다.
+
+## 주의사항
+
+- 본 모델은 `SNN-inspired` 구조이다. 완전한 생물학적 SNN이나 STDP 학습 구조라고 주장하지 않는다.
+- Final Membrane Layer V2는 1 kSPS sample마다 직접 class spike를 내는 층이 아니라, 60초 snapshot event를 시간축으로 누적하는 final readout이다.
+- XSim 정확도는 30분 `.mem` dataset testbench 기준이다.
+- Vivado power는 실제 보드 측정값이 아니라 post-implementation 추정값이다.
+- ARR test recall은 6/9로 남은 병목이다. 전체 accuracy와 별도로 보고해야 한다.
