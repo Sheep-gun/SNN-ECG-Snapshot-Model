@@ -38,32 +38,33 @@ def write_tcl() -> Path:
     proj_dir = SYNTH / "project"
     report_dir = SYNTH / "reports"
     bit_dir = SYNTH / "bitstream"
-    rtl_files = [REPO / "rtl" / "core" / src for src in CORE_SOURCES]
+    tcl = SYNTH / "build_snn_ecg_v2_bitstream.tcl"
+    rtl_files = [f"rtl/core/{src}" for src in CORE_SOURCES]
     rtl_files.extend(
         [
-            REPO / "rtl" / "final_membrane_layer.v",
-            REPO / "rtl" / "snn_ecg_30min_final_top.v",
-            REPO / "rtl" / "board" / "snn_ecg_v2_nexys_a7_top.v",
+            "rtl/final_membrane_layer.v",
+            "rtl/snn_ecg_30min_final_top.v",
+            "rtl/board/snn_ecg_v2_nexys_a7_top.v",
         ]
     )
-    xdc = REPO / "constraints" / "nexys_a7_snn_ecg_v2.xdc"
-    tcl = SYNTH / "build_snn_ecg_v2_bitstream.tcl"
-    file_list = " \\\n    ".join(f'"{slash(path)}"' for path in rtl_files)
+    file_list = " \\\n    ".join(f'"{path}"' for path in rtl_files)
     tcl.write_text(
-        f"""set proj_dir "{slash(proj_dir)}"
+        f"""set repo_dir "{slash(REPO)}"
+set proj_dir "{slash(proj_dir)}"
 set report_dir "{slash(report_dir)}"
 set bit_dir "{slash(bit_dir)}"
 file mkdir $report_dir
 file mkdir $bit_dir
 
 create_project -force SNN_ECG_V2 $proj_dir -part xc7a100tcsg324-1
+cd $repo_dir
 
 set rtl_files [list \\
     {file_list} \\
 ]
 
 add_files -fileset sources_1 $rtl_files
-add_files -fileset constrs_1 "{slash(xdc)}"
+add_files -fileset constrs_1 "constraints/nexys_a7_snn_ecg_v2.xdc"
 set_property top snn_ecg_v2_nexys_a7_top [current_fileset]
 update_compile_order -fileset sources_1
 

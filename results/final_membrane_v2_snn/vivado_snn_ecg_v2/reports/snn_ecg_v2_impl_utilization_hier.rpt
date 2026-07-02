@@ -1,0 +1,44 @@
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
+| Date         : Thu Jul  2 20:19:00 2026
+| Host         : DESKTOP-F81OJT8 running 64-bit major release  (build 9200)
+| Command      : report_utilization -hierarchical -file {C:/Users/YangGeon/SNN ECG Classifier/results/final_membrane_v2_snn/vivado_snn_ecg_v2/reports/snn_ecg_v2_impl_utilization_hier.rpt}
+| Design       : snn_ecg_v2_nexys_a7_top
+| Device       : 7a100tcsg324-1
+| Design State : Routed
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++-----------------------------+----------------------------+------------+------------+---------+------+------+--------+--------+------------+
+|           Instance          |           Module           | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs | RAMB36 | RAMB18 | DSP Blocks |
++-----------------------------+----------------------------+------------+------------+---------+------+------+--------+--------+------------+
+| snn_ecg_v2_nexys_a7_top     |                      (top) |      21002 |      20966 |       0 |   36 | 2803 |      0 |      0 |          0 |
+|   (snn_ecg_v2_nexys_a7_top) |                      (top) |       5316 |       5316 |       0 |    0 |   31 |      0 |      0 |          0 |
+|   u_dut                     |    snn_ecg_30min_final_top |      15898 |      15862 |       0 |   36 | 2772 |      0 |      0 |          0 |
+|     (u_dut)                 |    snn_ecg_30min_final_top |        141 |        141 |       0 |    0 |  402 |      0 |      0 |          0 |
+|     u_final                 |       final_membrane_layer |       1876 |       1876 |       0 |    0 |  350 |      0 |      0 |          0 |
+|     u_snapshot              |          snn_ecg_3feat_top |      13885 |      13849 |       0 |   36 | 2020 |      0 |      0 |          0 |
+|       (u_snapshot)          |          snn_ecg_3feat_top |          1 |          1 |       0 |    0 |    2 |      0 |      0 |          0 |
+|       u_class               |        class_score_neurons |       9090 |       9090 |       0 |    0 | 1018 |      0 |      0 |          0 |
+|       u_dscr                |         dscr_spike_counter |        314 |        314 |       0 |    0 |   77 |      0 |      0 |          0 |
+|       u_ectopic             |        ectopic_pair_neuron |        119 |        119 |       0 |    0 |   17 |      0 |      0 |          0 |
+|       u_event_encoder       | ecg_event_encoder_adaptive |        267 |        267 |       0 |    0 |  237 |      0 |      0 |          0 |
+|       u_pnn                 |       pnn_rhythm_predictor |        348 |        348 |       0 |    0 |   66 |      0 |      0 |          0 |
+|       u_qrs_detector        |           qrs_lif_detector |         41 |         41 |       0 |    0 |   21 |      0 |      0 |          0 |
+|       u_qrs_maf             |             qrs_maf_neuron |        854 |        818 |       0 |   36 |  388 |      0 |      0 |          0 |
+|       u_ram                 |       ram_peak_accumulator |        430 |        430 |       0 |    0 |   28 |      0 |      0 |          0 |
+|       u_rbbb_qrs_delay      |        rbbb_qrs_delay_bank |        212 |        212 |       0 |    0 |   87 |      0 |      0 |          0 |
+|       u_rdm                 |     rdm_variability_neuron |       2356 |       2356 |       0 |    0 |   79 |      0 |      0 |          0 |
++-----------------------------+----------------------------+------------+------------+---------+------+------+--------+--------+------------+
+* Note: The sum of lower-level cells may be larger than their parent cells total, due to cross-hierarchy LUT combining
+
+

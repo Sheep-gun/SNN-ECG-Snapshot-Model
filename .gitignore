@@ -45,11 +45,22 @@ results/**/windows/
 results/**/synth/vivado_*/
 results/**/vivado_*/project/
 results/**/vivado_*/reports/*.dcp
+results/**/vivado_*/build_*.tcl
 vivado_project/SNN_ECG_ModelS_Restore/
+vivado_project/*/.Xil/
+vivado_project/*/*.cache/
+vivado_project/*/*.hw/
+vivado_project/*/*.ip_user_files/
+vivado_project/*/*.sim/
 
 # Exploratory search artifacts kept local only
 results/snapshot_c24_v2_search/
 results/final_membrane_v2_snn/
+!results/final_membrane_v2_snn/
+!results/final_membrane_v2_snn/vivado_snn_ecg_v2/
+!results/final_membrane_v2_snn/vivado_snn_ecg_v2/board_program_report.txt
+!results/final_membrane_v2_snn/vivado_snn_ecg_v2/reports/
+!results/final_membrane_v2_snn/vivado_snn_ecg_v2/reports/*.rpt
 scripts/snapshot_c24_v2_search.py
 scripts/search_final_membrane_v2_*.py
 !scripts/snapshot_c24_v2_search.py

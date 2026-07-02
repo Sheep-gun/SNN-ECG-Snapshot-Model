@@ -1,0 +1,10 @@
+SNN ECG V2 FPGA board programming report
+Bitstream: C:/Users/YangGeon/SNN ECG Classifier/results/final_membrane_v2_snn/vivado_snn_ecg_v2/bitstream/snn_ecg_v2_nexys_a7_top.bit
+Timestamp: 2026-07-02 20:19:25
+Detected devices: xc7a100t_0
+Selected device: xc7a100t_0
+PART: xc7a100t
+PROGRAM.FILE before: 
+PROGRAM.FILE after: C:/Users/YangGeon/SNN ECG Classifier/results/final_membrane_v2_snn/vivado_snn_ecg_v2/bitstream/snn_ecg_v2_nexys_a7_top.bit
+PROGRAM.HW_CFGMEM: 
+PROGRAMMED: OK

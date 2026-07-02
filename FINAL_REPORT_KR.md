@@ -1050,12 +1050,14 @@ results/final_membrane_v2_snn/vivado_snn_ecg_v2/bitstream/snn_ecg_v2_nexys_a7_to
 
 자원 사용량:
 
-| Resource | Used |
-|---|---:|
-| LUT | 21002 |
-| FF | 2803 |
-| BRAM | 0 |
-| DSP | 0 |
+| Resource | Used | Available | Utilization |
+|---|---:|---:|---:|
+| LUT | 21002 | 63400 | 33.13% |
+| FF | 2803 | 126800 | 2.21% |
+| BRAM | 0 | 135 | 0.00% |
+| DSP | 0 | 240 | 0.00% |
+| Bonded IOB | 35 | 210 | 16.67% |
+| BUFGCTRL | 2 | 32 | 6.25% |
 
 Vivado power estimate:
 
@@ -1065,14 +1067,40 @@ Vivado power estimate:
 | Dynamic | 0.004 |
 | Static | 0.097 |
 
-Timing은 routed implementation 기준으로 met 되었다.
+Timing:
+
+| Item | Value |
+|---|---:|
+| sys_clk_pin | 100 MHz |
+| core_clk_1mhz | 1 MHz |
+| WNS | 7.873 ns |
+| TNS | 0.000 ns |
+| WHS | 0.032 ns |
+| THS | 0.000 ns |
+| WPWS | 4.500 ns |
+| TPWS | 0.000 ns |
+
+Vivado routed implementation 기준으로 모든 timing constraint를 만족했다.
+
+FPGA board programming:
+
+| Item | Value |
+|---|---|
+| Board target | Digilent / Nexys A7 |
+| Detected device | `xc7a100t_0` |
+| Program status | OK |
+| Startup status | HIGH |
+| Programmed at | 2026-07-02 20:19:25 |
+| Bitstream size | 3,825,908 bytes |
+| Board report | `results/final_membrane_v2_snn/vivado_snn_ecg_v2/board_program_report.txt` |
 
 해석:
 
 1. DSP 0개: multiplier 기반 dense classifier가 아님을 보여준다.
 2. BRAM 0개: final readout과 feature/counter path가 register/LUT 중심임을 보여준다.
 3. Dynamic power 0.004 W: datapath switching 추정 전력은 낮다.
-4. Total power 0.101 W는 Vivado 추정값이며 실제 보드 전력 측정값은 아니다.
+4. Total power 0.101 W는 Vivado post-implementation 추정값이며 실제 보드 전류 측정값은 아니다.
+5. 보드에는 bitstream이 정상적으로 올라갔지만, 현재 board wrapper에는 UART/ILA 기반 live ECG stream 계측 경로가 없다. 따라서 FPGA 보드 위 실시간 분류 로그가 아니라, 동일 RTL의 XSim dataset replay 결과를 정확도 검증값으로 사용한다.
 
 ## 12. V1에서 V2로의 변경 요약
 
